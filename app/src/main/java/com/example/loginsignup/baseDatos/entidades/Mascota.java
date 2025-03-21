@@ -48,4 +48,8 @@ public class Mascota {
     public String getNombre() {
         return nombre;
     }
+
+    public int getId_mascota() {
+        return id_mascota;
+    }
 }

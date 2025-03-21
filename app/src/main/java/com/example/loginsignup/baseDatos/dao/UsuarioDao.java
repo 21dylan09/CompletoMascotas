@@ -16,4 +16,7 @@ public interface UsuarioDao {
 
     @Query("SELECT * FROM usuarios WHERE correo = :correo AND contraseña = :contraseña LIMIT 1")
     Usuario autenticarUsuario(String correo, String contraseña);
+
+    @Query("SELECT id_usuario FROM usuarios WHERE correo = :correo AND contraseña = :contraseña LIMIT 1")
+    int obtenerIdUsuario(String correo, String contraseña);
 }

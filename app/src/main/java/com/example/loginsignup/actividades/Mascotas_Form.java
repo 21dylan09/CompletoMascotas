@@ -37,13 +37,14 @@ public class Mascotas_Form extends AppCompatActivity {
         recyclerViewMascotas.setLayoutManager(new LinearLayoutManager(this));
 
         // Cargar las mascotas desde la base de datos
-        List<Mascota> listaMascotas = mascotaDao.obtenerMascotasDeUsuario(1); // Aquí puedes pasar el ID del usuario actual
+        List<Mascota> listaMascotas = mascotaDao.obtenerMascotasDeUsuario(DueñoSeleccionado.getInstance().getIdMascota()); // Aquí puedes pasar el ID del usuario actual
 
         // Configurar el adaptador
         mascotasAdapter = new MascotasAdapter(listaMascotas, mascota -> {
+            MascotaSeleccionada.getInstance().setIdMascota(mascota.getId_mascota());
             startActivity(new Intent(Mascotas_Form.this, BotonesHistoriasdeUsuario.class));
             // Acción cuando se hace clic en una mascota
-            Toast.makeText(Mascotas_Form.this, "Seleccionaste: " + mascota.getNombre(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(Mascotas_Form.this, "Seleccionaste: " + MascotaSeleccionada.getInstance().getIdMascota(), Toast.LENGTH_SHORT).show();
 
         });
 

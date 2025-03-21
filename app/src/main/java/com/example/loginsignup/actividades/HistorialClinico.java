@@ -10,21 +10,31 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import com.example.loginsignup.R;
+import com.example.loginsignup.baseDatos.dao.HistorialDao;
+import com.example.loginsignup.baseDatos.entidades.BaseDatos;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class HistorialClinico extends AppCompatActivity {
 
     private Spinner spinner;
     private EditText editTextFecha, editTextDiagnostico;
     private Button buttonBuscar;
+    private HistorialDao historialDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historial_clinico);
+
+        BaseDatos bd = Room.databaseBuilder(getApplicationContext(), BaseDatos.class, "aplicacion_db").allowMainThreadQueries().build();
+        historialDao = bd.historiaDao();
 
         // Inicializa las vistas
         spinner = findViewById(R.id.spinnerSeleccion);
@@ -82,7 +92,9 @@ public class HistorialClinico extends AppCompatActivity {
         } else if (spinner.getSelectedItemPosition() == 1 && diagnostico.isEmpty()) {
             Toast.makeText(this, "Por favor, ingresa un diagnóstico", Toast.LENGTH_SHORT).show();
         } else {
+            historialDao.buscarPorDiagnostico(diagnostico);
             Toast.makeText(this, "Búsqueda realizada", Toast.LENGTH_SHORT).show();
         }
     }
 }
+

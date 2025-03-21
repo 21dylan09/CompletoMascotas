@@ -55,7 +55,7 @@ public class Login_Form extends AppCompatActivity {
             if (usuario != null) {
                 // Si el usuario existe y las credenciales coinciden
                 Toast.makeText(this, "Ingreso exitoso", Toast.LENGTH_SHORT).show();
-
+                DueñoSeleccionado.getInstance().setIdDueño(usuario.id_usuario);
                 // Si la autenticación es exitosa, navegar a la siguiente actividad
                 // Ejemplo: empezar actividad principal
                  startActivity(new Intent(getApplicationContext(),Mascotas_Form.class));
