@@ -1,0 +1,41 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/logo_mascota"
+        android:label="Inicio Mascota"
+        android:roundIcon="@drawable/logo_mascota"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.LoginSignup"
+        tools:targetApi="31">
+
+        <!-- Actividad de registro -->
+        <activity android:name=".actividades.Signup_Form" />
+
+        <!-- Nueva actividad para Mascotas -->
+        <activity android:name=".actividades.Mascotas_Form" />
+        <activity android:name=".actividades.RegistroMascotaActivity" />
+        <activity android:name=".actividades.BotonesHistoriasdeUsuario" />
+        <activity android:name=".actividades.AgregarDatosHistoriaMedica" />
+        <activity android:name=".actividades.HistorialClinico" />
+        <activity android:name=".actividades.RecomendacionesAlimentacion" />
+        <activity android:name=".actividades.ListaComprasActivity" />
+        <activity android:name=".actividades.EnfermedadesCronicasActivity" />
+        <activity android:name=".actividades.RestriccionesMascotaActivity" />
+
+        <!-- Actividad de login (Login_Form) -->
+        <activity
+            android:name=".actividades.Login_Form"
+            android:exported="true"> <!-- Mantén esto si es la actividad principal con intent-filter -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

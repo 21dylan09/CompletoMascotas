@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">LoginSignup</string>
+    <string name="nombre_hint">Nombre</string>
+    <string name="apellido_hint">Apellidos</string>
+    <string name="correo_hint">Correo electronico</string>
+    <string name="telefono">Teléfono:</string>
+    <string name="telefono_hint">teléfono</string>
+    <string name="contraseña_hint">Contraseña</string>
+    <string name="contraseña_confirmacion_hint">Confirmación contraseña</string>
+
+
+    <!-- Array de roles -->
+
+    <string-array name="role_array">
+        <item>Dueño de mascota</item>
+        <item>Veterinario</item>
+        <item>Cuidador</item>
+    </string-array>
+
+
+    <!-- Cadenas para el Spinner -->
+    <string name="fecha_option">Fecha</string>
+    <string name="diagnostico_option">Diagnóstico</string>
+
+    <!-- Cadenas para los mensajes y textos -->
+    <string name="buscar_button">Buscar</string>
+    <string name="selecciona_opcion">Selecciona una opción</string>
+
+    <!-- Opciones para el Spinner de selección -->
+    <string-array name="seleccion_array">
+        <item>@string/fecha_option</item>
+        <item>@string/diagnostico_option</item>
+    </string-array>
+    <string-array name="actividad_array">
+        <item>Activo</item>
+        <item>Moderado</item>
+        <item>Sedentario</item>
+    </string-array>
+
+</resources>

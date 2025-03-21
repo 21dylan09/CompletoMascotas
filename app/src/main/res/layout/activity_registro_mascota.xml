@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    tools:context=".actividades.RegistroMascotaActivity">
+
+    <!-- Campo para el nombre de la mascota -->
+    <EditText
+        android:id="@+id/editTextNombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Nombre"
+        android:inputType="text"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Campo para el tipo de mascota (perro, gato, etc.) -->
+    <EditText
+        android:id="@+id/editTextTipo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Tipo (Perro, Gato, etc.)"
+        android:inputType="text"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextNombre" />
+
+    <!-- Campo para la especie (por ejemplo, Canino, Felino, etc.) -->
+    <EditText
+        android:id="@+id/editTextEspecie"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Especie"
+        android:inputType="text"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextTipo" />
+
+    <!-- Campo para la raza de la mascota -->
+    <EditText
+        android:id="@+id/editTextRaza"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Raza"
+        android:inputType="text"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextEspecie" />
+
+    <!-- Campo para el sexo de la mascota (Macho o Hembra) -->
+    <EditText
+        android:id="@+id/editTextSexo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Sexo (Macho/Hembra)"
+        android:inputType="text"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextRaza" />
+
+    <!-- Campo para la edad de la mascota -->
+    <EditText
+        android:id="@+id/editTextEdad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Edad"
+        android:inputType="number"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextSexo" />
+
+    <!-- Campo para el peso de la mascota -->
+    <EditText
+        android:id="@+id/editTextPeso"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Peso"
+        android:inputType="numberDecimal"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextEdad" />
+
+    <!-- Botón para guardar la mascota -->
+    <Button
+        android:id="@+id/buttonGuardar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextPeso" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
