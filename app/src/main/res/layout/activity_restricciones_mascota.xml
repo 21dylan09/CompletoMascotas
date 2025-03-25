@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="16dp">
+    <!--  EditText para ingresar nuevas restricciones  -->
+    <EditText android:id="@+id/etRestriccion" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Agregar restricción" android:inputType="text"/>
+    <!--  Botón para agregar la restricción  -->
+    <Button android:id="@+id/btnAgregar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Agregar Restricción" android:layout_marginTop="8dp"/>
+    <!--  ListView para mostrar las restricciones  -->
+    <ListView android:id="@+id/listViewRestricciones" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="16dp"/>
+</LinearLayout>

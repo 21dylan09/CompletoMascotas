@@ -20,6 +20,6 @@ public interface HistorialDao {
     @Query("SELECT * FROM historial_medico WHERE fecha BETWEEN :fechaInicio AND :fechaFin")
     List<HistorialMedico> buscarPorFecha(long fechaInicio, long fechaFin);
 
-    @Query("SELECT * FROM historial_medico WHERE diagnostico LIKE '%' || :diagnostico || '%'")
-    List<HistorialMedico> buscarPorDiagnostico(String diagnostico);
+    @Query("SELECT * FROM historial_medico WHERE id_mascota = :idMascota AND diagnostico LIKE '%' || :diagnostico || '%'")
+    List<HistorialMedico> buscarPorIdMascotaYDiagnostico(int idMascota, String diagnostico);
 }

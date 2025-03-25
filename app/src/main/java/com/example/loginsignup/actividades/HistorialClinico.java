@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,11 +16,13 @@ import androidx.room.Room;
 import com.example.loginsignup.R;
 import com.example.loginsignup.baseDatos.dao.HistorialDao;
 import com.example.loginsignup.baseDatos.entidades.BaseDatos;
+import com.example.loginsignup.baseDatos.entidades.HistorialMedico;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class HistorialClinico extends AppCompatActivity {
 
@@ -82,19 +85,41 @@ public class HistorialClinico extends AppCompatActivity {
         datePickerDialog.show();
     }
 
-    // Acción para el botón "Buscar"
     private void buscar() {
-        String fecha = editTextFecha.getText().toString();
         String diagnostico = editTextDiagnostico.getText().toString();
+        String idMascotaStr = String.valueOf(MascotaSeleccionada.getInstance().getIdMascota());
 
-        if (spinner.getSelectedItemPosition() == 0 && fecha.isEmpty()) {
-            Toast.makeText(this, "Por favor, selecciona una fecha", Toast.LENGTH_SHORT).show();
-        } else if (spinner.getSelectedItemPosition() == 1 && diagnostico.isEmpty()) {
-            Toast.makeText(this, "Por favor, ingresa un diagnóstico", Toast.LENGTH_SHORT).show();
+        // Verifica que ambos campos no estén vacíos
+        if (diagnostico.isEmpty() || idMascotaStr.isEmpty()) {
+            Toast.makeText(this, "Por favor, ingresa el ID de la mascota y un diagnóstico", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        int idMascota = Integer.parseInt(idMascotaStr);
+
+        // Realizar la consulta en la base de datos
+        List<HistorialMedico> resultados = historialDao.buscarPorIdMascotaYDiagnostico(idMascota, diagnostico);
+
+        if (resultados.isEmpty()) {
+            Toast.makeText(this, "No se encontraron registros", Toast.LENGTH_SHORT).show();
         } else {
-            historialDao.buscarPorDiagnostico(diagnostico);
-            Toast.makeText(this, "Búsqueda realizada", Toast.LENGTH_SHORT).show();
+            mostrarResultados(resultados);
         }
     }
+
+    private void mostrarResultados(List<HistorialMedico> resultados) {
+        TextView textViewResultados = findViewById(R.id.textViewResultados);
+
+        StringBuilder builder = new StringBuilder();
+        for (HistorialMedico h : resultados) {
+            builder.append("Fecha: ").append(h.getFecha()).append("\n");
+            builder.append("Diagnóstico: ").append(h.getDiagnostico()).append("\n\n");
+            builder.append("Tratamiento: ").append(h.getTratamiento()).append("\n\n");
+
+        }
+
+        textViewResultados.setText(builder.toString());
+    }
+
 }
 
