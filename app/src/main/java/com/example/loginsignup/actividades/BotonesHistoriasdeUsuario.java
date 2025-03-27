@@ -11,7 +11,6 @@ import com.example.loginsignup.R;
 
 public class BotonesHistoriasdeUsuario extends AppCompatActivity {
 
-    private Button button1, button2, button3, button4, button5, button6; // Declarar los nuevos botones
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,5 +75,15 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
                 startActivity(new Intent(BotonesHistoriasdeUsuario.this, RestriccionesMascotaActivity.class)); // Asegúrate de crear la actividad RestriccionesMascotaActivity
             }
         });
+
+        // Botón para acceso/modificación a restricciones de la mascota
+        button7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Acción para el botón "Acceso/modificación a restricciones de la mascota"
+                startActivity(new Intent(BotonesHistoriasdeUsuario.this, AlergiasMascotaActivity.class)); // Asegúrate de crear la actividad RestriccionesMascotaActivity
+            }
+        });
+
     }
 }

@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <!-- Texto que muestra la alergia -->
+    <TextView
+        android:id="@+id/tvAlergia"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Alergia"
+        android:textSize="16sp"/>
+
+    <!-- Botón de eliminar -->
+    <Button
+        android:id="@+id/btnEliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eliminar"
+        android:backgroundTint="#A0E8AF"
+        android:textColor="#1C3D30"/>
+    <Button
+        android:id="@+id/btnModificar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modificar"
+        android:backgroundTint="#A0E8AF"
+        android:textColor="#1C3D30"/>
+</LinearLayout>

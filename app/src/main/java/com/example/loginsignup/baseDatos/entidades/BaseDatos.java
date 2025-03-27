@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
 
 import com.example.loginsignup.baseDatos.dao.*;
 
-@Database(entities = {Usuario.class, Mascota.class, CitaVeterinaria.class, Estado.class, Enfermedad.class, HistorialMedico.class, Restriccion.class, EnfermedadCronica.class}, version = 5)
+@Database(entities = {Usuario.class, Mascota.class, CitaVeterinaria.class, Estado.class, Enfermedad.class, HistorialMedico.class, Restriccion.class, Alergia.class, EnfermedadCronica.class}, version = 5)
 public abstract class BaseDatos extends RoomDatabase {
     private static volatile BaseDatos INSTANCE;
 
@@ -21,6 +21,7 @@ public abstract class BaseDatos extends RoomDatabase {
     public abstract EnfermedadDao enfermedadDao();
     public abstract HistorialDao historiaDao();
     public abstract RestriccionDao restriccionDao();
+    public abstract AlergiaDao alergiaDao();
     public abstract EnfermedadCronicaDao enfermedadCronicaDao();
 
     public static BaseDatos getBaseDatos(final Context context){
@@ -31,15 +32,15 @@ public abstract class BaseDatos extends RoomDatabase {
                                     BaseDatos.class, "aplicacion_db")
                             .fallbackToDestructiveMigration()
                             .addCallback(new Callback(){
-                               @Override
-                               public void onCreate(SupportSQLiteDatabase db){
-                                   super.onCreate(db);
-                                   Executors.newSingleThreadExecutor().execute(() -> {
-                                       EstadoDao estadoDao = INSTANCE.estadoDao();
-                                       estadoDao.insertarEstado(new Estado(1, "Pendiente"));
-                                       estadoDao.insertarEstado(new Estado(2, "Terminada"));
-                                   });
-                               }
+                                @Override
+                                public void onCreate(SupportSQLiteDatabase db){
+                                    super.onCreate(db);
+                                    Executors.newSingleThreadExecutor().execute(() -> {
+                                        EstadoDao estadoDao = INSTANCE.estadoDao();
+                                        estadoDao.insertarEstado(new Estado(1, "Pendiente"));
+                                        estadoDao.insertarEstado(new Estado(2, "Terminada"));
+                                    });
+                                }
                             })
                             .build();
                 }
@@ -47,5 +48,4 @@ public abstract class BaseDatos extends RoomDatabase {
         }
         return INSTANCE;
     }
-
 }
