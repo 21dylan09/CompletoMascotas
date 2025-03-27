@@ -1,6 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Spinner para seleccionar una enfermedad y calcular el tratamiento -->
+    <Spinner
+        android:id="@+id/spinnerEnfermedades"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp" />
+
+    <!-- Ingresar el peso de la mascota -->
+    <EditText
+        android:id="@+id/etPesoMascota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese el peso en kg"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Dosis recomendada -->
+    <TextView
+        android:id="@+id/tvDosisRecomendada"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dosis recomendada: "
+        android:textSize="16sp"
+        android:paddingTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Botón para guardar la enfermedad con el tratamiento -->
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guardar Tratamiento"
+        android:layout_marginBottom="15dp"/>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Spinner para mostrar enfermedades guardadas -->
+    <Spinner
+        android:id="@+id/spinnerEnfermedadesGuardadas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Lista de enfermedades registradas -->
+    <TextView
+        android:id="@+id/tvEnfermedades"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enfermedades registradas:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:paddingTop="5dp"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Botón para eliminar una enfermedad -->
+    <Button
+        android:id="@+id/btnEliminar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Eliminar Enfermedad"
+        android:backgroundTint="@android:color/holo_red_light"/>
+
+</LinearLayout>
