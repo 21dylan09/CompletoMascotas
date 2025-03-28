@@ -1,9 +1,11 @@
 package com.example.loginsignup.actividades;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,8 +13,10 @@ import com.example.loginsignup.R;
 
 public class BotonesHistoriasdeUsuario extends AppCompatActivity {
 
-    private Button button1, button2, button3, button4, button5, button6, button7, button8; // Declarar los nuevos botones
+    private ImageButton button1, button2, button3, button4, button5, button6, button7, button8; // Declarar los nuevos botones
 
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +62,7 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para el botón "Lista de Compras"
-                startActivity(new Intent(BotonesHistoriasdeUsuario.this, ListaComprasActivity.class)); // Asegúrate de crear la actividad ListaComprasActivity
+                startActivity(new Intent(BotonesHistoriasdeUsuario.this, AgregarGasto.class)); // Asegúrate de crear la actividad ListaComprasActivity
             }
         });
 
@@ -80,7 +84,7 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
             }
         });
 
-        // Botón para acceso/modificación a restricciones de la mascota
+        // Botón para alergias de la mascota
         button7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,7 +96,7 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
         button8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Acción para el botón "Acceso/modificación a restricciones de la mascota"
+                // Acción para el botón Notas de la mascota"
                 startActivity(new Intent(BotonesHistoriasdeUsuario.this, NotaMascotaActivity.class)); // Asegúrate de crear la actividad RestriccionesMascotaActivity
             }
         });

@@ -37,4 +37,12 @@
         <item>Sedentario</item>
     </string-array>
 
+    <style name="elegante">
+        <item name="android:textStyle">bold</item> <!-- Negrita -->
+        <item name="android:textSize">12sp</item> <!-- Tamaño de texto -->
+        <item name="android:textColor">#1C3D30</item> <!-- Color elegante -->
+
+        <item name="android:fontFamily">sans-serif-smallcaps</item> <!-- Tipo de fuente elegante -->
+    </style>
+
 </resources>
