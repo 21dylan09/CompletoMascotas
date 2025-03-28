@@ -55,4 +55,6 @@ public class Alergia {
     public void setIdMascota(int idMascota) {
         this.idMascota = idMascota;
     }
+
 }
+

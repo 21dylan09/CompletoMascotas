@@ -28,4 +28,7 @@
         android:text="Modificar"
         android:backgroundTint="#A0E8AF"
         android:textColor="#1C3D30"/>
+
 </LinearLayout>
+
+

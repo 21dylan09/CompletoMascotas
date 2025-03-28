@@ -160,4 +160,7 @@ public class AlergiasMascotaActivity extends AppCompatActivity {
             return convertView;
         }
     }
+
 }
+
+

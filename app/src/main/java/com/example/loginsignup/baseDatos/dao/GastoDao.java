@@ -1,5 +1,6 @@
 package com.example.loginsignup.baseDatos.dao;
 
+
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -7,6 +8,8 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.loginsignup.baseDatos.entidades.Gasto;
+
+
 
 import java.util.List;
 
