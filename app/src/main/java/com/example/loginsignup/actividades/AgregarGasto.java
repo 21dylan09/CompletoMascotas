@@ -85,6 +85,7 @@ public class AgregarGasto extends AppCompatActivity {
             etMontoGasto.setText("");
 
             Toast.makeText(this, "Gasto registrado correctamente", Toast.LENGTH_SHORT).show();
+            actualizarMontoTotal();
         } else {
             Toast.makeText(this, "Por favor ingresa todos los campos", Toast.LENGTH_SHORT).show();
         }
