@@ -22,7 +22,9 @@
         android:id="@+id/btnGuardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Guardar Nota" />
+        android:text="Guardar Nota"
+        android:backgroundTint="#A0E8AF"/>
+
 
     <ListView
         android:id="@+id/listViewNotas"
