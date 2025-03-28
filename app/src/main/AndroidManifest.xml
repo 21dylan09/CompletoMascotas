@@ -25,6 +25,8 @@
         <activity android:name=".actividades.ListaComprasActivity" />
         <activity android:name=".actividades.EnfermedadesCronicasActivity" />
         <activity android:name=".actividades.RestriccionesMascotaActivity" />
+        <activity android:name=".actividades.AlergiasMascotaActivity" />
+        <activity android:name=".actividades.NotaMascotaActivity" />
 
         <!-- Actividad de login (Login_Form) -->
         <activity

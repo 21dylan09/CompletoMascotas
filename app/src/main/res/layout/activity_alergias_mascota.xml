@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+    <TextView
+        android:id="@+id/tvTituloAlergias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lista de Alergias"
+        android:textSize="24sp"
+        android:textColor="#1C3D30"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:textStyle="bold"/>
+    <!-- EditText para ingresar alergias -->
+    <EditText
+        android:id="@+id/etAlergia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Agregar alergia"
+        android:inputType="text"/>
+
+    <!-- Botón para agregar alergia -->
+    <Button
+        android:id="@+id/btnAgregar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Agregar Alergia"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#A0E8AF"
+        android:textColor="#1C3D30"/>
+
+    <!-- ListView para mostrar alergias -->
+    <ListView
+        android:id="@+id/listViewAlergias"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp"/>
+</LinearLayout>

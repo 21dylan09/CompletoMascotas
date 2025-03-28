@@ -97,6 +97,17 @@ public class Signup_Form extends AppCompatActivity {
             return;
         }
 
+        Usuario usuarioExistente = usuarioDao.obtenerUsuarioPorCorreo(correo);
+        if(usuarioExistente != null){
+            Toast.makeText(this, "Este correo ya está registrado", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
+            Toast.makeText(this, "Correo inválido. Debe tener un formato correcto (ejemplo@dominio.com)", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         Usuario usuario = new Usuario(nombre, apellido, correo, contraseña, telefono, "propietario", System.currentTimeMillis());
         long idUsuario = usuarioDao.insertarUsuario(usuario);
 

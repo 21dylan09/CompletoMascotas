@@ -1,5 +1,7 @@
 package com.example.loginsignup.actividades;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,26 +46,24 @@ public class RestriccionesMascotaActivity extends AppCompatActivity {
         BaseDatos db = Room.databaseBuilder(getApplicationContext(), BaseDatos.class, "aplicacion_db").allowMainThreadQueries().build();
         restriccionesDao = db.restriccionDao();
 
-        // Crear la lista de restricciones
         listaRestricciones = new ArrayList<>(restriccionesDao.obtenerPorIdMascota(idMascota));
 
-        // Crear el adaptador personalizado para el ListView
         adapter = new CustomAdapter();
         listViewRestricciones.setAdapter(adapter);
 
-        // Configurar el botón de agregar restricción
         btnAgregar.setOnClickListener(v -> agregarRestriccion());
+
+        // Evento para editar restricción cuando se haga clic
+        listViewRestricciones.setOnItemClickListener((parent, view, position, id) -> editarRestriccion(listaRestricciones.get(position)));
     }
 
     private void agregarRestriccion() {
         String descripcion = etRestriccion.getText().toString().trim();
 
         if (!descripcion.isEmpty()) {
-            // Crear nueva restricción y agregar a la base de datos
             Restriccion nuevaRestriccion = new Restriccion(descripcion, idMascota);
             restriccionesDao.insertar(nuevaRestriccion);
 
-            // Actualizar la lista
             listaRestricciones.clear();
             listaRestricciones.addAll(restriccionesDao.obtenerPorIdMascota(idMascota));
             adapter.notifyDataSetChanged();
@@ -77,12 +77,43 @@ public class RestriccionesMascotaActivity extends AppCompatActivity {
     private void eliminarRestriccion(Restriccion restriccion) {
         restriccionesDao.eliminar(restriccion);
 
-        // Actualizar la lista
         listaRestricciones.clear();
         listaRestricciones.addAll(restriccionesDao.obtenerPorIdMascota(idMascota));
         adapter.notifyDataSetChanged();
 
         Toast.makeText(this, "Restricción eliminada", Toast.LENGTH_SHORT).show();
+    }
+
+    private void editarRestriccion(Restriccion restriccion) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Editar Restricción");
+
+        // Agregar un EditText al diálogo
+        final EditText input = new EditText(this);
+        input.setText(restriccion.getDescripcion());
+        builder.setView(input);
+
+        // Botón para guardar los cambios
+        builder.setPositiveButton("Guardar", (dialog, which) -> {
+            String nuevaDescripcion = input.getText().toString().trim();
+            if (!nuevaDescripcion.isEmpty()) {
+                restriccion.setDescripcion(nuevaDescripcion);
+                restriccionesDao.actualizar(restriccion);
+
+                listaRestricciones.clear();
+                listaRestricciones.addAll(restriccionesDao.obtenerPorIdMascota(idMascota));
+                adapter.notifyDataSetChanged();
+
+                Toast.makeText(this, "Restricción actualizada", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "La restricción no puede estar vacía", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Botón para cancelar
+        builder.setNegativeButton("Cancelar", (dialog, which) -> dialog.cancel());
+
+        builder.show();
     }
 
     private class CustomAdapter extends ArrayAdapter<Restriccion> {
@@ -112,12 +143,10 @@ public class RestriccionesMascotaActivity extends AppCompatActivity {
             TextView tvRestriccion = convertView.findViewById(R.id.tvRestriccion);
             Button btnEliminar = convertView.findViewById(R.id.btnEliminar);
 
-            // Obtener la restricción actual
             Restriccion restriccion = getItem(position);
             if (restriccion != null) {
                 tvRestriccion.setText(restriccion.getDescripcion());
 
-                // Configurar el botón de eliminar
                 btnEliminar.setOnClickListener(v -> eliminarRestriccion(restriccion));
             }
 

@@ -2,12 +2,13 @@ package com.example.loginsignup.actividades;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import com.example.loginsignup.R;
@@ -19,8 +20,7 @@ import java.util.List;
 
 public class Mascotas_Form extends AppCompatActivity {
 
-    private RecyclerView recyclerViewMascotas;
-    private MascotasAdapter mascotasAdapter;
+    private ListView listViewMascotas;
     private MascotaDao mascotaDao;
 
     @Override
@@ -32,29 +32,31 @@ public class Mascotas_Form extends AppCompatActivity {
         BaseDatos db = Room.databaseBuilder(getApplicationContext(), BaseDatos.class, "aplicacion_db").allowMainThreadQueries().build();
         mascotaDao = db.mascotaDao();
 
-        // Configuración del RecyclerView
-        recyclerViewMascotas = findViewById(R.id.recyclerViewMascotas);
-        recyclerViewMascotas.setLayoutManager(new LinearLayoutManager(this));
+        // Configuración del ListView
+        listViewMascotas = findViewById(R.id.listViewMascotas);
 
         // Cargar las mascotas desde la base de datos
-        List<Mascota> listaMascotas = mascotaDao.obtenerMascotasDeUsuario(DueñoSeleccionado.getInstance().getIdMascota()); // Aquí puedes pasar el ID del usuario actual
+        List<Mascota> listaMascotas = mascotaDao.obtenerMascotasDeUsuario(DueñoSeleccionado.getInstance().getIdMascota());
 
-        // Configurar el adaptador
-        mascotasAdapter = new MascotasAdapter(listaMascotas, mascota -> {
-            MascotaSeleccionada.getInstance().setIdMascota(mascota.getId_mascota());
+        // Configurar el adaptador para el ListView
+        MascotasListAdapter adapter = new MascotasListAdapter(this, listaMascotas);
+        listViewMascotas.setAdapter(adapter);
+
+        // Configurar el evento de clic en la lista
+        listViewMascotas.setOnItemClickListener((parent, view, position, id) -> {
+            Mascota mascotaSeleccionada = listaMascotas.get(position);
+            MascotaSeleccionada.getInstance().setIdMascota(mascotaSeleccionada.getId_mascota());
+
+            // Acción al hacer clic en una mascota
             startActivity(new Intent(Mascotas_Form.this, BotonesHistoriasdeUsuario.class));
-            // Acción cuando se hace clic en una mascota
             Toast.makeText(Mascotas_Form.this, "Seleccionaste: " + MascotaSeleccionada.getInstance().getIdMascota(), Toast.LENGTH_SHORT).show();
-
         });
-
-        recyclerViewMascotas.setAdapter(mascotasAdapter);
 
         // Botón para registrar una nueva mascota
         Button registerButton = findViewById(R.id.registerButton);
         registerButton.setOnClickListener(v -> {
-            // Navegar a la actividad de registro de mascota
             startActivity(new Intent(Mascotas_Form.this, RegistroMascotaActivity.class));
         });
     }
 }
+
