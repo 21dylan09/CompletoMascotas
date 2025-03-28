@@ -112,5 +112,31 @@
         android:backgroundTint="#A0E8AF"
         android:textColor="#1C3D30"/>
 
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Agregar gasto"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button7"
+        android:backgroundTint="#A0E8AF"
+        android:textColor="#1C3D30"/>
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Graficas"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button8"
+        android:backgroundTint="#A0E8AF"
+        android:textColor="#1C3D30"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
