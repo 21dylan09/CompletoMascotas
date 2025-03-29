@@ -1,4 +1,4 @@
-package com.example.loginsignup.actividades;
+package com.example.loginsignup.actividadesDueño;
 
 import android.os.Bundle;
 
@@ -15,7 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Entity;
 import androidx.room.Room;
 
 import com.example.loginsignup.R;

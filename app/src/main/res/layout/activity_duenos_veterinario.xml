@@ -6,43 +6,29 @@
     android:layout_height="match_parent"
     android:background="@color/fondo"
     android:padding="16dp"
-    tools:context=".actividadesDueño.Mascotas_Form">
+    tools:context=".actividadesVeterinario.DueñosTodos">
 
     <!-- Título -->
     <TextView
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Selecciona tu mascota o registra una nueva"
+        android:text="Selecciona el dueño de la mascota para gestionar"
         android:textSize="20sp"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- RecyclerView para mostrar las mascotas -->
+    <!-- ListView para mostrar todas las mascotas -->
     <ListView
-        android:id="@+id/listViewMascotas"
+        android:id="@+id/listViewDueños"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toTopOf="@id/registerButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewTitle" />
-
-    <!-- Botón para registrar una nueva mascota -->
-    <Button
-        android:id="@+id/registerButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/button_rounded"
-        android:text="Registrar nueva mascota"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,7 @@
-package com.example.loginsignup.actividades;
+package com.example.loginsignup.actividadesDueño;
 
-import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -15,21 +13,13 @@ import com.example.loginsignup.R;
 
 import java.util.Calendar;
 
-import android.app.DatePickerDialog;
-import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
-import com.example.loginsignup.R;
 import com.example.loginsignup.baseDatos.dao.HistorialDao;
 import com.example.loginsignup.baseDatos.entidades.BaseDatos;
 import com.example.loginsignup.baseDatos.entidades.HistorialMedico;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Locale;
 
 public class AgregarDatosHistoriaMedica extends AppCompatActivity {

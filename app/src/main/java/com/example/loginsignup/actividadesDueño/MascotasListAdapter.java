@@ -1,4 +1,4 @@
-package com.example.loginsignup.actividades;
+package com.example.loginsignup.actividadesDueño;
 
 import android.content.Context;
 import android.view.LayoutInflater;

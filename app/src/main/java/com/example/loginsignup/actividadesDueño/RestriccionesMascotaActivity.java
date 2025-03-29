@@ -1,7 +1,6 @@
-package com.example.loginsignup.actividades;
+package com.example.loginsignup.actividadesDueño;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;

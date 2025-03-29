@@ -1,9 +1,7 @@
-package com.example.loginsignup.actividades;
+package com.example.loginsignup.actividadesVeterinario;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -12,13 +10,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import com.example.loginsignup.R;
+import com.example.loginsignup.actividadesDueño.DueñoSeleccionado;
+import com.example.loginsignup.actividadesDueño.MascotaSeleccionada;
+import com.example.loginsignup.actividadesDueño.MascotasListAdapter;
 import com.example.loginsignup.baseDatos.dao.MascotaDao;
 import com.example.loginsignup.baseDatos.entidades.BaseDatos;
 import com.example.loginsignup.baseDatos.entidades.Mascota;
 
 import java.util.List;
 
-public class Mascotas_Form extends AppCompatActivity {
+public class Mascotas_vistaVeterinario extends AppCompatActivity {
 
     private ListView listViewMascotas;
     private MascotaDao mascotaDao;
@@ -26,7 +27,7 @@ public class Mascotas_Form extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mascotas);
+        setContentView(R.layout.activity_mascotas_veterinario);
 
         // Inicialización de la base de datos y el DAO
         BaseDatos db = Room.databaseBuilder(getApplicationContext(), BaseDatos.class, "aplicacion_db").allowMainThreadQueries().build();
@@ -48,15 +49,12 @@ public class Mascotas_Form extends AppCompatActivity {
             MascotaSeleccionada.getInstance().setIdMascota(mascotaSeleccionada.getId_mascota());
 
             // Acción al hacer clic en una mascota
-            startActivity(new Intent(Mascotas_Form.this, BotonesHistoriasdeUsuario.class));
-            Toast.makeText(Mascotas_Form.this, "Seleccionaste: " + MascotaSeleccionada.getInstance().getIdMascota(), Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(Mascotas_vistaVeterinario.this, BotonesVeterinario.class));
+            Toast.makeText(Mascotas_vistaVeterinario.this, "Seleccionaste: " + MascotaSeleccionada.getInstance().getIdMascota(), Toast.LENGTH_SHORT).show();
         });
 
-        // Botón para registrar una nueva mascota
-        Button registerButton = findViewById(R.id.registerButton);
-        registerButton.setOnClickListener(v -> {
-            startActivity(new Intent(Mascotas_Form.this, RegistroMascotaActivity.class));
-        });
+
     }
 }
+
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/fondo"
     android:padding="30dp"
-    tools:context=".actividades.Login_Form">
+    tools:context=".actividadesDueño.Login_Form">
 
 
 

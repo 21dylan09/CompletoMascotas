@@ -1,16 +1,16 @@
-package com.example.loginsignup.actividades;
+package com.example.loginsignup.actividadesDueño;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.RadioGroup;
 import android.widget.RadioButton;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
@@ -54,17 +54,12 @@ public class Signup_Form extends AppCompatActivity {
         generoRadioGroup = findViewById(R.id.radioGroupGender);
         botonRegistro = findViewById(R.id.registerButton);
 
-        // Configurar Spinner de roles
-//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-//                R.array.role_array, android.R.layout.simple_spinner_item);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        rolSpinner.setAdapter(adapter);
-//
-//        // Configurar selector de fecha
-//        eTTelefono.setOnClickListener(v -> seleccionarFecha());
-//
-//        // Configurar el botón de registro
-//        botonRegistro.setOnClickListener(v -> validarFormulario());
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.role_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        rolSpinner.setAdapter(adapter);
+
         botonRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,7 +76,9 @@ public class Signup_Form extends AppCompatActivity {
         String confirmacion = eTConfirmacionContraseña.getText().toString().trim();
         String direccion = eTStreet.getText().toString().trim();
         String telefono = eTTelefono.getText().toString().trim();
-        //String rol = rolSpinner.getSelectedItem().toString();
+        String rol = rolSpinner.getSelectedItem().toString();
+
+
 
         int generoId = generoRadioGroup.getCheckedRadioButtonId();
         RadioButton generoSeleccionado = findViewById(generoId);
@@ -108,7 +105,7 @@ public class Signup_Form extends AppCompatActivity {
             return;
         }
 
-        Usuario usuario = new Usuario(nombre, apellido, correo, contraseña, telefono, "propietario", System.currentTimeMillis());
+        Usuario usuario = new Usuario(nombre, apellido, correo, contraseña, telefono, rol, System.currentTimeMillis());
         long idUsuario = usuarioDao.insertarUsuario(usuario);
 
         if (idUsuario > 0) {
@@ -174,36 +171,6 @@ public class Signup_Form extends AppCompatActivity {
         eTTelefono.setText("");
         rolSpinner.setSelection(0);
         generoRadioGroup.clearCheck();
-    }
-
-    // Método para seleccionar fecha de nacimiento
-    private void seleccionarFecha() {
-        Calendar calendario = Calendar.getInstance();
-        int año = calendario.get(Calendar.YEAR);
-        int mes = calendario.get(Calendar.MONTH);
-        int dia = calendario.get(Calendar.DAY_OF_MONTH);
-
-        DatePickerDialog datePickerDialog = new DatePickerDialog(this, (view, selectedYear, selectedMonth, selectedDayOfMonth) -> {
-            if (!validarEdad(selectedYear, selectedMonth, selectedDayOfMonth)) {
-                Toast.makeText(this, "Debes tener más de 18 años", Toast.LENGTH_SHORT).show();
-            } else {
-                eTTelefono.setText(selectedDayOfMonth + "/" + (selectedMonth + 1) + "/" + selectedYear);
-            }
-        }, año, mes, dia);
-
-        datePickerDialog.show();
-    }
-
-    // Validar si la persona tiene al menos 18 años
-    private boolean validarEdad(int año, int mes, int dia) {
-        Calendar today = Calendar.getInstance();
-        int age = today.get(Calendar.YEAR) - año;
-
-        if (mes > today.get(Calendar.MONTH) || (mes == today.get(Calendar.MONTH) && dia > today.get(Calendar.DAY_OF_MONTH))) {
-            age--;
-        }
-
-        return age >= 18;
     }
 
     // Método para obtener el género seleccionado

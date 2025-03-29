@@ -6,33 +6,35 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/logo_mascota"
-        android:label="Inicio Mascota"
+        android:label="App Mascotas"
         android:roundIcon="@drawable/logo_mascota"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginSignup"
         tools:targetApi="31">
 
         <!-- Actividad de registro -->
-        <activity android:name=".actividades.Signup_Form" />
+        <activity android:name=".actividadesDueño.Signup_Form" />
+        <activity android:name=".actividadesDueño.Mascotas_Form" />
+        <activity android:name=".actividadesDueño.RegistroMascotaActivity" />
+        <activity android:name=".actividadesDueño.BotonesHistoriasdeUsuario" />
+        <activity android:name=".actividadesDueño.AgregarDatosHistoriaMedica" />
+        <activity android:name=".actividadesDueño.HistorialClinico" />
+        <activity android:name=".actividadesDueño.RecomendacionesAlimentacion" />
+        <activity android:name=".actividadesDueño.ListaComprasActivity" />
+        <activity android:name=".actividadesDueño.EnfermedadesCronicasActivity" />
+        <activity android:name=".actividadesDueño.RestriccionesMascotaActivity" />
+        <activity android:name=".actividadesDueño.AlergiasMascotaActivity" />
+        <activity android:name=".actividadesDueño.NotaMascotaActivity" />
+        <activity android:name=".actividadesDueño.AgregarGasto" />
+        <activity android:name=".actividadesVeterinario.DueñosTodos" />
+        <activity android:name=".actividadesVeterinario.BotonesVeterinario" />
+        <activity android:name=".actividadesVeterinario.Mascotas_vistaVeterinario" />
 
-        <!-- Nueva actividad para Mascotas -->
-        <activity android:name=".actividades.Mascotas_Form" />
-        <activity android:name=".actividades.RegistroMascotaActivity" />
-        <activity android:name=".actividades.BotonesHistoriasdeUsuario" />
-        <activity android:name=".actividades.AgregarDatosHistoriaMedica" />
-        <activity android:name=".actividades.HistorialClinico" />
-        <activity android:name=".actividades.RecomendacionesAlimentacion" />
-        <activity android:name=".actividades.ListaComprasActivity" />
-        <activity android:name=".actividades.EnfermedadesCronicasActivity" />
-        <activity android:name=".actividades.RestriccionesMascotaActivity" />
-        <activity android:name=".actividades.AlergiasMascotaActivity" />
-        <activity android:name=".actividades.NotaMascotaActivity" />
-        <activity android:name=".actividades.AgregarGasto" />
 
 
         <!-- Actividad de login (Login_Form) -->
         <activity
-            android:name=".actividades.Login_Form"
+            android:name=".actividadesDueño.Login_Form"
             android:exported="true"> <!-- Mantén esto si es la actividad principal con intent-filter -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

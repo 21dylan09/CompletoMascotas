@@ -9,7 +9,6 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import java.util.concurrent.Executors;
 
-import com.example.loginsignup.actividades.AgregarGasto;
 import com.example.loginsignup.baseDatos.dao.*;
 
 

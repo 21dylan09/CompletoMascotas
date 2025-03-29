@@ -1,19 +1,25 @@
-package com.example.loginsignup.actividades;
+package com.example.loginsignup.actividadesVeterinario;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.loginsignup.R;
+import com.example.loginsignup.actividadesDueño.AgregarDatosHistoriaMedica;
+import com.example.loginsignup.actividadesDueño.AgregarGasto;
+import com.example.loginsignup.actividadesDueño.AlergiasMascotaActivity;
 
-public class BotonesHistoriasdeUsuario extends AppCompatActivity {
+import com.example.loginsignup.actividadesDueño.EnfermedadesCronicasActivity;
+import com.example.loginsignup.actividadesDueño.HistorialClinico;
+import com.example.loginsignup.actividadesDueño.NotaMascotaActivity;
+import com.example.loginsignup.actividadesDueño.RecomendacionesAlimentacion;
+import com.example.loginsignup.actividadesDueño.RestriccionesMascotaActivity;
 
-
+public class BotonesVeterinario extends AppCompatActivity {
     private ImageButton button1, button2, button3, button4, button5, button6, button7, button8; // Declarar los nuevos botones
 
 
@@ -38,7 +44,7 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BotonesHistoriasdeUsuario.this, AgregarDatosHistoriaMedica.class));
+                startActivity(new Intent(BotonesVeterinario.this, AgregarDatosHistoriaMedica.class));
             }
         });
 
@@ -46,7 +52,7 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BotonesHistoriasdeUsuario.this, HistorialClinico.class));
+                startActivity(new Intent(BotonesVeterinario.this, HistorialClinico.class));
             }
         });
 
@@ -54,7 +60,7 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BotonesHistoriasdeUsuario.this, RecomendacionesAlimentacion.class));
+                startActivity(new Intent(BotonesVeterinario.this, RecomendacionesAlimentacion.class));
             }
         });
 
@@ -63,7 +69,7 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para el botón "Lista de Compras"
-                startActivity(new Intent(BotonesHistoriasdeUsuario.this, AgregarGasto.class)); // Asegúrate de crear la actividad ListaComprasActivity
+                startActivity(new Intent(BotonesVeterinario.this, AgregarGasto.class)); // Asegúrate de crear la actividad ListaComprasActivity
             }
         });
 
@@ -72,7 +78,7 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para el botón "Enfermedades Crónicas"
-                startActivity(new Intent(BotonesHistoriasdeUsuario.this, EnfermedadesCronicasActivity.class)); // Asegúrate de crear la actividad EnfermedadesCronicasActivity
+                startActivity(new Intent(BotonesVeterinario.this, EnfermedadesCronicasActivity.class)); // Asegúrate de crear la actividad EnfermedadesCronicasActivity
             }
         });
 
@@ -81,7 +87,7 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para el botón "Acceso/modificación a restricciones de la mascota"
-                startActivity(new Intent(BotonesHistoriasdeUsuario.this, RestriccionesMascotaActivity.class)); // Asegúrate de crear la actividad RestriccionesMascotaActivity
+                startActivity(new Intent(BotonesVeterinario.this, RestriccionesMascotaActivity.class)); // Asegúrate de crear la actividad RestriccionesMascotaActivity
             }
         });
 
@@ -90,7 +96,7 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para el botón "Acceso/modificación a restricciones de la mascota"
-                startActivity(new Intent(BotonesHistoriasdeUsuario.this, AlergiasMascotaActivity.class));
+                startActivity(new Intent(BotonesVeterinario.this, AlergiasMascotaActivity.class));
 
             }
         });
@@ -100,7 +106,7 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
             public void onClick(View v) {
 
                 // Acción para el botón Notas de la mascota"
-                startActivity(new Intent(BotonesHistoriasdeUsuario.this, NotaMascotaActivity.class)); // Asegúrate de crear la actividad RestriccionesMascotaActivity
+                startActivity(new Intent(BotonesVeterinario.this, NotaMascotaActivity.class)); // Asegúrate de crear la actividad RestriccionesMascotaActivity
             }
         });
 

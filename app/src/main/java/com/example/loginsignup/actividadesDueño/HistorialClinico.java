@@ -1,4 +1,4 @@
-package com.example.loginsignup.actividades;
+package com.example.loginsignup.actividadesDueño;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -18,10 +18,7 @@ import com.example.loginsignup.baseDatos.dao.HistorialDao;
 import com.example.loginsignup.baseDatos.entidades.BaseDatos;
 import com.example.loginsignup.baseDatos.entidades.HistorialMedico;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class HistorialClinico extends AppCompatActivity {

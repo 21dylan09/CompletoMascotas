@@ -1,4 +1,4 @@
-package com.example.loginsignup.actividades;
+package com.example.loginsignup.actividadesDueño;
 
 public class MascotaSeleccionada {
     private static MascotaSeleccionada instancia;
