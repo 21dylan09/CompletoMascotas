@@ -13,7 +13,7 @@ import com.example.loginsignup.R;
 public class BotonesHistoriasdeUsuario extends AppCompatActivity {
 
 
-    private ImageButton button1, button2, button3, button4, button5; // Declarar los nuevos botones
+    private ImageButton button1, button2, button3, button4, button5, button6; // Declarar los nuevos botones
 
 
     @SuppressLint("MissingInflatedId")
@@ -28,7 +28,7 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
         button3 = findViewById(R.id.button3);
         button4 = findViewById(R.id.button4); // Inicializa el botón 4
         button5 = findViewById(R.id.button5); // Inicializa el botón 5
-
+        button6 = findViewById(R.id.button6);
 
 
         // Botón para recomendacion alimentacion
@@ -60,7 +60,7 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para el botón "Lista de Compras"
-                startActivity(new Intent(BotonesHistoriasdeUsuario.this, AgregarGasto.class)); // Asegúrate de crear la actividad ListaComprasActivity
+                startActivity(new Intent(BotonesHistoriasdeUsuario.this, AgregarGasto.class));
             }
         });
 
@@ -69,7 +69,16 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para el botón "Enfermedades Crónicas"
-                startActivity(new Intent(BotonesHistoriasdeUsuario.this, NotaMascotaActivity.class)); // Asegúrate de crear la actividad EnfermedadesCronicasActivity
+                startActivity(new Intent(BotonesHistoriasdeUsuario.this, NotaMascotaActivity.class));
+            }
+        });
+
+        // Botón para registro de comida
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Acción para el botón "Enfermedades Crónicas"
+                startActivity(new Intent(BotonesHistoriasdeUsuario.this, ComidaMascotaActivity.class));
             }
         });
     }

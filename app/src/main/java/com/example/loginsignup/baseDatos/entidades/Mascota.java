@@ -32,6 +32,26 @@ public class Mascota {
     @ColumnInfo(name = "id_enfermedad", defaultValue = "NULL")
     public Integer idEnfermedad;
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
     public Mascota(String nombre, String tipo, double peso, String especie, String raza, String sexo, int edad, long fecha_registro, int id_dueño, Integer idEnfermedad) {
         this.nombre = nombre;
         this.tipo = tipo;

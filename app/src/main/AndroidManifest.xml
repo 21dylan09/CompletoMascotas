@@ -12,7 +12,8 @@
         android:theme="@style/Theme.LoginSignup"
         tools:targetApi="31">
 
-        <!-- Actividad de registro -->
+        <!-- ACTIVIDADES DUEÑO -->
+
         <activity android:name=".actividadesDueño.Signup_Form" />
         <activity android:name=".actividadesDueño.Mascotas_Form" />
         <activity android:name=".actividadesDueño.RegistroMascotaActivity" />
@@ -26,6 +27,10 @@
         <activity android:name=".actividadesVeterinario.AlergiasMascotaActivity" />
         <activity android:name=".actividadesDueño.NotaMascotaActivity" />
         <activity android:name=".actividadesDueño.AgregarGasto" />
+        <activity android:name=".actividadesDueño.ComidaMascotaActivity"/>
+
+        <!-- ACTIVIDADES VETERINARIO -->
+
         <activity android:name=".actividadesVeterinario.DueñosTodos" />
         <activity android:name=".actividadesVeterinario.BotonesVeterinario" />
         <activity android:name=".actividadesVeterinario.Mascotas_vistaVeterinario" />
