@@ -21,17 +21,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Botón 1:agregar datos a la historia clínica -->
+
+    <!-- Botón 1: Recomendacion alimentos -->
     <ImageButton
         android:id="@+id/button1"
         android:layout_width="119dp"
         android:layout_height="91dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="250dp"
-        app:srcCompat="@drawable/logo_mascota"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titulo" />
+        app:layout_constraintTop_toBottomOf="@+id/titulo"
+        app:srcCompat="@drawable/logo_mascota"
+        tools:ignore="MissingConstraints" />
 
     <!-- Botón 2: Ver historial medico -->
     <ImageButton
@@ -45,72 +45,39 @@
         app:layout_constraintTop_toBottomOf="@id/titulo"
         app:srcCompat="@drawable/logo_mascota" />
 
-    <!-- Botón 3: Generar recomendación de Alimentación -->
+    <!-- Botón 3:Restricciones de mascota -->
+
     <ImageButton
-        android:id="@+id/button3"
+        android:id="@+id/button4"
         android:layout_width="119dp"
         android:layout_height="91dp"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button1"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/logo_mascota"
+        tools:ignore="MissingConstraints" />
+
+    <!-- Botón 4: Agregar gastos -->
+
+    <ImageButton
+        android:id="@+id/button3"
+        android:layout_width="116dp"
+        android:layout_height="91dp"
+        android:layout_marginTop="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView1"
         app:srcCompat="@drawable/logo_mascota"
         tools:ignore="MissingConstraints" />
 
-    <!-- Botón 4: Agregar gasto -->
-    <ImageButton
-        android:id="@+id/button4"
-        android:layout_width="119dp"
-        android:layout_height="91dp"
-        android:layout_marginTop="46dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/logo_mascota"
-        tools:ignore="MissingConstraints" />
-
-    <!-- Botón 5: Enfermedades cronicas  -->
+    <!-- Botón 5: Notas mascota -->
     <ImageButton
         android:id="@+id/button5"
         android:layout_width="119dp"
         android:layout_height="91dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:srcCompat="@drawable/logo_mascota"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
-
-    <!-- Botón 6: Restricciones mascota -->
-    <ImageButton
-        android:id="@+id/button6"
-        android:layout_width="116dp"
-        android:layout_height="91dp"
-        android:layout_marginStart="63dp"
-        android:layout_marginTop="34dp"
-        app:layout_constraintStart_toEndOf="@+id/button5"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:srcCompat="@drawable/logo_mascota"
-        tools:ignore="MissingConstraints" />
-
-    <!-- Botón 7: Alergias -->
-    <ImageButton
-        android:id="@+id/button7"
-        android:layout_width="119dp"
-        android:layout_height="91dp"
-        android:layout_marginTop="19dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:srcCompat="@drawable/logo_mascota"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
-
-    <!-- Botón 8: Notas mascota -->
-    <ImageButton
-        android:id="@+id/button8"
-        android:layout_width="119dp"
-        android:layout_height="91dp"
-        android:layout_marginStart="63dp"
-        android:layout_marginTop="23dp"
-        app:layout_constraintStart_toEndOf="@+id/button7"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
         app:srcCompat="@drawable/logo_mascota"
         tools:ignore="MissingConstraints" />
 
@@ -118,11 +85,11 @@
         android:id="@+id/textView1"
         android:layout_width="116dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Agregar datos historia clinica"
+        android:layout_marginTop="11dp"
+        android:text="Recomendacion de alimentacion"
         android:textAppearance="@style/elegante"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button1"
+        app:layout_constraintTop_toBottomOf="@+id/button1"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -142,8 +109,8 @@
         android:id="@+id/textView3"
         android:layout_width="116dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:text="Recomendacion de alimentacion"
+        android:layout_marginTop="12dp"
+        android:text="Restricciones de mascota"
         android:textAppearance="@style/elegante"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3"
@@ -153,11 +120,11 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
         android:layout_marginTop="11dp"
+        android:layout_marginEnd="65dp"
         android:text="Agregar gastos"
         android:textAppearance="@style/elegante"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button4"
         tools:ignore="MissingConstraints" />
 
@@ -166,48 +133,11 @@
         android:layout_width="116dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Enfermedades cronicas"
+        android:text="Notas de la mascota"
         android:textAppearance="@style/elegante"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button5"
         tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="116dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="11dp"
-        android:text="Restricciones de mascota"
-        android:textAppearance="@style/elegante"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/button6"
-        tools:ignore="MissingConstraints" />
-
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="116dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:text="Alergias de la mascota"
-        android:textAppearance="@style/elegante"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="116dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="10dp"
-        android:text="Notas de la mascota"
-        android:textAppearance="@style/elegante"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/button8"
-        tools:ignore="MissingConstraints" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,7 +13,7 @@ import com.example.loginsignup.R;
 public class BotonesHistoriasdeUsuario extends AppCompatActivity {
 
 
-    private ImageButton button1, button2, button3, button4, button5, button6, button7, button8; // Declarar los nuevos botones
+    private ImageButton button1, button2, button3, button4, button5; // Declarar los nuevos botones
 
 
     @SuppressLint("MissingInflatedId")
@@ -28,16 +28,14 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
         button3 = findViewById(R.id.button3);
         button4 = findViewById(R.id.button4); // Inicializa el botón 4
         button5 = findViewById(R.id.button5); // Inicializa el botón 5
-        button6 = findViewById(R.id.button6); // Inicializa el botón 6
-        button7 = findViewById(R.id.button7);
-        button8 = findViewById(R.id.button8);
 
 
-        // Botón para agregar datos a la historia clínica
+
+        // Botón para recomendacion alimentacion
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BotonesHistoriasdeUsuario.this, AgregarDatosHistoriaMedica.class));
+                startActivity(new Intent(BotonesHistoriasdeUsuario.this, RecomendacionesAlimentacion.class));
             }
         });
 
@@ -49,15 +47,15 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
             }
         });
 
-        // Botón para generar recomendación de alimentación
+        // Botón para generar restriccion mascota
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BotonesHistoriasdeUsuario.this, RecomendacionesAlimentacion.class));
+                startActivity(new Intent(BotonesHistoriasdeUsuario.this, RestriccionesMascotaActivity.class));
             }
         });
 
-        // Botón para mostrar la lista de compras
+        // Botón para agregar gastos
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,43 +64,13 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
             }
         });
 
-        // Botón para mostrar enfermedades crónicas
+        // Botón para notas de la mascota
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Acción para el botón "Enfermedades Crónicas"
-                startActivity(new Intent(BotonesHistoriasdeUsuario.this, EnfermedadesCronicasActivity.class)); // Asegúrate de crear la actividad EnfermedadesCronicasActivity
+                startActivity(new Intent(BotonesHistoriasdeUsuario.this, NotaMascotaActivity.class)); // Asegúrate de crear la actividad EnfermedadesCronicasActivity
             }
         });
-
-        // Botón para acceso/modificación a restricciones de la mascota
-        button6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Acción para el botón "Acceso/modificación a restricciones de la mascota"
-                startActivity(new Intent(BotonesHistoriasdeUsuario.this, RestriccionesMascotaActivity.class)); // Asegúrate de crear la actividad RestriccionesMascotaActivity
-            }
-        });
-
-
-        button7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Acción para el botón "Acceso/modificación a restricciones de la mascota"
-                startActivity(new Intent(BotonesHistoriasdeUsuario.this, AlergiasMascotaActivity.class));
-
-            }
-        });
-
-        button8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                // Acción para el botón Notas de la mascota"
-                startActivity(new Intent(BotonesHistoriasdeUsuario.this, NotaMascotaActivity.class)); // Asegúrate de crear la actividad RestriccionesMascotaActivity
-            }
-        });
-
-
     }
 }
