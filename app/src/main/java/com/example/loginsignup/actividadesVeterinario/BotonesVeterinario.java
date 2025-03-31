@@ -7,14 +7,11 @@ import android.view.View;
 import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.loginsignup.R;
-import com.example.loginsignup.actividadesDueño.AgregarDatosHistoriaMedica;
-import com.example.loginsignup.actividadesDueño.AlergiasMascotaActivity;
-import com.example.loginsignup.actividadesDueño.EnfermedadesCronicasActivity;
 import com.example.loginsignup.actividadesDueño.HistorialClinico;
 
 
 public class BotonesVeterinario extends AppCompatActivity {
-    private ImageButton button1, button2, button3, button4; // Declarar los nuevos botones
+    private ImageButton button1, button2, button3, button4;
 
 
     @SuppressLint("MissingInflatedId")

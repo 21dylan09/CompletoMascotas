@@ -1,4 +1,4 @@
-package com.example.loginsignup.actividadesDueño;
+package com.example.loginsignup.actividadesVeterinario;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -15,6 +15,7 @@ import java.util.Calendar;
 
 import androidx.room.Room;
 
+import com.example.loginsignup.actividadesDueño.MascotaSeleccionada;
 import com.example.loginsignup.baseDatos.dao.HistorialDao;
 import com.example.loginsignup.baseDatos.entidades.BaseDatos;
 import com.example.loginsignup.baseDatos.entidades.HistorialMedico;
