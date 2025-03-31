@@ -1,14 +1,18 @@
 package com.example.loginsignup.actividadesVeterinario;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import com.example.loginsignup.R;
+import com.example.loginsignup.actividadesDueño.DueñoSeleccionado;
 import com.example.loginsignup.baseDatos.dao.UsuarioDao;
 import com.example.loginsignup.baseDatos.entidades.BaseDatos;
 import com.example.loginsignup.baseDatos.entidades.Usuario;
@@ -20,10 +24,11 @@ public class DueñosTodos extends AppCompatActivity {
     private ListView listViewDueños;
     private UsuarioDao usuarioDao;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_duenos_veterinario); // Cambia el nombre del layout si es necesario
+        setContentView(R.layout.activity_duenos_veterinario);
 
         // Inicialización de la base de datos y el DAO
         BaseDatos db = Room.databaseBuilder(getApplicationContext(), BaseDatos.class, "aplicacion_db").allowMainThreadQueries().build();
@@ -45,8 +50,9 @@ public class DueñosTodos extends AppCompatActivity {
         // Configurar el evento de clic en la lista
         listViewDueños.setOnItemClickListener((parent, view, position, id) -> {
             Usuario dueñoSeleccionado = listaDueños.get(position);
-            // Acción al hacer clic en un dueño (puedes agregar más lógica dependiendo de lo que necesites hacer)
             Toast.makeText(DueñosTodos.this, "Seleccionaste: " + dueñoSeleccionado.nombre + " " + dueñoSeleccionado.apellido, Toast.LENGTH_SHORT).show();
+
+             DueñoSeleccionado.getInstance().setIdDueño(dueñoSeleccionado.id_usuario);
              startActivity(new Intent(DueñosTodos.this, Mascotas_vistaVeterinario.class));
         });
     }

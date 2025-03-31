@@ -27,9 +27,9 @@ public class DueñoListAdapter extends ArrayAdapter<Usuario> {
         // Obtener la mascota actual
         Usuario dueño = getItem(position);
 
-        // Configurar el TextView con el nombre de la mascota
+        // Configurar el TextView con el nombrel dueño
         TextView textViewMascota = convertView.findViewById(R.id.textViewDueño);
-        textViewMascota.setText(dueño.getNombre());
+        textViewMascota.setText(dueño.getNombre() + " " + dueño.getApellido());
 
         return convertView;
     }

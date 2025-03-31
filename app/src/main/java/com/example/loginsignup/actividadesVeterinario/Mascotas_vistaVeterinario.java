@@ -2,6 +2,7 @@ package com.example.loginsignup.actividadesVeterinario;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -32,6 +33,9 @@ public class Mascotas_vistaVeterinario extends AppCompatActivity {
         // Inicialización de la base de datos y el DAO
         BaseDatos db = Room.databaseBuilder(getApplicationContext(), BaseDatos.class, "aplicacion_db").allowMainThreadQueries().build();
         mascotaDao = db.mascotaDao();
+
+        int idDueño = DueñoSeleccionado.getInstance().getIdMascota();
+        Log.d("Mascotas_vistaVeterinario", "ID del dueño seleccionado: " + idDueño);
 
         // Configuración del ListView
         listViewMascotas = findViewById(R.id.listViewMascotas);
