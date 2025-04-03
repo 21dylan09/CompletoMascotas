@@ -150,6 +150,8 @@
         app:srcCompat="@drawable/logo_mascota"
         tools:ignore="MissingConstraints" />
 
+
+
     <TextView
         android:id="@+id/textView6"
         android:layout_width="116dp"
@@ -161,6 +163,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button5"
         tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/button7"
+        android:layout_width="119dp"
+        android:layout_height="91dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:srcCompat="@drawable/logo_mascota"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="116dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Obtener ubicacion"
+        android:textAppearance="@style/elegante"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button7"
+        tools:ignore="MissingConstraints" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

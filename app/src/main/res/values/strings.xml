@@ -7,7 +7,7 @@
     <string name="telefono_hint">teléfono</string>
     <string name="contraseña_hint">Contraseña</string>
     <string name="contraseña_confirmacion_hint">Confirmación contraseña</string>
-
+    <string name="google_maps_key">AIzaSyCFvJ8UcSVZoLGRCYmd-NZDNbojZpzbNrQ</string>
 
     <!-- Array de roles -->
 

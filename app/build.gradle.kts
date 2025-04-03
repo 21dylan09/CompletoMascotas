@@ -38,6 +38,8 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.androidx.gridlayout)
+    implementation("com.google.android.gms:play-services-location:17.1.0")
+    implementation("com.google.android.gms:play-services-maps:18.0.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
