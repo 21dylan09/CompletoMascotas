@@ -42,6 +42,10 @@
         <activity android:name=".actividadesVeterinario.BotonesVeterinario" />
         <activity android:name=".actividadesVeterinario.Mascotas_vistaVeterinario" />
 
+        <!-- ACTIVIDADES CUIDADOR -->
+        <activity android:name=".actividadesCuidador.DueñosTodosCuidador" />
+        <activity android:name=".actividadesCuidador.BotonesCuidador" />
+        <activity android:name=".actividadesCuidador.MascotasVistaCuidador"/>
 
 
         <!-- Actividad de login (Login_Form) -->
