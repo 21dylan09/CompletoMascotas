@@ -7,6 +7,7 @@
     android:background="@color/fondo"
     android:orientation="vertical"
     android:padding="30dp"
+    android:visibility="visible"
     tools:context=".actividadesDueño.Signup_Form">
 
     <!-- Nombre completo -->
@@ -18,6 +19,7 @@
         android:hint="@string/nombre_hint"
         android:inputType="text"
         android:textSize="16sp"
+        android:textColorHint="@color/verdeMenta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,6 +33,7 @@
         android:hint="@string/apellido_hint"
         android:inputType="text"
         android:textSize="16sp"
+        android:textColorHint="@color/verdeMenta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextNombre" />
@@ -44,6 +47,7 @@
         android:hint="@string/correo_hint"
         android:inputType="textEmailAddress"
         android:textSize="16sp"
+        android:textColorHint="@color/verdeMenta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextApellido" />
@@ -57,6 +61,7 @@
         android:hint="@string/contraseña_hint"
         android:inputType="textPassword"
         android:textSize="16sp"
+        android:textColorHint="@color/verdeMenta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextEmail" />
@@ -70,6 +75,7 @@
         android:hint="@string/contraseña_confirmacion_hint"
         android:inputType="textPassword"
         android:textSize="16sp"
+        android:textColorHint="@color/verdeMenta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextContraseña" />
@@ -83,6 +89,7 @@
         android:hint="Direccion de residencia"
         android:inputType="textEmailAddress"
         android:textSize="16sp"
+        android:textColorHint="@color/verdeMenta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextConfirmacionContraseña" />
@@ -93,7 +100,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="@string/telefono"
+        android:text="Fecha de Nacimiento"
+        android:textColorHint="@color/verdeMenta"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextStreet" />
@@ -107,6 +115,7 @@
         android:hint="@string/telefono_hint"
         android:inputType="date"
         android:textSize="16sp"
+        android:textColorHint="@color/verdeMenta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewTelefono" />
@@ -119,6 +128,7 @@
         android:layout_marginBottom="8dp"
         android:text="Seleccione Rol:"
         android:textSize="16sp"
+        android:textColorHint="@color/verdeMenta"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextTelefono" />
 
@@ -128,6 +138,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:textColorHint="@color/verdeMenta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewSelectRole" />
@@ -147,18 +158,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Genero: "
+            android:textColorHint="@color/verdeMenta"
             android:textSize="16sp" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Masculino"
+            android:textColorHint="@color/verdeMenta"
             android:textSize="16sp" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Femenino"
+            android:textColorHint="@color/verdeMenta"
             android:textSize="16sp" />
     </RadioGroup>
 

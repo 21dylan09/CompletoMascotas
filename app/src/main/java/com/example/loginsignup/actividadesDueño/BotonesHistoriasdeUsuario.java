@@ -13,7 +13,7 @@ import com.example.loginsignup.R;
 public class BotonesHistoriasdeUsuario extends AppCompatActivity {
 
 
-    private ImageButton button1, button2, button3, button4, button5, button6, button7; // Declarar los nuevos botones
+    private ImageButton button1, button2, button3, button4, button5, button6, button7, button8; // Declarar los nuevos botones
 
 
     @SuppressLint("MissingInflatedId")
@@ -30,6 +30,7 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
         button5 = findViewById(R.id.button5); // Inicializa el botón 5
         button6 = findViewById(R.id.button6);
         button7 = findViewById(R.id.button7);
+        button8 = findViewById(R.id.button8);
 
 
         // Botón para recomendacion alimentacion
@@ -88,6 +89,13 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
             public void onClick(View v) {
                 // Acción para el botón "Enfermedades Crónicas"
                 startActivity(new Intent(BotonesHistoriasdeUsuario.this, ObtenerUbicacion.class));
+            }
+        });
+        button8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Acción para el botón "Recordatorio de Alimentacion"
+                startActivity(new Intent(BotonesHistoriasdeUsuario.this, RecordatoriosAlimentacion.class));
             }
         });
     }
