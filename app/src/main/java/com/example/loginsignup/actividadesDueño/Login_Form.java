@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import com.example.loginsignup.R;
+import com.example.loginsignup.actividadesCuidador.DueñosTodosCuidador;
 import com.example.loginsignup.actividadesVeterinario.AlergiasMascotaActivity;
 import com.example.loginsignup.actividadesVeterinario.DueñosTodos;
 import com.example.loginsignup.baseDatos.dao.UsuarioDao;
@@ -68,7 +69,7 @@ public class Login_Form extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), DueñosTodos.class));
                 } else if ("Cuidador".equalsIgnoreCase(rol)) {
                     // Si el rol es "cuidador", abrir la actividad AlergiasMascotaActivity
-                    startActivity(new Intent(getApplicationContext(), AlergiasMascotaActivity.class));
+                    startActivity(new Intent(getApplicationContext(), DueñosTodosCuidador.class));
                 } else {
                     // Si el rol es otro o no está definido
                     Toast.makeText(this, "Rol no definido o no soportado", Toast.LENGTH_SHORT).show();
