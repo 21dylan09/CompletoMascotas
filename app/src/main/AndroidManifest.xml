@@ -41,7 +41,7 @@
         <activity android:name=".actividadesVeterinario.DueñosTodos" />
         <activity android:name=".actividadesVeterinario.BotonesVeterinario" />
         <activity android:name=".actividadesVeterinario.Mascotas_vistaVeterinario" />
-
+        <activity android:name=".actividadesVeterinario.PerfilMascotaActivity" />
 
 
         <!-- Actividad de login (Login_Form) -->

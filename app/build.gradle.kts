@@ -40,6 +40,7 @@ dependencies {
     implementation(libs.androidx.gridlayout)
     implementation("com.google.android.gms:play-services-location:17.1.0")
     implementation("com.google.android.gms:play-services-maps:18.0.0")
+    implementation(libs.material.v1110)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

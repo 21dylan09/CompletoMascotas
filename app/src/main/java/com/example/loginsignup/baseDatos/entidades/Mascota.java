@@ -76,4 +76,56 @@ public class Mascota {
     public int getId_dueño() {
         return id_dueño;
     }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getEspecie() {
+        return especie;
+    }
+
+    public void setEspecie(String especie) {
+        this.especie = especie;
+    }
+
+    public String getRaza() {
+        return raza;
+    }
+
+    public void setRaza(String raza) {
+        this.raza = raza;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public long getFecha_registro() {
+        return fecha_registro;
+    }
+
+    public void setFecha_registro(long fecha_registro) {
+        this.fecha_registro = fecha_registro;
+    }
+
+    public void setId_dueño(int id_dueño) {
+        this.id_dueño = id_dueño;
+    }
+
+    public Integer getIdEnfermedad() {
+        return idEnfermedad;
+    }
+
+    public void setIdEnfermedad(Integer idEnfermedad) {
+        this.idEnfermedad = idEnfermedad;
+    }
 }

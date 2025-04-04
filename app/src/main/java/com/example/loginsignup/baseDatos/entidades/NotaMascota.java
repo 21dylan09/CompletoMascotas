@@ -28,4 +28,36 @@ public class NotaMascota {
         this.titulo = titulo;
         this.contenido = contenido;
     }
+
+    public int getId_nota() {
+        return id_nota;
+    }
+
+    public void setId_nota(int id_nota) {
+        this.id_nota = id_nota;
+    }
+
+    public String getContenido() {
+        return contenido;
+    }
+
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
+    }
+
+    public int getIdMascota() {
+        return idMascota;
+    }
+
+    public void setIdMascota(int idMascota) {
+        this.idMascota = idMascota;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 }

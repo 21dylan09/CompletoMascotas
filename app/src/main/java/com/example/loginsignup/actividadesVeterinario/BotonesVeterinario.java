@@ -11,7 +11,7 @@ import com.example.loginsignup.actividadesDueño.HistorialClinico;
 
 
 public class BotonesVeterinario extends AppCompatActivity {
-    private ImageButton button1, button2, button3, button4;
+    private ImageButton button1, button2, button3, button4, button5;
 
 
     @SuppressLint("MissingInflatedId")
@@ -25,6 +25,7 @@ public class BotonesVeterinario extends AppCompatActivity {
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
         button4 = findViewById(R.id.button4); // Inicializa el botón 4
+        button5 = findViewById(R.id.button5);
 
 
         // Botón para agregar datos a la historia clínica
@@ -57,6 +58,14 @@ public class BotonesVeterinario extends AppCompatActivity {
             public void onClick(View v) {
                 // Acción para el botón "Lista de Compras"
                 startActivity(new Intent(BotonesVeterinario.this, AlergiasMascotaActivity.class)); // Asegúrate de crear la actividad ListaComprasActivity
+            }
+        });
+
+        // Botón para mostrar el perfil de la mascota
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(BotonesVeterinario.this, PerfilMascotaActivity.class));
             }
         });
     }
