@@ -17,6 +17,8 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
     private ImageButton button1, button2, button3, button4, button5, button6, button7; // Declarar los nuevos botones
     private ImageButton boton_atras;
     private TextView tvTitulo;
+    private ImageButton button1, button2, button3, button4, button5, button6, button7, button8; // Declarar los nuevos botones
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -35,6 +37,8 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
         boton_atras = findViewById(R.id.btnBack);
         tvTitulo = findViewById(R.id.tvTitle);
         tvTitulo.setText("OPCIONES");
+        button8 = findViewById(R.id.button8);
+
 
         // Botón para recomendacion alimentacion
         button1.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +100,14 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
 
         boton_atras.setOnClickListener(v -> {
             startActivity(new Intent(BotonesHistoriasdeUsuario.this, Mascotas_Form.class));
+        });
+
+        button8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Acción para el botón "Recordatorio de Alimentacion"
+                startActivity(new Intent(BotonesHistoriasdeUsuario.this, RecordatoriosAlimentacion.class));
+            }
         });
     }
 }
