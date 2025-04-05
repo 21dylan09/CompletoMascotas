@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -15,10 +16,8 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
 
 
     private ImageButton button1, button2, button3, button4, button5, button6, button7; // Declarar los nuevos botones
-    private ImageButton boton_atras;
+    private ImageButton boton_atras, button8;
     private TextView tvTitulo;
-    private ImageButton button1, button2, button3, button4, button5, button6, button7, button8; // Declarar los nuevos botones
-
 
     @SuppressLint("MissingInflatedId")
     @Override
