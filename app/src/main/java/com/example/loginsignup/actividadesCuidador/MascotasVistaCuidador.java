@@ -3,7 +3,6 @@ package com.example.loginsignup.actividadesCuidador;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -14,8 +13,6 @@ import com.example.loginsignup.R;
 import com.example.loginsignup.actividadesDueño.DueñoSeleccionado;
 import com.example.loginsignup.actividadesDueño.MascotaSeleccionada;
 import com.example.loginsignup.actividadesDueño.MascotasListAdapter;
-import com.example.loginsignup.actividadesVeterinario.BotonesVeterinario;
-import com.example.loginsignup.actividadesVeterinario.Mascotas_vistaVeterinario;
 import com.example.loginsignup.baseDatos.dao.MascotaDao;
 import com.example.loginsignup.baseDatos.entidades.BaseDatos;
 import com.example.loginsignup.baseDatos.entidades.Mascota;
@@ -35,14 +32,14 @@ public class MascotasVistaCuidador extends AppCompatActivity{
         BaseDatos db = Room.databaseBuilder(getApplicationContext(), BaseDatos.class, "aplicacion_db").allowMainThreadQueries().build();
         mascotaDao = db.mascotaDao();
 
-        int idDueño = DueñoSeleccionado.getInstance().getIdMascota();
+        int idDueño = DueñoSeleccionado.getInstance().getIdDueño();
         Log.d("Mascotas_vistaVeterinario", "ID del dueño seleccionado: " + idDueño);
 
         // Configuración del ListView
         listViewMascotas = findViewById(R.id.listViewMascotas);
 
         // Cargar las mascotas desde la base de datos
-        List<Mascota> listaMascotas = mascotaDao.obtenerMascotasDeUsuario(DueñoSeleccionado.getInstance().getIdMascota());
+        List<Mascota> listaMascotas = mascotaDao.obtenerMascotasDeUsuario(DueñoSeleccionado.getInstance().getIdDueño());
 
         // Configurar el adaptador para el ListView
         MascotasListAdapter adapter = new MascotasListAdapter(this, listaMascotas);

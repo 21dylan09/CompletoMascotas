@@ -44,4 +44,28 @@
         app:layout_constraintTop_toBottomOf="@+id/button1"
         tools:ignore="MissingConstraints" />
 
+    <ImageButton
+        android:id="@+id/button2"
+        android:layout_width="119dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titulo"
+        app:srcCompat="@drawable/logo_mascota" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="10dp"
+        android:text="Perfil Mascota"
+        android:textAppearance="@style/elegante"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button2"
+        tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

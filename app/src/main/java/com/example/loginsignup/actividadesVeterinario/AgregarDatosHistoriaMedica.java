@@ -1,9 +1,11 @@
 package com.example.loginsignup.actividadesVeterinario;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,7 +17,9 @@ import java.util.Calendar;
 
 import androidx.room.Room;
 
+import com.example.loginsignup.actividadesDueño.BotonesHistoriasdeUsuario;
 import com.example.loginsignup.actividadesDueño.MascotaSeleccionada;
+import com.example.loginsignup.actividadesDueño.Mascotas_Form;
 import com.example.loginsignup.baseDatos.dao.HistorialDao;
 import com.example.loginsignup.baseDatos.entidades.BaseDatos;
 import com.example.loginsignup.baseDatos.entidades.HistorialMedico;
@@ -30,6 +34,8 @@ public class AgregarDatosHistoriaMedica extends AppCompatActivity {
     private TextView editTextFecha;
     private long fechaSeleccionadaTimestamp = 0; // Para almacenar la fecha en formato timestamp
     private HistorialDao historialDao;
+    private ImageButton boton_atras;
+    private TextView tvTitulo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +51,9 @@ public class AgregarDatosHistoriaMedica extends AppCompatActivity {
         editTextTipoVacuna = findViewById(R.id.editTextTipoVacuna);
         editTextDiagnostico = findViewById(R.id.editTextDiagnostico);
         buttonGuardar = findViewById(R.id.buttonGuardar);
+        boton_atras = findViewById(R.id.btnBack);
+        tvTitulo = findViewById(R.id.tvTitle);
+        tvTitulo.setText("HISTORIAL");
 
         // Bloquear la edición manual de la fecha
         editTextFecha.setFocusable(false);
@@ -102,6 +111,10 @@ public class AgregarDatosHistoriaMedica extends AppCompatActivity {
         // Aquí podrías insertar historial en la base de datos
         Toast.makeText(this, "Datos guardados con éxito", Toast.LENGTH_SHORT).show();
         finish();  // Cierra la actividad después de guardar los datos
+
+        boton_atras.setOnClickListener(v -> {
+            startActivity(new Intent(AgregarDatosHistoriaMedica.this, BotonesVeterinario.class));
+        });
     }
 }
 

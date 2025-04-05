@@ -1,8 +1,7 @@
 package com.example.loginsignup.actividadesVeterinario;
 
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.widget.ImageView;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -12,26 +11,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import com.example.loginsignup.R;
+import com.example.loginsignup.actividadesDueño.DueñoSeleccionado;
 import com.example.loginsignup.actividadesDueño.MascotaSeleccionada;
+import com.example.loginsignup.actividadesDueño.UsuarioSeleccionado;
 import com.example.loginsignup.baseDatos.dao.AlergiaDao;
 import com.example.loginsignup.baseDatos.dao.EnfermedadCronicaDao;
 import com.example.loginsignup.baseDatos.dao.MascotaDao;
 import com.example.loginsignup.baseDatos.dao.NotaMascotaDao;
+import com.example.loginsignup.baseDatos.dao.RestriccionDao;
+import com.example.loginsignup.baseDatos.dao.UsuarioDao;
 import com.example.loginsignup.baseDatos.entidades.Alergia;
 import com.example.loginsignup.baseDatos.entidades.BaseDatos;
 import com.example.loginsignup.baseDatos.entidades.EnfermedadCronica;
 import com.example.loginsignup.baseDatos.entidades.Mascota;
 import com.example.loginsignup.baseDatos.entidades.NotaMascota;
+import com.example.loginsignup.baseDatos.entidades.Restriccion;
 import com.google.android.material.imageview.ShapeableImageView;
 
 import java.util.List;
 
 public class PerfilMascotaActivity extends AppCompatActivity {
 
-    private TextView tvNombreMascota, tvTipo, tvEspecie, tvRaza, tvSexo, tvEdad, tvPeso;
+    private TextView tvNombreMascota, tvTipo, tvEspecie, tvRaza, tvSexo, tvEdad, tvPeso, tvRestriccionTitulo, tvEnfermedad;
     private ShapeableImageView ivFotoMascota;
-    private LinearLayout layoutNotas, layoutAlergias;
+    private LinearLayout layoutNotas, layoutAlergias, layoutRestricciones;
     private TableLayout tablaEnfermedades;
+    private RestriccionDao restriccionDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,20 +54,42 @@ public class PerfilMascotaActivity extends AppCompatActivity {
         ivFotoMascota = findViewById(R.id.ivMascota);
         layoutNotas = findViewById(R.id.layoutNotas);
         layoutAlergias = findViewById(R.id.layoutAlergias);
+        tvEnfermedad = findViewById(R.id.tvEnfermedades);
         tablaEnfermedades = findViewById(R.id.tableEnfermedades);
+        tvRestriccionTitulo = findViewById(R.id.tvRestriccionesTitulo);
+        layoutRestricciones = findViewById(R.id.layoutRestricciones);
 
         // Base de datos
         BaseDatos db = Room.databaseBuilder(getApplicationContext(),
-                BaseDatos.class, "aplicacion_db").allowMainThreadQueries().build();
+        BaseDatos.class, "aplicacion_db").allowMainThreadQueries().build();
 
         MascotaDao mascotaDao = db.mascotaDao();
         NotaMascotaDao notaDao = db.notaMascotaDao();
         AlergiaDao alergiaDao = db.alergiaDao();
+        UsuarioDao usuarioDao = db.usuarioDao();
         EnfermedadCronicaDao enfermedadCronicaDao = db.enfermedadCronicaDao();
+        restriccionDao = db.restriccionDao();
 
         int idMascota = MascotaSeleccionada.getInstance().getIdMascota();
 
+        String tipoUsuario = usuarioDao.obtenerTipoDeUsuario(UsuarioSeleccionado.getInstance().getId_Usuario());
+
         Mascota mascota = mascotaDao.obtenerMascotaPorId(idMascota);
+
+        if (tipoUsuario.equals("Veterinario")){
+
+            tvRestriccionTitulo.setVisibility(View.GONE);
+            layoutRestricciones.setVisibility(View.GONE);
+            tablaEnfermedades.setVisibility(View.VISIBLE);
+            tvEnfermedad.setVisibility(View.VISIBLE);
+        }else{
+            tvRestriccionTitulo.setVisibility(View.VISIBLE);
+            layoutRestricciones.setVisibility(View.VISIBLE);
+            tablaEnfermedades.setVisibility(View.GONE);
+            tvEnfermedad.setVisibility(View.GONE);
+            cargarRestricciones();
+        }
+
         if (mascota != null) {
             tvNombreMascota.setText(mascota.getNombre());
             tvTipo.setText("Animal: " + mascota.getTipo());
@@ -114,6 +141,32 @@ public class PerfilMascotaActivity extends AppCompatActivity {
             tablaEnfermedades.addView(row);
         }
     }
+
+    private void cargarRestricciones() {
+        layoutRestricciones.removeAllViews(); // Limpiar vistas previas
+
+        // Obtener restricciones de la base de datos
+        List<Restriccion> restricciones = restriccionDao.obtenerPorIdMascota(MascotaSeleccionada.getInstance().getIdMascota());
+
+        if (restricciones.isEmpty()) {
+            // Si no hay restricciones, mostrar un mensaje
+            TextView tvNoRestricciones = new TextView(this);
+            tvNoRestricciones.setText("No hay restricciones registradas.");
+            tvNoRestricciones.setTextSize(16);
+            tvNoRestricciones.setPadding(8, 8, 8, 8);
+            layoutRestricciones.addView(tvNoRestricciones);
+        } else {
+            // Mostrar cada restricción en el layout
+            for (Restriccion r : restricciones) {
+                TextView tvRestriccion = new TextView(this);
+                tvRestriccion.setText("- " + r.getDescripcion());
+                tvRestriccion.setTextSize(16);
+                tvRestriccion.setPadding(8, 4, 8, 4);
+                layoutRestricciones.addView(tvRestriccion);
+            }
+        }
+    }
+
 }
 
 

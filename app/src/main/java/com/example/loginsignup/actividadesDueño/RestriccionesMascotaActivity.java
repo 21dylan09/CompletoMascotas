@@ -1,12 +1,14 @@
 package com.example.loginsignup.actividadesDueño;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -32,6 +34,8 @@ public class RestriccionesMascotaActivity extends AppCompatActivity {
     private CustomAdapter adapter;
     private RestriccionDao restriccionesDao;
     private int idMascota = MascotaSeleccionada.getInstance().getIdMascota();
+    private ImageButton boton_atras;
+    private TextView tvTitulo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +45,13 @@ public class RestriccionesMascotaActivity extends AppCompatActivity {
         etRestriccion = findViewById(R.id.etRestriccion);
         btnAgregar = findViewById(R.id.btnAgregar);
         listViewRestricciones = findViewById(R.id.listViewRestricciones);
+        boton_atras = findViewById(R.id.btnBack);
+        tvTitulo = findViewById(R.id.tvTitle);
+        tvTitulo.setText("RESTRICCIONES");
+
+        boton_atras.setOnClickListener(v -> {
+            startActivity(new Intent(RestriccionesMascotaActivity.this, BotonesHistoriasdeUsuario.class));
+        });
 
         BaseDatos db = Room.databaseBuilder(getApplicationContext(), BaseDatos.class, "aplicacion_db").allowMainThreadQueries().build();
         restriccionesDao = db.restriccionDao();

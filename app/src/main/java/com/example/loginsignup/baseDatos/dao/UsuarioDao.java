@@ -23,4 +23,7 @@ public interface UsuarioDao {
     @Query("SELECT * FROM usuarios WHERE correo = :correo LIMIT 1")
     Usuario obtenerUsuarioPorCorreo(String correo);
 
+    @Query("SELECT tipo_usuario FROM usuarios WHERE id_usuario = :idUsuario LIMIT 1")
+    String obtenerTipoDeUsuario(int idUsuario);
+
 }

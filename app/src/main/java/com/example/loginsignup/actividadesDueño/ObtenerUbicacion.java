@@ -1,10 +1,12 @@
 package com.example.loginsignup.actividadesDueño;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +29,8 @@ public class ObtenerUbicacion extends AppCompatActivity implements OnMapReadyCal
     private FusedLocationProviderClient fusedLocationClient;
     private TextView textViewLat;
     private Button btnLocation;
+    private ImageButton boton_atras;
+    private TextView tvTitulo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,13 @@ public class ObtenerUbicacion extends AppCompatActivity implements OnMapReadyCal
         // Inicializar vistas
         textViewLat = findViewById(R.id.text_view1);
         btnLocation = findViewById(R.id.bt_location);
+        boton_atras = findViewById(R.id.btnBack);
+        tvTitulo = findViewById(R.id.tvTitle);
+        tvTitulo.setText("MAPA");
+
+        boton_atras.setOnClickListener(v -> {
+            startActivity(new Intent(ObtenerUbicacion.this, BotonesHistoriasdeUsuario.class));
+        });
 
         // Inicializar el cliente de ubicación
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);

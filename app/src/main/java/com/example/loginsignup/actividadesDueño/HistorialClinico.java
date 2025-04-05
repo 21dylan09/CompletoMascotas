@@ -1,11 +1,13 @@
 package com.example.loginsignup.actividadesDueño;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +29,8 @@ public class HistorialClinico extends AppCompatActivity {
     private EditText editTextFecha, editTextDiagnostico;
     private Button buttonBuscar;
     private HistorialDao historialDao;
+    private ImageButton boton_atras;
+    private TextView tvTitulo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +45,16 @@ public class HistorialClinico extends AppCompatActivity {
         editTextFecha = findViewById(R.id.editTextFecha);
         editTextDiagnostico = findViewById(R.id.editTextDiagnostico);
         buttonBuscar = findViewById(R.id.buttonBuscar);
+        boton_atras = findViewById(R.id.btnBack);
+        tvTitulo = findViewById(R.id.tvTitle);
+        tvTitulo.setText("HISTORIAL");
 
         // Al hacer clic en fecha, se muestra el calendario
         editTextFecha.setOnClickListener(v -> mostrarCalendario());
+
+        boton_atras.setOnClickListener(v -> {
+            startActivity(new Intent(HistorialClinico.this, BotonesHistoriasdeUsuario.class));
+        });
 
         //  spinner que maneja la selección de "Fecha" o "Diagnóstico"
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

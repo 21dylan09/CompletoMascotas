@@ -17,7 +17,7 @@ public class DueñoSeleccionado {
         this.idDueño = id;
     }
 
-    public int getIdMascota() {
+    public int getIdDueño() {
         return idDueño;
     }
 }

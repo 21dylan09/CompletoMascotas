@@ -1,9 +1,12 @@
 package com.example.loginsignup.actividadesDueño;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
@@ -20,6 +23,8 @@ public class NotaMascotaActivity extends AppCompatActivity {
     private ListView listViewNotas;
     private NotasMascotaAdapter adapter;
     private int idMascotaSeleccionada;
+    private ImageButton boton_atras;
+    private TextView tvTitulo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +45,13 @@ public class NotaMascotaActivity extends AppCompatActivity {
         EditText editTitulo = findViewById(R.id.editTitulo);
         EditText editContenido = findViewById(R.id.editContenido);
         Button btnGuardar = findViewById(R.id.btnGuardar);
+        boton_atras = findViewById(R.id.btnBack);
+        tvTitulo = findViewById(R.id.tvTitle);
+        tvTitulo.setText("NOTAS");
+
+        boton_atras.setOnClickListener(v -> {
+            startActivity(new Intent(NotaMascotaActivity.this, BotonesHistoriasdeUsuario.class));
+        });
 
         // Cargar notas existentes
         cargarNotas();

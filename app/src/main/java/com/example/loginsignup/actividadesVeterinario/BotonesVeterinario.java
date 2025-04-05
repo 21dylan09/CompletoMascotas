@@ -5,13 +5,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.loginsignup.R;
+import com.example.loginsignup.actividadesDueño.BotonesHistoriasdeUsuario;
 import com.example.loginsignup.actividadesDueño.HistorialClinico;
+import com.example.loginsignup.actividadesDueño.Mascotas_Form;
 
 
 public class BotonesVeterinario extends AppCompatActivity {
     private ImageButton button1, button2, button3, button4, button5;
+    private ImageButton boton_atras;
+    private TextView tvTitulo;
 
 
     @SuppressLint("MissingInflatedId")
@@ -26,7 +32,9 @@ public class BotonesVeterinario extends AppCompatActivity {
         button3 = findViewById(R.id.button3);
         button4 = findViewById(R.id.button4); // Inicializa el botón 4
         button5 = findViewById(R.id.button5);
-
+        boton_atras = findViewById(R.id.btnBack);
+        tvTitulo = findViewById(R.id.tvTitle);
+        tvTitulo.setText("OPCIONES");
 
         // Botón para agregar datos a la historia clínica
         button1.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +75,10 @@ public class BotonesVeterinario extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(BotonesVeterinario.this, PerfilMascotaActivity.class));
             }
+        });
+
+        boton_atras.setOnClickListener(v -> {
+            startActivity(new Intent(BotonesVeterinario.this, Mascotas_vistaVeterinario.class));
         });
     }
 }

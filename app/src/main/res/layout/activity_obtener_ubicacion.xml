@@ -1,34 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
     android:gravity="center_horizontal"
+    android:background="@color/fondo"
     tools:context="actividadesDueño.ObtenerUbicacion">
 
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp" />
+
     <!-- Mapa -->
+
+    <!-- Botón para obtener ubicación -->
+
+    <!-- Coordenadas y datos adicionales -->
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"/>
+        android:layout_width="379dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Botón para obtener ubicación -->
     <Button
         android:id="@+id/bt_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:text="Ubicación" />
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="150dp"
+        android:text="Ubicación"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/map" />
 
-    <!-- Coordenadas y datos adicionales -->
     <TextView
         android:id="@+id/text_view1"
-        android:layout_width="match_parent"
+        android:layout_width="379dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"/>
-</LinearLayout>
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_location" />
+</androidx.constraintlayout.widget.ConstraintLayout>

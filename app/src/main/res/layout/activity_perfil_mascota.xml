@@ -131,7 +131,30 @@
             android:layout_marginTop="8dp"
             android:paddingStart="8dp"
             android:paddingEnd="8dp" />
+
         <TextView
+            android:id="@+id/tvRestriccionesTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Restricciones:"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"/>
+
+        <!-- Layout para Restricciones (Oculto por defecto) -->
+        <LinearLayout
+            android:id="@+id/layoutRestricciones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tvEnfermedades"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Enfermedades Crónicas"
@@ -175,7 +198,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Insuficiencia Renal"
                     android:padding="8dp"
                     android:gravity="start" />
 
@@ -183,7 +205,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Suplemento Renal"
                     android:padding="8dp"
                     android:gravity="start" />
             </TableRow>

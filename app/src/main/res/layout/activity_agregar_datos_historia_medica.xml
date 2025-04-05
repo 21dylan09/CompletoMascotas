@@ -4,62 +4,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="30dp"
+    android:background="@color/fondo"
     tools:context=".actividadesVeterinario.AgregarDatosHistoriaMedica">
 
     <!-- Campo Fecha -->
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp" />
+
+    <!-- Campo Tipo de Vacuna -->
     <TextView
         android:id="@+id/textViewFecha"
-        android:layout_width="0dp"
+        android:layout_width="370dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:hint="Selecciona una fecha"
-        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="10dp"
         android:background="@android:drawable/editbox_background"
-        android:padding="10dp"
         android:clickable="true"
         android:focusable="true"
+        android:hint="Selecciona una fecha"
+        android:padding="10dp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Campo Tipo de Vacuna -->
-    <EditText
-        android:id="@+id/editTextTipoVacuna"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:hint="Diagnostico"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewFecha" />
-
-    <!-- Campo Diagnóstico -->
     <EditText
         android:id="@+id/editTextDiagnostico"
-        android:layout_width="0dp"
+        android:layout_width="370dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:hint="Tratamiento"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextTipoVacuna" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTipoVacuna" />
 
-
-
-    <!-- Botón Guardar -->
     <Button
         android:id="@+id/buttonGuardar"
-        android:layout_width="0dp"
+        android:layout_width="351dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="#A0E8AF"
         android:text="Guardar"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextDiagnostico"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:backgroundTint="#A0E8AF"/>
+        app:layout_constraintTop_toBottomOf="@+id/editTextDiagnostico" />
+
+    <EditText
+        android:id="@+id/editTextTipoVacuna"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:hint="Diagnostico"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFecha" />
+
+    <!-- Campo Diagnóstico -->
+
+
+    <!-- Botón Guardar -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

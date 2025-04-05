@@ -1,5 +1,6 @@
 package com.example.loginsignup.actividadesDueño;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import android.widget.TextView;
@@ -36,7 +38,10 @@ public class AgregarGasto extends AppCompatActivity {
     private CustomAdapter adapter;
     private GastoDao gastoDao;
     private int idMascota = MascotaSeleccionada.getInstance().getIdMascota(); // Obtener el ID de la mascota
-    private int idDueño =  DueñoSeleccionado.getInstance().getIdMascota();
+    private int idDueño =  DueñoSeleccionado.getInstance().getIdDueño();
+    private ImageButton boton_atras;
+    private TextView tvTitulo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +52,13 @@ public class AgregarGasto extends AppCompatActivity {
         btnAgregarGasto = findViewById(R.id.btnAgregarGasto);
         listViewGastos = findViewById(R.id.listViewGastos);
         textViewTotalGastos = findViewById(R.id.textViewTotalGastos);
+        boton_atras = findViewById(R.id.btnBack);
+        tvTitulo = findViewById(R.id.tvTitle);
+        tvTitulo.setText("GASTOS");
+
+        boton_atras.setOnClickListener(v -> {
+            startActivity(new Intent(AgregarGasto.this, BotonesHistoriasdeUsuario.class));
+        });
 
         // Configurar la base de datos y el DAO
         BaseDatos db = Room.databaseBuilder(getApplicationContext(), BaseDatos.class, "aplicacion_db").allowMainThreadQueries().build();

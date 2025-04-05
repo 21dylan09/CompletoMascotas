@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -12,7 +14,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import com.example.loginsignup.R;
+import com.example.loginsignup.actividadesDueño.BotonesHistoriasdeUsuario;
 import com.example.loginsignup.actividadesDueño.DueñoSeleccionado;
+import com.example.loginsignup.actividadesDueño.Login_Form;
+import com.example.loginsignup.actividadesDueño.Mascotas_Form;
 import com.example.loginsignup.baseDatos.dao.UsuarioDao;
 import com.example.loginsignup.baseDatos.entidades.BaseDatos;
 import com.example.loginsignup.baseDatos.entidades.Usuario;
@@ -23,6 +28,8 @@ public class DueñosTodos extends AppCompatActivity {
 
     private ListView listViewDueños;
     private UsuarioDao usuarioDao;
+    private ImageButton boton_atras;
+    private TextView tvTitulo;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -36,6 +43,9 @@ public class DueñosTodos extends AppCompatActivity {
 
         // Configuración del ListView
         listViewDueños = findViewById(R.id.listViewDueños);
+        boton_atras = findViewById(R.id.btnBack);
+        tvTitulo = findViewById(R.id.tvTitle);
+        tvTitulo.setText("OPCIONES");
 
         // Cargar todos los dueños desde la base de datos
         List<Usuario> listaDueños = usuarioDao.obtenerUsuarios();  // Obtener todos los usuarios
@@ -54,6 +64,10 @@ public class DueñosTodos extends AppCompatActivity {
 
              DueñoSeleccionado.getInstance().setIdDueño(dueñoSeleccionado.id_usuario);
              startActivity(new Intent(DueñosTodos.this, Mascotas_vistaVeterinario.class));
+        });
+
+        boton_atras.setOnClickListener(v -> {
+            startActivity(new Intent(DueñosTodos.this, Login_Form.class));
         });
     }
 }

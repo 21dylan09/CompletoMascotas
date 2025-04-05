@@ -2,6 +2,7 @@ package com.example.loginsignup.actividadesDueño;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -55,17 +56,20 @@ public class Login_Form extends AppCompatActivity {
             // Verificar si el usuario está en la base de datos
             Usuario usuario = usuarioDao.autenticarUsuario(email, password);
 
+
             if (usuario != null) {
+                UsuarioSeleccionado.getInstance().setId_Usuario(usuario.getId_usuario());
+
                 // Si el usuario existe y las credenciales coinciden
                 Toast.makeText(this, "Ingreso exitoso", Toast.LENGTH_SHORT).show();
-                DueñoSeleccionado.getInstance().setIdDueño(usuario.id_usuario);
                 String rol = usuario.tipo_usuario;  // Obtener el tipo de usuario (rol)
+
+
 
                 if ("Dueño de mascota".equalsIgnoreCase(rol)) {
                     // Si el rol es "dueño", abrir la actividad de Mascotas
                     startActivity(new Intent(getApplicationContext(), Mascotas_Form.class));
                 } else if ("Veterinario".equalsIgnoreCase(rol)) {
-                    // Si el rol es "veterinario", abrir la actividad de AgregarGasto
                     startActivity(new Intent(getApplicationContext(), DueñosTodos.class));
                 } else if ("Cuidador".equalsIgnoreCase(rol)) {
                     // Si el rol es "cuidador", abrir la actividad AlergiasMascotaActivity

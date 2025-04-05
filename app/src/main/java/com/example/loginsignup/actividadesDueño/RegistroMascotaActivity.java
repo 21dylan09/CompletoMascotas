@@ -51,7 +51,7 @@ public class RegistroMascotaActivity extends AppCompatActivity {
         String edadStr = editTextEdad.getText().toString();
         String pesoStr = editTextPeso.getText().toString();
 
-        int id_dueño = DueñoSeleccionado.getInstance().getIdMascota(); // El ID del dueño puede ser proporcionado desde otro lugar
+        int id_dueño = UsuarioSeleccionado.getInstance().getId_Usuario(); // El ID del dueño puede ser proporcionado desde otro lugar
 
         // Verificación de que los campos no estén vacíos
         if (nombre.isEmpty() || tipo.isEmpty() || especie.isEmpty() || raza.isEmpty() || sexo.isEmpty() || edadStr.isEmpty() || pesoStr.isEmpty()) {

@@ -1,9 +1,12 @@
 package com.example.loginsignup.actividadesDueño;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +23,10 @@ public class Mascotas_Form extends AppCompatActivity {
 
     private ListView listViewMascotas;
     private MascotaDao mascotaDao;
+    private ImageButton boton_atras;
+    private TextView tvTitulo;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +38,11 @@ public class Mascotas_Form extends AppCompatActivity {
 
         // Configuración del ListView
         listViewMascotas = findViewById(R.id.listViewMascotas);
-
+        boton_atras = findViewById(R.id.btnBack);
+        tvTitulo = findViewById(R.id.tvTitle);
+        tvTitulo.setText("MASCOTAS");
         // Cargar las mascotas desde la base de datos
-        List<Mascota> listaMascotas = mascotaDao.obtenerMascotasDeUsuario(DueñoSeleccionado.getInstance().getIdMascota());
+        List<Mascota> listaMascotas = mascotaDao.obtenerMascotasDeUsuario(UsuarioSeleccionado.getInstance().getId_Usuario());
 
         // Configurar el adaptador para el ListView
         MascotasListAdapter adapter = new MascotasListAdapter(this, listaMascotas);
@@ -54,6 +62,10 @@ public class Mascotas_Form extends AppCompatActivity {
         Button registerButton = findViewById(R.id.registerButton);
         registerButton.setOnClickListener(v -> {
             startActivity(new Intent(Mascotas_Form.this, RegistroMascotaActivity.class));
+        });
+
+        boton_atras.setOnClickListener(v -> {
+            startActivity(new Intent(Mascotas_Form.this, Login_Form.class));
         });
     }
 }

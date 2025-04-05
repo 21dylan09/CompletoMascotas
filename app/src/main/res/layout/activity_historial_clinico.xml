@@ -4,68 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="30dp"
+    android:background="@color/fondo"
     tools:context=".actividadesDueño.HistorialClinico">
 
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp" />
+
+    <!-- Campo Fecha -->
+
+    <!-- Campo Diagnóstico (invisible por defecto) -->
     <Spinner
         android:id="@+id/spinnerSeleccion"
-        android:layout_width="0dp"
+        android:layout_width="390dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="60dp"
         android:entries="@array/seleccion_array"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Campo Fecha -->
     <EditText
         android:id="@+id/editTextFecha"
-        android:layout_width="0dp"
+        android:layout_width="390dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="60dp"
+        android:focusable="false"
         android:hint="Selecciona una fecha"
         android:inputType="none"
         android:textSize="16sp"
-        android:focusable="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spinnerSeleccion" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerSeleccion" />
 
-    <!-- Campo Diagnóstico (invisible por defecto) -->
     <EditText
         android:id="@+id/editTextDiagnostico"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:hint="Diagnóstico"
         android:textSize="16sp"
         android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/spinnerSeleccion" />
+        tools:layout_editor_absoluteX="206dp"
+        tools:layout_editor_absoluteY="172dp" />
 
     <!-- Botón Buscar -->
     <Button
         android:id="@+id/buttonBuscar"
-        android:layout_width="0dp"
+        android:layout_width="390dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="60dp"
+        android:backgroundTint="#A0E8AF"
         android:text="Buscar"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextDiagnostico"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:backgroundTint="#A0E8AF"/>
+        app:layout_constraintTop_toBottomOf="@+id/editTextFecha" />
 
     <TextView
         android:id="@+id/textViewResultados"
-        android:layout_width="0dp"
+        android:layout_width="390dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="60dp"
+        android:padding="8dp"
         android:text="Resultados aparecerán aquí"
         android:textSize="16sp"
-        android:padding="8dp"
-        app:layout_constraintTop_toBottomOf="@id/buttonBuscar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonBuscar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

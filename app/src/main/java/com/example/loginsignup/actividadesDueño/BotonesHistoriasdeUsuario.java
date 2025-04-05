@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,7 +15,8 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
 
 
     private ImageButton button1, button2, button3, button4, button5, button6, button7; // Declarar los nuevos botones
-
+    private ImageButton boton_atras;
+    private TextView tvTitulo;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -30,7 +32,9 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
         button5 = findViewById(R.id.button5); // Inicializa el botón 5
         button6 = findViewById(R.id.button6);
         button7 = findViewById(R.id.button7);
-
+        boton_atras = findViewById(R.id.btnBack);
+        tvTitulo = findViewById(R.id.tvTitle);
+        tvTitulo.setText("OPCIONES");
 
         // Botón para recomendacion alimentacion
         button1.setOnClickListener(new View.OnClickListener() {
@@ -86,9 +90,12 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
         button7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Acción para el botón "Enfermedades Crónicas"
                 startActivity(new Intent(BotonesHistoriasdeUsuario.this, ObtenerUbicacion.class));
             }
+        });
+
+        boton_atras.setOnClickListener(v -> {
+            startActivity(new Intent(BotonesHistoriasdeUsuario.this, Mascotas_Form.class));
         });
     }
 }
