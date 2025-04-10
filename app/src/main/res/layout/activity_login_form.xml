@@ -32,6 +32,8 @@
         android:hint="Correo electronico"
         android:inputType="textEmailAddress"
         android:textSize="20sp"
+        android:textColor="@color/verdeMenta"
+        android:textColorHint="@color/verdeMenta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logo" />
@@ -47,12 +49,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:textColorHint="@color/black"
+        android:textColorHint="@color/verdeMenta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextTextEmailAddress"
-        app:passwordToggleEnabled="true">
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/verdeMenta">
 
         <EditText
             android:id="@+id/editTextPassword"
@@ -61,7 +64,9 @@
             android:ems="10"
             android:hint="Contraseña"
             android:inputType="textPassword"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textColor="@color/verdeMenta"
+            android:textColorHint="@color/verdeMenta" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -70,35 +75,39 @@
         android:layout_width="196dp"
         android:layout_height="60dp"
         android:layout_marginTop="380dp"
-        android:backgroundTint="#A0E8AF"
-        android:background="@drawable/button_rounded"
+        android:backgroundTint="@color/secundario"
         android:onClick="btn_loginForm"
-        android:text="LOGIN"
-        android:textColor="#1C3D30"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+    android:text="LOGIN"
+    android:textColor="#1C3D30"
+    android:textSize="22sp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.5"
+        tools:ignore="MissingConstraints"/>
+
 
     <Button
         android:id="@+id/registerButton"
         android:layout_width="189dp"
         android:layout_height="71dp"
-        android:background="@drawable/button_rounded"
+        android:backgroundTint="@color/secundario"
         android:onClick="btn_signupForm"
-        android:text="REGISTER"
-        android:textColor="#1C3D30"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95"
-        tools:ignore="MissingConstraints" />
+    android:text="REGISTER"
+    android:textColor="#1C3D30"
+    android:textSize="22sp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.95"
+    tools:ignore="MissingConstraints" />
+
+
+
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier4"

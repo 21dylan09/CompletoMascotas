@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -24,7 +25,7 @@ import java.util.Calendar;
 
 public class Signup_Form extends AppCompatActivity {
 
-    private EditText eTNombre, eTApellido, eTEmail, eTContraseña, eTConfirmacionContraseña, eTStreet, eTTelefono;
+    private EditText eTNombre, eTApellido, eTEmail, eTContraseña, eTConfirmacionContraseña, eTStreet, eTTelefono, eTFecha;
     private Spinner rolSpinner;
     private RadioGroup generoRadioGroup;
     private Button botonRegistro;
@@ -53,12 +54,29 @@ public class Signup_Form extends AppCompatActivity {
         rolSpinner = findViewById(R.id.roleSpinner);
         generoRadioGroup = findViewById(R.id.radioGroupGender);
         botonRegistro = findViewById(R.id.registerButton);
+        eTFecha = findViewById(R.id.editTextFecha);
+
+        // Configurar el DatePickerDialog para el campo de fecha de nacimiento
+        eTFecha.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                // Solo se ejecuta si el usuario toca el campo
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    showDatePickerDialog();  // Llamamos al método que abre el calendario
+                    return true;  // Indica que hemos manejado el toque
+                }
+                return false;  // Si no, no hacemos nada
+            }
+        });
+
 
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.role_array, android.R.layout.simple_spinner_item);
+                R.array.role_array, R.layout.spinner_item);  // Usamos el layout personalizado
+
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         rolSpinner.setAdapter(adapter);
+
 
         botonRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -183,4 +201,28 @@ public class Signup_Form extends AppCompatActivity {
             return "";
         }
     }
+    // Método para mostrar el DatePickerDialog
+    private void showDatePickerDialog() {
+        // Obtener la fecha actual
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+
+        // Crear el DatePickerDialog
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                Signup_Form.this,
+                (view, selectedYear, selectedMonth, selectedDayOfMonth) -> {
+                    // Mostrar la fecha seleccionada en el EditText
+                    String selectedDate = selectedDayOfMonth + "/" + (selectedMonth + 1) + "/" + selectedYear;
+                    eTFecha.setText(selectedDate);  // Establecer la fecha en el campo
+                },
+                year, month, dayOfMonth
+        );
+
+        // Mostrar el dialogo de selección de fecha
+        datePickerDialog.show();
+    }
+
+
 }
