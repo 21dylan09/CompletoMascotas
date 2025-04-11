@@ -1,14 +1,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -25,6 +26,10 @@
             android:value="@string/google_maps_key" />
         <!-- ACTIVIDADES DUEÑO -->
 
+        <receiver
+            android:name=".actividadesDueño.GeofenceBroadcastReceiver"
+            android:exported="true" />
+
         <activity android:name=".actividadesDueño.Signup_Form" />
         <activity android:name=".actividadesDueño.Mascotas_Form" />
         <activity android:name=".actividadesDueño.RegistroMascotaActivity" />
@@ -37,9 +42,10 @@
         <activity android:name=".actividadesVeterinario.AlergiasMascotaActivity" />
         <activity android:name=".actividadesDueño.NotaMascotaActivity" />
         <activity android:name=".actividadesDueño.AgregarGasto" />
-        <activity android:name=".actividadesDueño.ComidaMascotaActivity"/>
-        <activity android:name=".actividadesDueño.ObtenerUbicacion"/>
-        <activity android:name=".actividadesDueño.RecordatoriosAlimentacion"/>
+        <activity android:name=".actividadesDueño.ComidaMascotaActivity" />
+        <activity android:name=".actividadesDueño.ObtenerUbicacion" />
+        <activity android:name=".actividadesDueño.RecordatoriosAlimentacion" />
+        <activity android:name=".actividadesDueño.ZonasSeguras"/>
 
         <!-- ACTIVIDADES VETERINARIO -->
 
@@ -51,7 +57,7 @@
         <!-- ACTIVIDADES CUIDADOR -->
         <activity android:name=".actividadesCuidador.DueñosTodosCuidador" />
         <activity android:name=".actividadesCuidador.BotonesCuidador" />
-        <activity android:name=".actividadesCuidador.MascotasVistaCuidador"/>
+        <activity android:name=".actividadesCuidador.MascotasVistaCuidador" />
 
 
         <!-- Actividad de login (Login_Form) -->
@@ -63,7 +69,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <receiver android:name=".actividadesDueño.RecordatoriosAlimentacion$AlarmReceiver" android:enabled="true" android:exported="false" />
+        <receiver
+            android:name=".actividadesDueño.RecordatoriosAlimentacion$AlarmReceiver"
+            android:enabled="true"
+            android:exported="false" />
 
     </application>
 

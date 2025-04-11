@@ -18,6 +18,9 @@ import com.example.loginsignup.baseDatos.dao.UsuarioDao;
 import com.example.loginsignup.baseDatos.entidades.BaseDatos;
 import com.example.loginsignup.baseDatos.entidades.Usuario;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
 public class Login_Form extends AppCompatActivity {
 
     private EditText editTextEmail;
@@ -34,7 +37,7 @@ public class Login_Form extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextPassword);
 
         // Inicializar la base de datos
-        BaseDatos db = Room.databaseBuilder(getApplicationContext(), BaseDatos.class, "aplicacion_db").allowMainThreadQueries().build();
+        BaseDatos db = BaseDatos.getBaseDatos(getApplicationContext());
         usuarioDao = db.usuarioDao();
     }
     // Método para manejar el clic del botón "Register"
@@ -53,36 +56,33 @@ public class Login_Form extends AppCompatActivity {
         if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Por favor, ingresa tu correo y contraseña", Toast.LENGTH_SHORT).show();
         } else {
-            // Verificar si el usuario está en la base de datos
-            Usuario usuario = usuarioDao.autenticarUsuario(email, password);
+            Executor executor = Executors.newSingleThreadExecutor();
 
+            executor.execute(() -> {
+                // ⚙️ Código en segundo plano
+                Usuario usuario = usuarioDao.autenticarUsuario(email, password);
 
-            if (usuario != null) {
-                UsuarioSeleccionado.getInstance().setId_Usuario(usuario.getId_usuario());
+                runOnUiThread(() -> {
+                    // 🎨 Código en hilo principal (UI)
+                    if (usuario != null) {
+                        UsuarioSeleccionado.getInstance().setId_Usuario(usuario.getId_usuario());
+                        Toast.makeText(Login_Form.this, "Ingreso exitoso", Toast.LENGTH_SHORT).show();
 
-                // Si el usuario existe y las credenciales coinciden
-                Toast.makeText(this, "Ingreso exitoso", Toast.LENGTH_SHORT).show();
-                String rol = usuario.tipo_usuario;  // Obtener el tipo de usuario (rol)
-
-
-
-                if ("Dueño de mascota".equalsIgnoreCase(rol)) {
-                    // Si el rol es "dueño", abrir la actividad de Mascotas
-                    startActivity(new Intent(getApplicationContext(), Mascotas_Form.class));
-                } else if ("Veterinario".equalsIgnoreCase(rol)) {
-                    startActivity(new Intent(getApplicationContext(), DueñosTodos.class));
-                } else if ("Cuidador".equalsIgnoreCase(rol)) {
-                    // Si el rol es "cuidador", abrir la actividad AlergiasMascotaActivity
-                    startActivity(new Intent(getApplicationContext(), DueñosTodosCuidador.class));
-                } else {
-                    // Si el rol es otro o no está definido
-                    Toast.makeText(this, "Rol no definido o no soportado", Toast.LENGTH_SHORT).show();
-                }
-
-            } else {
-                // Si no se encuentra el usuario o las credenciales son incorrectas
-                Toast.makeText(this, "Usuario no encontrado o datos no coinciden", Toast.LENGTH_SHORT).show();
-            }
+                        String rol = usuario.tipo_usuario;
+                        if ("Dueño de mascota".equalsIgnoreCase(rol)) {
+                            startActivity(new Intent(getApplicationContext(), Mascotas_Form.class));
+                        } else if ("Veterinario".equalsIgnoreCase(rol)) {
+                            startActivity(new Intent(getApplicationContext(), DueñosTodos.class));
+                        } else if ("Cuidador".equalsIgnoreCase(rol)) {
+                            startActivity(new Intent(getApplicationContext(), DueñosTodosCuidador.class));
+                        } else {
+                            Toast.makeText(Login_Form.this, "Rol no definido o no soportado", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(Login_Form.this, "Usuario no encontrado o datos no coinciden", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            });
         }
     }
 }
