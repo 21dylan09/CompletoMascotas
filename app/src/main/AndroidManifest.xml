@@ -40,6 +40,9 @@
         <activity android:name=".actividadesDueño.ComidaMascotaActivity"/>
         <activity android:name=".actividadesDueño.ObtenerUbicacion"/>
         <activity android:name=".actividadesDueño.RecordatoriosAlimentacion"/>
+        <activity android:name=".actividadesDueño.PaseoMascotaActivity"/>
+        <activity android:name=".actividadesDueño.VerRecorridoActivity"/>
+
 
         <!-- ACTIVIDADES VETERINARIO -->
 

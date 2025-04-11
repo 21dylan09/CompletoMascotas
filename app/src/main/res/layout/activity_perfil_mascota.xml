@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -26,7 +27,7 @@
         <!-- Imagen y datos -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="158dp"
+            android:layout_height="220dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingBottom="16dp">
@@ -39,12 +40,12 @@
                 android:src="@drawable/logo_mascota"
                 app:shapeAppearanceOverlay="@style/RoundedImageView" />
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/linearLayout6"
                 android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_marginStart="18dp"> >
+                android:layout_height="match_parent"
+                android:layout_marginStart="18dp"
+                android:layout_weight="1">>
 
                 <TextView
                     android:id="@+id/tvTipo"
@@ -52,7 +53,9 @@
                     android:layout_height="wrap_content"
                     android:text="Animal: animal"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tvEspecie"
@@ -60,7 +63,9 @@
                     android:layout_height="wrap_content"
                     android:text="Especie: especie"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTipo" />
 
                 <TextView
                     android:id="@+id/tvRaza"
@@ -68,7 +73,9 @@
                     android:layout_height="wrap_content"
                     android:text="Raza: Labrador"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEspecie" />
 
                 <TextView
                     android:id="@+id/tvSexo"
@@ -76,7 +83,9 @@
                     android:layout_height="wrap_content"
                     android:text="Sexo: Macho"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRaza" />
 
                 <TextView
                     android:id="@+id/tvEdad"
@@ -84,18 +93,44 @@
                     android:layout_height="wrap_content"
                     android:text="Edad: 3 años"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSexo" />
 
                 <TextView
                     android:id="@+id/tvPeso"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Peso: peso"
+                    android:layout_marginTop="8dp"
+                    android:text="Peso:"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEdad" />
+
+                <EditText
+                    android:id="@+id/etPeso"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:hint="Peso (kg)"
+                    android:inputType="numberDecimal"
+                    app:layout_constraintStart_toEndOf="@+id/tvPeso"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEdad" />
+
+                <Button
+                    android:id="@+id/btnActualizarPeso"
+                    android:layout_width="114dp"
+                    android:layout_height="41dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="Actualizar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
 
                 <!-- Puedes agregar más campos aquí -->
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
 
         <!-- Sección de notas -->

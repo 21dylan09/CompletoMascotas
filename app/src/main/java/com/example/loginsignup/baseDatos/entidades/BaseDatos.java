@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
 import com.example.loginsignup.baseDatos.dao.*;
 
 
-@Database(entities = {Usuario.class, Mascota.class, CitaVeterinaria.class, Estado.class, Enfermedad.class, HistorialMedico.class, Restriccion.class, EnfermedadCronica.class, Alergia.class, NotaMascota.class, Gasto.class}, version = 5)
+@Database(entities = {Usuario.class, Mascota.class, CitaVeterinaria.class, Estado.class, Enfermedad.class, HistorialMedico.class, Restriccion.class, EnfermedadCronica.class, Alergia.class, NotaMascota.class, Gasto.class, Ubicacion.class}, version = 5)
 
 public abstract class BaseDatos extends RoomDatabase {
     private static volatile BaseDatos INSTANCE;
@@ -27,6 +27,7 @@ public abstract class BaseDatos extends RoomDatabase {
     public abstract EnfermedadCronicaDao enfermedadCronicaDao();
     public abstract NotaMascotaDao notaMascotaDao();
     public abstract GastoDao gastoDao();
+    public abstract UbicacionDAO ubicacionDAO();
 
     public static BaseDatos getBaseDatos(final Context context){
         if (INSTANCE == null) {

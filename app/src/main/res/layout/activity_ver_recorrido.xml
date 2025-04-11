@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/etFecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Seleccionar fecha"
+        android:focusable="false"
+        android:inputType="none"
+        android:drawableEnd="@android:drawable/ic_menu_my_calendar"/>
+
+    <EditText
+        android:id="@+id/etHoraInicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Hora inicio"
+        android:focusable="false"
+        android:inputType="none"
+        android:drawableEnd="@android:drawable/ic_menu_recent_history"/>
+
+    <EditText
+        android:id="@+id/etHoraFin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Hora fin"
+        android:focusable="false"
+        android:inputType="none"
+        android:drawableEnd="@android:drawable/ic_menu_recent_history"/>
+
+    <Button
+        android:id="@+id/btnFiltrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver recorrido"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@android:color/white"/>
+
+    <fragment
+        android:id="@+id/mapRecorrido"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+</LinearLayout>
