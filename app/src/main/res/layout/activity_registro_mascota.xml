@@ -4,18 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fondo"
     android:padding="30dp"
-    tools:context=".actividadesDueño.RegistroMascotaActivity">
+    tools:context=".actividadesDueño.RegistroMascotaActivity"
+    tools:layout_editor_absoluteX="27dp"
+    tools:layout_editor_absoluteY="234dp">
 
     <!-- Campo para el nombre de la mascota -->
+    <!-- Titulo de Registro de Mascota -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/logo_mascota"
+        app:layout_constraintBottom_toTopOf="@+id/tvRegistroMascota"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvRegistroMascota"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Registro de Mascota"
+        android:textColor="@color/verdeMenta"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.923" />
+
     <EditText
         android:id="@+id/editTextNombre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="232dp"
         android:hint="Nombre"
         android:inputType="text"
+        android:textColor="@color/verdeMenta"
+        android:textColorHint="@color/verdeMenta"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,10 +58,14 @@
         android:id="@+id/editTextTipo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:hint="Tipo (Perro, Gato, etc.)"
         android:inputType="text"
+        android:textColor="@color/verdeMenta"
+        android:textColorHint="@color/verdeMenta"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextNombre" />
 
@@ -36,10 +74,14 @@
         android:id="@+id/editTextEspecie"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:hint="Especie"
         android:inputType="text"
+        android:textColor="@color/verdeMenta"
+        android:textColorHint="@color/verdeMenta"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextTipo" />
 
@@ -48,10 +90,14 @@
         android:id="@+id/editTextRaza"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:hint="Raza"
         android:inputType="text"
+        android:textColor="@color/verdeMenta"
+        android:textColorHint="@color/verdeMenta"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextEspecie" />
 
@@ -60,10 +106,14 @@
         android:id="@+id/editTextSexo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:hint="Sexo (Macho/Hembra)"
         android:inputType="text"
+        android:textColor="@color/verdeMenta"
+        android:textColorHint="@color/verdeMenta"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextRaza" />
 
@@ -72,10 +122,14 @@
         android:id="@+id/editTextEdad"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:hint="Edad"
         android:inputType="number"
+        android:textColor="@color/verdeMenta"
+        android:textColorHint="@color/verdeMenta"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextSexo" />
 
@@ -84,10 +138,14 @@
         android:id="@+id/editTextPeso"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:hint="Peso"
         android:inputType="numberDecimal"
+        android:textColor="@color/verdeMenta"
+        android:textColorHint="@color/verdeMenta"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextEdad" />
 
@@ -96,10 +154,15 @@
         android:id="@+id/buttonGuardar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/secundario"
         android:text="Guardar"
+        android:textColor="#1C3D30"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextPeso" />
+        app:layout_constraintTop_toBottomOf="@id/editTextPeso"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

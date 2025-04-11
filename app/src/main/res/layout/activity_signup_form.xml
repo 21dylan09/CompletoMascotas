@@ -11,146 +11,178 @@
     tools:context=".actividadesDueño.Signup_Form">
 
     <!-- Nombre completo -->
+
+    <!-- Nombre de usuario -->
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="140dp"
+        android:layout_height="109dp"
+        android:layout_marginBottom="12dp"
+        android:src="@drawable/logo_mascota"
+        app:layout_constraintBottom_toTopOf="@+id/tvRegistro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <EditText
         android:id="@+id/editTextNombre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="144dp"
         android:hint="@string/nombre_hint"
         android:inputType="text"
-        android:textSize="16sp"
+        android:textColor="@color/verdeMenta"
         android:textColorHint="@color/verdeMenta"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Nombre de usuario -->
-    <EditText
-        android:id="@+id/editTextApellido"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/tvRegistro"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:hint="@string/apellido_hint"
-        android:inputType="text"
-        android:textSize="16sp"
-        android:textColorHint="@color/verdeMenta"
+        android:text="Registrate"
+        android:textColor="@color/verdeMenta"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNombre"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextNombre" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
-    <!-- Correo electrónico -->
     <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="4dp"
         android:hint="@string/correo_hint"
         android:inputType="textEmailAddress"
-        android:textSize="16sp"
+        android:textColor="@color/verdeMenta"
         android:textColorHint="@color/verdeMenta"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextApellido" />
 
-    <!-- Contraseña -->
     <EditText
         android:id="@+id/editTextContraseña"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="4dp"
         android:hint="@string/contraseña_hint"
         android:inputType="textPassword"
-        android:textSize="16sp"
+        android:textColor="@color/verdeMenta"
         android:textColorHint="@color/verdeMenta"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextEmail" />
 
-    <!-- Confirmar Contraseña -->
     <EditText
         android:id="@+id/editTextConfirmacionContraseña"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="4dp"
         android:hint="@string/contraseña_confirmacion_hint"
         android:inputType="textPassword"
-        android:textSize="16sp"
+        android:textColor="@color/verdeMenta"
         android:textColorHint="@color/verdeMenta"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextContraseña" />
 
-    <!-- Calle / Dirección -->
     <EditText
         android:id="@+id/editTextStreet"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="4dp"
         android:hint="Direccion de residencia"
         android:inputType="textEmailAddress"
-        android:textSize="16sp"
+        android:textColor="@color/verdeMenta"
         android:textColorHint="@color/verdeMenta"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextConfirmacionContraseña" />
 
-    <!-- Fecha de Nacimiento -->
-    <TextView
-        android:id="@+id/textViewTelefono"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/editTextFecha"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Fecha de Nacimiento"
+        android:layout_marginTop="4dp"
+        android:hint="Fecha de Nacimiento"
+        android:inputType="none"
+        android:textColor="@color/verdeMenta"
         android:textColorHint="@color/verdeMenta"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextStreet" />
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="1.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/editTextStreet" />
 
-    <!-- EditText para seleccionar fecha de nacimiento -->
+
+
     <EditText
         android:id="@+id/editTextTelefono"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="4dp"
         android:hint="@string/telefono_hint"
         android:inputType="date"
-        android:textSize="16sp"
+        android:textColor="@color/verdeMenta"
         android:textColorHint="@color/verdeMenta"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewTelefono" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextFecha" />
 
-    <!-- Selección de rol -->
     <TextView
         android:id="@+id/textViewSelectRole"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="8dp"
         android:text="Seleccione Rol:"
-        android:textSize="16sp"
+        android:textColor="@color/verdeMenta"
         android:textColorHint="@color/verdeMenta"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextTelefono" />
 
-    <!-- Spinner para seleccionar rol -->
     <Spinner
         android:id="@+id/roleSpinner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="4dp"
         android:textColorHint="@color/verdeMenta"
+        android:textColor="@color/verdeMenta"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewSelectRole" />
 
-    <!-- Gender Radio Buttons -->
     <RadioGroup
         android:id="@+id/radioGroupGender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="4dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.675"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/roleSpinner">
 
@@ -159,6 +191,7 @@
             android:layout_height="wrap_content"
             android:text="Genero: "
             android:textColorHint="@color/verdeMenta"
+            android:textColor="@color/verdeMenta"
             android:textSize="16sp" />
 
         <RadioButton
@@ -166,6 +199,7 @@
             android:layout_height="wrap_content"
             android:text="Masculino"
             android:textColorHint="@color/verdeMenta"
+            android:textColor="@color/verdeMenta"
             android:textSize="16sp" />
 
         <RadioButton
@@ -173,21 +207,57 @@
             android:layout_height="wrap_content"
             android:text="Femenino"
             android:textColorHint="@color/verdeMenta"
+            android:textColor="@color/verdeMenta"
             android:textSize="16sp" />
     </RadioGroup>
 
-    <!-- Botón de registro -->
     <Button
         android:id="@+id/registerButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/button_rounded"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="@color/secundario"
         android:text="REGISTRAR"
-        android:textColor="@android:color/white"
+        android:textColor="@color/verdeMenta"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/radioGroupGender" />
+
+    <EditText
+        android:id="@+id/editTextApellido"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:hint="@string/apellido_hint"
+        android:inputType="text"
+        android:textColor="@color/verdeMenta"
+        android:textColorHint="@color/verdeMenta"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextNombre" />
+
+    <!-- Correo electrónico -->
+
+    <!-- Contraseña -->
+
+    <!-- Confirmar Contraseña -->
+
+    <!-- Calle / Dirección -->
+
+    <!-- Fecha de Nacimiento -->
+
+    <!-- telefono -->
+
+    <!-- Selección de rol -->
+
+    <!-- Spinner para seleccionar rol -->
+
+    <!-- Gender Radio Buttons -->
+
+    <!-- Botón de registro -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
