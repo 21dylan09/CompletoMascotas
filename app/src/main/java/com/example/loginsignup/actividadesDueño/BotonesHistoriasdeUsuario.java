@@ -93,7 +93,8 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
         button7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BotonesHistoriasdeUsuario.this, ObtenerUbicacion.class));
+                //startActivity(new Intent(BotonesHistoriasdeUsuario.this, ObtenerUbicacion.class));
+                startActivity(new Intent(BotonesHistoriasdeUsuario.this, VerRecorridoActivity.class));
             }
         });
 
@@ -105,7 +106,9 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Acción para el botón "Recordatorio de Alimentacion"
-                startActivity(new Intent(BotonesHistoriasdeUsuario.this, RecordatoriosAlimentacion.class));
+                //startActivity(new Intent(BotonesHistoriasdeUsuario.this, RecordatoriosAlimentacion.class));
+                startActivity(new Intent(BotonesHistoriasdeUsuario.this, PaseoMascotaActivity.class));
+
             }
         });
 

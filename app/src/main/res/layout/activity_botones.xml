@@ -210,6 +210,7 @@
             app:layout_constraintTop_toBottomOf="@+id/button6"
             tools:ignore="MissingConstraints" />
 
+
         <ImageButton
             android:id="@+id/button8"
             android:layout_width="119dp"
@@ -236,5 +237,18 @@
             app:layout_constraintTop_toBottomOf="@+id/button7"
             tools:ignore="MissingConstraints" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <!-- Botón 3: Restriccion mascota -->
+
+    <!-- Botón 4:Agregar gasto -->
+
+    <!-- Botón 5: Notas mascota -->
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
 </ScrollView>

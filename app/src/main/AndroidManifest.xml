@@ -42,10 +42,18 @@
         <activity android:name=".actividadesVeterinario.AlergiasMascotaActivity" />
         <activity android:name=".actividadesDueño.NotaMascotaActivity" />
         <activity android:name=".actividadesDueño.AgregarGasto" />
+
         <activity android:name=".actividadesDueño.ComidaMascotaActivity" />
         <activity android:name=".actividadesDueño.ObtenerUbicacion" />
         <activity android:name=".actividadesDueño.RecordatoriosAlimentacion" />
         <activity android:name=".actividadesDueño.ZonasSeguras"/>
+
+        <activity android:name=".actividadesDueño.ComidaMascotaActivity"/>
+        <activity android:name=".actividadesDueño.ObtenerUbicacion"/>
+        <activity android:name=".actividadesDueño.RecordatoriosAlimentacion"/>
+        <activity android:name=".actividadesDueño.PaseoMascotaActivity"/>
+        <activity android:name=".actividadesDueño.VerRecorridoActivity"/>
+
 
         <!-- ACTIVIDADES VETERINARIO -->
 

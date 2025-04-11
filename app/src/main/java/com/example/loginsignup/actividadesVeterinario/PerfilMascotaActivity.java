@@ -2,10 +2,13 @@ package com.example.loginsignup.actividadesVeterinario;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
@@ -37,6 +40,9 @@ public class PerfilMascotaActivity extends AppCompatActivity {
     private LinearLayout layoutNotas, layoutAlergias, layoutRestricciones;
     private TableLayout tablaEnfermedades;
     private RestriccionDao restriccionDao;
+    private EditText etPeso;
+    private Button btnActualizarPeso;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +64,10 @@ public class PerfilMascotaActivity extends AppCompatActivity {
         tablaEnfermedades = findViewById(R.id.tableEnfermedades);
         tvRestriccionTitulo = findViewById(R.id.tvRestriccionesTitulo);
         layoutRestricciones = findViewById(R.id.layoutRestricciones);
+        etPeso = findViewById(R.id.etPeso);
+        btnActualizarPeso = findViewById(R.id.btnActualizarPeso);
+
+
 
         // Base de datos
         BaseDatos db = Room.databaseBuilder(getApplicationContext(),
@@ -75,6 +85,7 @@ public class PerfilMascotaActivity extends AppCompatActivity {
         String tipoUsuario = usuarioDao.obtenerTipoDeUsuario(UsuarioSeleccionado.getInstance().getId_Usuario());
 
         Mascota mascota = mascotaDao.obtenerMascotaPorId(idMascota);
+        etPeso.setText(String.valueOf(mascota.getPeso()));
 
         if (tipoUsuario.equals("Veterinario")){
 
@@ -97,12 +108,6 @@ public class PerfilMascotaActivity extends AppCompatActivity {
             tvRaza.setText("Raza: " + mascota.getRaza());
             tvSexo.setText("Sexo: " + mascota.getSexo());
             tvEdad.setText("Edad: " + mascota.getEdad() + " años");
-            tvPeso.setText("Peso: " + mascota.getPeso());
-            // Cargar imagen si existe
-            //if (mascota.getFoto() != null && mascota.getFoto().length > 0) {
-                //ivFotoMascota.setImageBitmap(BitmapFactory.decodeByteArray(
-                      //  mascota.getFoto(), 0, mascota.getFoto().length));
-            //}
         }
 
         // Mostrar notas
@@ -140,6 +145,23 @@ public class PerfilMascotaActivity extends AppCompatActivity {
             row.addView(tvMedicamento);
             tablaEnfermedades.addView(row);
         }
+
+        btnActualizarPeso.setOnClickListener(v -> {
+            String nuevoPesoStr = etPeso.getText().toString().trim();
+            if (!nuevoPesoStr.isEmpty()) {
+                try {
+                    double nuevoPeso = Double.parseDouble(nuevoPesoStr);
+                    mascota.setPeso(nuevoPeso);
+                    mascotaDao.actualizarMascota(mascota); // Asegúrate de tener este método
+                    Toast.makeText(this, "Peso actualizado", Toast.LENGTH_SHORT).show();
+                } catch (NumberFormatException e) {
+                    Toast.makeText(this, "Peso inválido", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this, "Ingresa un peso válido", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     private void cargarRestricciones() {
