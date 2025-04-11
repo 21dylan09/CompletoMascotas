@@ -6,6 +6,7 @@
     android:orientation="vertical"
     tools:context=".actividadesDueño.ZonasSeguras">
 
+    <!-- Fragmento de Google Maps -->
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
@@ -13,17 +14,44 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
+    <!-- EditText para ingresar el nombre de la zona -->
+    <EditText
+        android:id="@+id/nombreZonaSeguraInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre de la zona"
+        android:padding="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_background"
+        android:textColor="#000000"
+        android:inputType="text" />
+
+    <!-- Botón para agregar la zona segura -->
+    <Button
+        android:id="@+id/btnAgregarZonaSegura"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🔐 Agregar zona segura"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/btnEliminarZonaSegura"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="❌ Eliminar zona segura"
+        android:layout_marginTop="8dp" />
+
+    <!-- TextView para mostrar las zonas guardadas -->
     <TextView
         android:id="@+id/textoZonaSegura"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Zona segura no definida"
+        android:text="Zonas seguras guardadas aparecerán aquí"
+        android:layout_marginTop="16dp"
         android:textSize="16sp"
-        android:padding="16dp"
-        android:gravity="center"
-        android:textColor="#000000"
-        android:background="#E0E0E0" />
+        android:textColor="#FFFFFF" />
 
+    <!-- Botón para obtener la ubicación -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,13 +65,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="📍 Obtener ubicación" />
-
-        <Button
-            android:id="@+id/btnAgregarZonaSegura"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="🔐 Agregar zona segura"
-            android:layout_marginStart="8dp"/>
     </LinearLayout>
+
 </LinearLayout>
