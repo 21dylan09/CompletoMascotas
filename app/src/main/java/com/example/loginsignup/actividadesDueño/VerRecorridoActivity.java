@@ -2,6 +2,7 @@ package com.example.loginsignup.actividadesDueño;
 
 import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TimePicker;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.loginsignup.R;
 import com.example.loginsignup.baseDatos.entidades.BaseDatos;
@@ -105,6 +107,7 @@ public class VerRecorridoActivity extends AppCompatActivity implements OnMapRead
         PolylineOptions recorrido = new PolylineOptions();
 
         for (Ubicacion u : lista) {
+            Log.d("Mapa", "Punto: " + u.getLatitud() + ", " + u.getLongitud());
             LatLng punto = new LatLng(u.getLatitud(), u.getLongitud());
             recorrido.add(punto);
         }
