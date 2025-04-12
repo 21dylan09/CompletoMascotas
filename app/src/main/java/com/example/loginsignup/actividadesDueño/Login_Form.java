@@ -59,11 +59,11 @@ public class Login_Form extends AppCompatActivity {
             Executor executor = Executors.newSingleThreadExecutor();
 
             executor.execute(() -> {
-                // ⚙️ Código en segundo plano
+
                 Usuario usuario = usuarioDao.autenticarUsuario(email, password);
 
                 runOnUiThread(() -> {
-                    // 🎨 Código en hilo principal (UI)
+
                     if (usuario != null) {
                         UsuarioSeleccionado.getInstance().setId_Usuario(usuario.getId_usuario());
                         Toast.makeText(Login_Form.this, "Ingreso exitoso", Toast.LENGTH_SHORT).show();

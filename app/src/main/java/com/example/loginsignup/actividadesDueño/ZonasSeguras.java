@@ -1,7 +1,12 @@
 package com.example.loginsignup.actividadesDueño;
 
 import android.Manifest;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
@@ -15,6 +20,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import com.example.loginsignup.R;
@@ -30,12 +36,12 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,12 +56,11 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
     private Button btnObtenerUbicacion, btnAgregarZonaSegura, btnEliminarZonaSegura;
     private EditText nombreZonaSeguraInput;
     private TextView textoZonaSegura;
-    private List<ZonaSegura> listaZonasSeguras; // Lista de zonas seguras guardadas
-    private List<Marker> marcadoresZonas; // Para mantener el marcador de cada zona segura
-    private List<Geofence> geocercas; // Para gestionar las geocercas de las zonas
-    private List<Circle> circulosZonasSeguras; // Lista para los círculos de las zonas seguras
-    private Marker marcadorUsuario;  // Variable para el marcador de la ubicación actual del usuario
-
+    private List<ZonaSegura> listaZonasSeguras;
+    private List<Marker> marcadoresZonas;
+    private List<Geofence> geocercas;
+    private List<Circle> circulosZonasSeguras;
+    private Marker marcadorUsuario;
 
     private static final float RADIO_ZONA_SEGURA = 200f;
     private static final String ID_GEOCERCA = "ZONA_SEGURA";
@@ -64,6 +69,8 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
     private LatLng ubicacionActual = null;
 
     private LocationCallback locationCallback;
+
+    private static final String CHANNEL_ID = "mascota_perdida_channel"; // Canal para notificaciones
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,6 +140,7 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
         });
 
         configurarCallbackUbicacion();
+        crearCanalNotificacion(); // Crear el canal de notificación
     }
 
     @Override
@@ -184,7 +192,6 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
                 .addOnSuccessListener(unused -> Log.d("ZonasSeguras", "Geocerca agregada correctamente"))
                 .addOnFailureListener(e -> Log.e("ZonasSeguras", "Error al agregar geocerca: " + ayudanteGeocerca.obtenerMensajeError(e)));
     }
-
     private boolean nombreZonaExistente(String nombreZona) {
         for (ZonaSegura zona : listaZonasSeguras) {
             if (zona.getNombre().equalsIgnoreCase(nombreZona)) {
@@ -192,6 +199,34 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
             }
         }
         return false; // No existe
+    }
+
+    private void notificarMascotaPerdida(LatLng ubicacion) {
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        // Crear la notificación
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.logo_mascota) // Cambia esto por tu ícono
+                .setContentTitle("¡Tu mascota está perdida!")
+                .setContentText("La mascota ha salido de la zona segura. Última ubicación: " + ubicacion.latitude + ", " + ubicacion.longitude)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setAutoCancel(true);
+
+        // Enviar la notificación
+        notificationManager.notify(1, builder.build());
+    }
+
+    private void crearCanalNotificacion() {
+        // Crear el canal de notificación para Android 8 y versiones posteriores
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            CharSequence name = "Zona Segura";
+            String description = "Notificaciones sobre la mascota perdida";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
     }
 
     private void eliminarZonaSegura(ZonaSegura zona) {
@@ -247,6 +282,10 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
                 LatLng nuevaUbicacion = new LatLng(location.getLatitude(), location.getLongitude());
                 ubicacionActual = nuevaUbicacion;
 
+                // Comprobar si la mascota está fuera de la zona segura
+                comprobarSiEstaFueraDeLaZona(nuevaUbicacion, coordenadasZonaSegura);
+
+                // Actualizar el marcador de la ubicación del usuario en el mapa
                 if (marcadorUsuario == null) {
                     marcadorUsuario = mapa.addMarker(new MarkerOptions()
                             .position(nuevaUbicacion)
@@ -277,9 +316,18 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
         clienteUbicacion.requestLocationUpdates(solicitud, locationCallback, Looper.getMainLooper());
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        clienteUbicacion.removeLocationUpdates(locationCallback);
+    private void comprobarSiEstaFueraDeLaZona(LatLng ubicacionMascota, LatLng zonaSegura) {
+        // Calcular la distancia entre la ubicación de la mascota y el centro de la zona segura
+        float[] distancia = new float[1];
+        Location.distanceBetween(
+                ubicacionMascota.latitude, ubicacionMascota.longitude,
+                zonaSegura.latitude, zonaSegura.longitude,
+                distancia);
+
+        // Si la distancia es mayor al radio de la zona segura, la mascota está fuera de la zona
+        if (distancia[0] > RADIO_ZONA_SEGURA) {
+            // Notificar que la mascota está fuera de la zona segura
+            notificarMascotaPerdida(ubicacionMascota);
+        }
     }
 }
