@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
 import com.example.loginsignup.baseDatos.dao.*;
 
 
-@Database(entities = {Usuario.class, Mascota.class, CitaVeterinaria.class, Estado.class, Enfermedad.class, HistorialMedico.class, Restriccion.class, EnfermedadCronica.class, Alergia.class, NotaMascota.class, Gasto.class, Ubicacion.class, RegistroPeso.class}, version = 5)
+@Database(entities = {Usuario.class, Mascota.class, CitaVeterinaria.class, Estado.class, Enfermedad.class, HistorialMedico.class, Restriccion.class, EnfermedadCronica.class, Alergia.class, NotaMascota.class, Gasto.class, Ubicacion.class, RegistroPeso.class}, version = 6)
 
 public abstract class BaseDatos extends RoomDatabase {
     private static volatile BaseDatos INSTANCE;

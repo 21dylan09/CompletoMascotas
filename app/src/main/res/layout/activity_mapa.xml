@@ -1,0 +1,115 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutZonaSegura"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".actividadesDueño.ZonasSeguras">
+
+    <!-- Fragmento de Google Maps -->
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- EditText para ingresar el nombre de la zona -->
+    <EditText
+        android:id="@+id/nombreZonaSeguraInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre de la zona"
+        android:padding="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_background"
+        android:textColor="#000000"
+        android:inputType="text" />
+
+    <!-- Botón para agregar la zona segura -->
+    <Button
+        android:id="@+id/btnAgregarZonaSegura"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🔐 Agregar zona segura"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/btnEliminarZonaSegura"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="❌ Eliminar zona segura"
+        android:layout_marginTop="8dp" />
+
+    <!-- TextView para mostrar las zonas guardadas -->
+    <TextView
+        android:id="@+id/textoZonaSegura"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Zonas seguras guardadas aparecerán aquí"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF" />
+
+    <!-- Botón para obtener la ubicación -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnObtenerUbicacion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="📍 Obtener ubicación" />
+    </LinearLayout>
+
+    <!-- NUEVO BLOQUE debajo del mapa o zona segura -->
+    <LinearLayout
+        android:id="@+id/layoutContactos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:background="#f0f0f0">
+
+        <EditText
+            android:id="@+id/inputNombreContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre del contacto" />
+
+        <EditText
+            android:id="@+id/inputCorreoContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="Correo del contacto" />
+
+        <Button
+            android:id="@+id/btnAgregarContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="➕ Agregar contacto" />
+
+        <TextView
+            android:id="@+id/textListaContactos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contactos añadidos:"
+            android:textStyle="bold"
+            android:paddingTop="8dp"/>
+
+        <ListView
+            android:id="@+id/listaContactos"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="1dp" />
+    </LinearLayout>
+
+
+</LinearLayout>
