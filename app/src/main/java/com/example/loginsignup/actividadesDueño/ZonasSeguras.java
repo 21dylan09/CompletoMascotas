@@ -13,8 +13,10 @@ import android.location.Location;
 import android.os.Bundle;
 import android.os.Looper;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -72,6 +74,22 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
 
     private static final String CHANNEL_ID = "mascota_perdida_channel"; // Canal para notificaciones
 
+    private EditText inputNombreContacto, inputCorreoContacto;
+    private Button btnAgregarContacto;
+    private ListView listaContactosView;
+    private ArrayAdapter<String> contactosAdapter;
+    private List<Contacto> listaContactos = new ArrayList<>();
+
+    public static class Contacto {
+        String nombre;
+        String correo;
+
+        public Contacto(String nombre, String correo) {
+            this.nombre = nombre;
+            this.correo = correo;
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,6 +109,38 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
         clienteGeocerca = LocationServices.getGeofencingClient(this);
         clienteUbicacion = LocationServices.getFusedLocationProviderClient(this);
         ayudanteGeocerca = new GeoCercaHelper(this);
+
+        inputNombreContacto = findViewById(R.id.inputNombreContacto);
+        inputCorreoContacto = findViewById(R.id.inputCorreoContacto);
+        btnAgregarContacto = findViewById(R.id.btnAgregarContacto);
+        listaContactosView = findViewById(R.id.listaContactos);
+
+        contactosAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+        listaContactosView.setAdapter(contactosAdapter);
+
+        btnAgregarContacto.setOnClickListener(v -> {
+            String nombre = inputNombreContacto.getText().toString().trim();
+            String correo = inputCorreoContacto.getText().toString().trim();
+
+            if (nombre.isEmpty() || correo.isEmpty()) {
+                Toast.makeText(this, "Completa ambos campos", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            for (Contacto c : listaContactos) {
+                if (c.correo.equalsIgnoreCase(correo)) {
+                    Toast.makeText(this, "Este contacto ya existe", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+
+            Contacto nuevo = new Contacto(nombre, correo);
+            listaContactos.add(nuevo);
+            contactosAdapter.add(nombre + " (" + correo + ")");
+            inputNombreContacto.setText("");
+            inputCorreoContacto.setText("");
+        });
+
 
         SupportMapFragment fragmentoMapa = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -202,19 +252,39 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void notificarMascotaPerdida(LatLng ubicacion) {
+        // Notificación local
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
-        // Crear la notificación
+        // Construcción de la notificación
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.logo_mascota) // Cambia esto por tu ícono
+                .setSmallIcon(R.drawable.logo_mascota)  // Reemplaza con el icono adecuado
                 .setContentTitle("¡Tu mascota está perdida!")
-                .setContentText("La mascota ha salido de la zona segura. Última ubicación: " + ubicacion.latitude + ", " + ubicacion.longitude)
+                .setContentText("Salió de la zona segura. Última ubicación: " + ubicacion.latitude + ", " + ubicacion.longitude)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setAutoCancel(true);
 
-        // Enviar la notificación
+        // Mostrar la notificación
         notificationManager.notify(1, builder.build());
+
+        // Enviar correo a cada contacto en la lista de contactos
+        for (Contacto contacto : listaContactos) {
+            new Thread(() -> {
+                try {
+                    MailSender.enviarCorreo(
+                            getApplicationContext(), // Asegúrate de pasar el contexto
+                            contacto.correo,
+                            "🚨 Alerta: Mascota perdida",
+                            "Hola " + contacto.nombre + ",\n\nLa mascota ha salido de su zona segura.\nÚltima ubicación conocida:\nLat: " +
+                                    ubicacion.latitude + "\nLng: " + ubicacion.longitude
+                    );
+                } catch (Exception e) {
+                    e.printStackTrace();  // Manejo de errores al enviar correo
+                }
+            }).start();
+        }
     }
+
+
 
     private void crearCanalNotificacion() {
         // Crear el canal de notificación para Android 8 y versiones posteriores
@@ -330,4 +400,5 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
             notificarMascotaPerdida(ubicacionMascota);
         }
     }
+
 }

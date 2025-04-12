@@ -67,4 +67,49 @@
             android:text="📍 Obtener ubicación" />
     </LinearLayout>
 
+    <!-- NUEVO BLOQUE debajo del mapa o zona segura -->
+    <LinearLayout
+        android:id="@+id/layoutContactos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:background="#f0f0f0">
+
+        <EditText
+            android:id="@+id/inputNombreContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre del contacto" />
+
+        <EditText
+            android:id="@+id/inputCorreoContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="Correo del contacto" />
+
+        <Button
+            android:id="@+id/btnAgregarContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="➕ Agregar contacto" />
+
+        <TextView
+            android:id="@+id/textListaContactos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contactos añadidos:"
+            android:textStyle="bold"
+            android:paddingTop="8dp"/>
+
+        <ListView
+            android:id="@+id/listaContactos"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="1dp" />
+    </LinearLayout>
+
+
 </LinearLayout>
