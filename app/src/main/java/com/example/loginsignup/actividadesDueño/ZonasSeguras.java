@@ -73,6 +73,8 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
     private List<Circle> circulosZonasSeguras;
     private Marker marcadorUsuario;
 
+
+
     private static final float RADIO_ZONA_SEGURA = 200f;
     private static final String ID_GEOCERCA = "ZONA_SEGURA";
 
@@ -81,7 +83,7 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
 
     private LocationCallback locationCallback;
 
-    private static final String CHANNEL_ID = "mascota_perdida_channel"; // Canal para notificaciones
+    private boolean mensajeAutomaticoEnviado = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,6 +120,18 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
 
         // Mostrar la alerta de ubicación al iniciar
         mostrarAlertaUbicacion();
+
+        Button btnReenviarAlerta = findViewById(R.id.btnReactivarAlerta);
+        btnReenviarAlerta.setOnClickListener(v -> {
+            if (ubicacionActual != null) {
+                String direccion = obtenerDireccion(ubicacionActual.latitude, ubicacionActual.longitude);
+                enviarMensajeAMascotasFueraDeZona(direccion);
+                Toast.makeText(this, "Mensaje reenviado manualmente", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Ubicación no disponible", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         // Botón para agregar zona segura
         btnAgregarZonaSegura.setOnClickListener(v -> {
@@ -158,7 +172,6 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
         });
 
         configurarCallbackUbicacion();
-        crearCanalNotificacion(); // Crear el canal de notificación
     }
     // Solicitar permisos para enviar SMS
     @Override
@@ -247,26 +260,18 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void enviarMensajeAMascotasFueraDeZona(String direccion) {
-        // Verificar permisos antes de enviar mensaje
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
-            // Solicitar permisos si no están concedidos
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, SMS_PERMISSION_CODE);
             return;
         }
 
-        // Usar ExecutorService para consultar los contactos en segundo plano
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         executorService.execute(() -> {
-            // Obtener los teléfonos de los contactos en segundo plano
             List<String> telefonos = contactoDao.obtenerTelefonosDeContactos();
 
-            // Enviar los mensajes después de obtener los números de teléfono
             if (telefonos != null && !telefonos.isEmpty()) {
                 for (String telefono : telefonos) {
-                    // Crear el mensaje con la dirección incluida
-                    String mensaje = "Tu mascota ha salido de la zona segura. Última ubicación: " + direccion;
-
-                    // Enviar el mensaje SMS a cada teléfono
+                    String mensaje = "🚨 ¡Tu mascota ha salido de la zona segura! Última ubicación: " + direccion;
                     enviarSms(telefono, mensaje);
                 }
             }
@@ -274,11 +279,14 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
     }
 
 
+
     private void enviarSms(String phoneNumber, String messageText) {
         try {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
+
                 SmsManager smsManager = SmsManager.getDefault();
-                smsManager.sendTextMessage(phoneNumber, null, messageText, null, null);
+                ArrayList<String> parts = smsManager.divideMessage(messageText);  // Divide si es largo
+                smsManager.sendMultipartTextMessage(phoneNumber, null, parts, null, null);
                 Log.d("ZonasSeguras", "Mensaje enviado a: " + phoneNumber);
             } else {
                 Log.e("ZonasSeguras", "Permiso para enviar SMS no concedido");
@@ -288,56 +296,7 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-
-    private void crearCanalNotificacion() {
-        // Crear el canal de notificación para Android 8 y versiones posteriores
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            CharSequence name = "Zona Segura";
-            String description = "Notificaciones sobre la mascota perdida";
-            int importance = NotificationManager.IMPORTANCE_HIGH;
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
-            channel.setDescription(description);
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
-        }
-    }
-
-    private void eliminarZonaSegura(ZonaSegura zona) {
-        // Primero eliminamos la zona de la lista
-        listaZonasSeguras.remove(zona);
-
-        // Eliminar solo el círculo asociado a la zona
-        if (zona.getZonaSeguraCircle() != null) {
-            zona.getZonaSeguraCircle().remove();  // Eliminar el círculo del mapa
-        }
-
-        // Actualizar la lista de zonas seguras en el TextView
-        mostrarZonasGuardadas();
-        Toast.makeText(this, "Zona eliminada", Toast.LENGTH_SHORT).show();
-    }
-
-    private void mostrarZonasGuardadas() {
-        StringBuilder texto = new StringBuilder("Zonas seguras guardadas:\n");
-        Geocoder geocoder = new Geocoder(this);
-
-        for (ZonaSegura zona : listaZonasSeguras) {
-            // Obtener las coordenadas de la zona
-            LatLng coordenadas = zona.getCoordenadas();
-
-            // Convertir coordenadas en dirección
-            String direccion = obtenerDireccion(coordenadas.latitude, coordenadas.longitude);
-
-            if (direccion != null) {
-                texto.append(zona.getNombre()).append(" - ").append(direccion).append("\n");
-            } else {
-                texto.append(zona.getNombre()).append(" - Dirección no disponible\n");
-            }
-        }
-
-        textoZonaSegura.setText(texto.toString());
-    }
-
-    // Método para obtener la dirección a partir de las coordenadas
+    // Método para obtener la dirección completa a partir de las coordenadas
     private String obtenerDireccion(double latitude, double longitude) {
         Geocoder geocoder = new Geocoder(this);
         try {
@@ -381,6 +340,45 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
         }
 
         return null; // En caso de error o si no se encontró dirección
+    }
+
+
+
+
+
+    private void eliminarZonaSegura(ZonaSegura zona) {
+        // Primero eliminamos la zona de la lista
+        listaZonasSeguras.remove(zona);
+
+        // Eliminar solo el círculo asociado a la zona
+        if (zona.getZonaSeguraCircle() != null) {
+            zona.getZonaSeguraCircle().remove();  // Eliminar el círculo del mapa
+        }
+
+        // Actualizar la lista de zonas seguras en el TextView
+        mostrarZonasGuardadas();
+        Toast.makeText(this, "Zona eliminada", Toast.LENGTH_SHORT).show();
+    }
+
+    private void mostrarZonasGuardadas() {
+        StringBuilder texto = new StringBuilder("Zonas seguras guardadas:\n");
+        Geocoder geocoder = new Geocoder(this);
+
+        for (ZonaSegura zona : listaZonasSeguras) {
+            // Obtener las coordenadas de la zona
+            LatLng coordenadas = zona.getCoordenadas();
+
+            // Convertir coordenadas en dirección
+            String direccion = obtenerDireccion(coordenadas.latitude, coordenadas.longitude);
+
+            if (direccion != null) {
+                texto.append(zona.getNombre()).append(" - ").append(direccion).append("\n");
+            } else {
+                texto.append(zona.getNombre()).append(" - Dirección no disponible\n");
+            }
+        }
+
+        textoZonaSegura.setText(texto.toString());
     }
 
 
@@ -429,23 +427,19 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void comprobarSiEstaFueraDeLaZona(LatLng ubicacionMascota, LatLng zonaSegura) {
-        // Calcular la distancia entre la ubicación de la mascota y el centro de la zona segura
         float[] distancia = new float[1];
         Location.distanceBetween(
                 ubicacionMascota.latitude, ubicacionMascota.longitude,
                 zonaSegura.latitude, zonaSegura.longitude,
-                distancia);
+                distancia
+        );
 
-        // Si la distancia es mayor al radio de la zona segura, la mascota está fuera de la zona
-        if (distancia[0] > RADIO_ZONA_SEGURA) {
-            // Obtener la dirección de la ubicación donde la mascota ha salido de la zona
+        if (distancia[0] > RADIO_ZONA_SEGURA && !mensajeAutomaticoEnviado) {
+            mensajeAutomaticoEnviado = true; // Evita más mensajes automáticos
             String direccion = obtenerDireccion(ubicacionMascota.latitude, ubicacionMascota.longitude);
-
-            // Notificar que la mascota está fuera de la zona segura, pasando la dirección al mensaje
             enviarMensajeAMascotasFueraDeZona(direccion);
         }
     }
-
 
 
 }
