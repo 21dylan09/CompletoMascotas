@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:background="?android:attr/selectableItemBackground">
+
+    <!-- Nombre del contacto -->
+    <TextView
+        android:id="@+id/contactoNombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Nombre del contacto"
+        android:textSize="16sp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"/>
+
+    <!-- Teléfono del contacto (en lugar de correo) -->
+    <TextView
+        android:id="@+id/contactoTelefono"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Teléfono del contacto"
+        android:textSize="16sp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"/>
+
+    <!-- Botón para eliminar contacto -->
+    <Button
+        android:id="@+id/btnEliminarContacto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eliminar"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#FF0000"/>
+</LinearLayout>

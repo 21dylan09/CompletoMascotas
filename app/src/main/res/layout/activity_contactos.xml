@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- EditText para ingresar el nombre del contacto -->
+    <EditText
+        android:id="@+id/inputNombreContacto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del contacto"
+        android:inputType="textPersonName"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- EditText para ingresar el correo del contacto -->
+    <EditText
+        android:id="@+id/inputCorreoContacto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Correo del contacto"
+        android:inputType="textEmailAddress"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- EditText para ingresar el teléfono del contacto -->
+    <EditText
+        android:id="@+id/inputTelefonoContacto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Teléfono del contacto"
+        android:inputType="phone"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Botón para agregar el contacto -->
+    <Button
+        android:id="@+id/btnAgregarContacto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="➕ Agregar Contacto"
+        android:layout_marginTop="16dp"/>
+
+    <!-- TextView para mostrar los contactos guardados -->
+    <TextView
+        android:id="@+id/textoListaContactos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contactos añadidos:"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"/>
+
+    <!-- ListView para mostrar los contactos guardados -->
+    <ListView
+        android:id="@+id/listaContactos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

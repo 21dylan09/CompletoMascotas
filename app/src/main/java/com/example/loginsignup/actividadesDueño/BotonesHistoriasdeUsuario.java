@@ -15,7 +15,7 @@ import com.example.loginsignup.R;
 public class BotonesHistoriasdeUsuario extends AppCompatActivity {
 
 
-    private ImageButton button1, button2, button3, button4, button5, button6, button7, button9; // Declarar los nuevos botones
+    private ImageButton button1, button2, button3, button4, button5, button6, button7, button9, button10; // Declarar los nuevos botones
     private ImageButton boton_atras, button8;
     private TextView tvTitulo;
 
@@ -29,8 +29,8 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
         button1 = findViewById(R.id.button1);
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
-        button4 = findViewById(R.id.button4); // Inicializa el botón 4
-        button5 = findViewById(R.id.button5); // Inicializa el botón 5
+        button4 = findViewById(R.id.button4);
+        button5 = findViewById(R.id.button5);
         button6 = findViewById(R.id.button6);
         button7 = findViewById(R.id.button7);
         boton_atras = findViewById(R.id.btnBack);
@@ -38,6 +38,7 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
         tvTitulo.setText("OPCIONES");
         button8 = findViewById(R.id.button8);
         button9 = findViewById(R.id.button9);
+        button10 = findViewById(R.id.button10);
 
         // Botón para recomendacion alimentacion
         button1.setOnClickListener(new View.OnClickListener() {
@@ -117,6 +118,14 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
             public void onClick(View v) {
                 // Acción para el botón "Recordatorio de Alimentacion"
                 startActivity(new Intent(BotonesHistoriasdeUsuario.this, ZonasSeguras.class));
+            }
+        });
+
+        button10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Acción para el botón "Contactos de confianza"
+                startActivity(new Intent(BotonesHistoriasdeUsuario.this, ContactosConfianza.class));
             }
         });
     }
