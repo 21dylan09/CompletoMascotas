@@ -17,9 +17,7 @@ import java.util.Calendar;
 
 import androidx.room.Room;
 
-import com.example.loginsignup.actividadesDueño.BotonesHistoriasdeUsuario;
-import com.example.loginsignup.actividadesDueño.MascotaSeleccionada;
-import com.example.loginsignup.actividadesDueño.Mascotas_Form;
+import com.example.loginsignup.actividadesDueño.registro.MascotaSeleccionada;
 import com.example.loginsignup.baseDatos.dao.HistorialDao;
 import com.example.loginsignup.baseDatos.entidades.BaseDatos;
 import com.example.loginsignup.baseDatos.entidades.HistorialMedico;

@@ -9,9 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.loginsignup.R;
-import com.example.loginsignup.actividadesDueño.BotonesHistoriasdeUsuario;
 import com.example.loginsignup.actividadesDueño.HistorialClinico;
-import com.example.loginsignup.actividadesDueño.Mascotas_Form;
 
 
 public class BotonesVeterinario extends AppCompatActivity {

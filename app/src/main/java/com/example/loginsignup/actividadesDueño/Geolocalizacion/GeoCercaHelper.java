@@ -1,4 +1,4 @@
-package com.example.loginsignup.actividadesDueño;
+package com.example.loginsignup.actividadesDueño.Geolocalizacion;
 
 
 import android.annotation.SuppressLint;

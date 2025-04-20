@@ -1,6 +1,6 @@
-package com.example.loginsignup.actividadesDueño;
+package com.example.loginsignup.actividadesDueño.registro;
 
-public class UsuarioSeleccionado {
+public class  UsuarioSeleccionado {
     private static UsuarioSeleccionado instancia;
     private int id_Usuario;
 

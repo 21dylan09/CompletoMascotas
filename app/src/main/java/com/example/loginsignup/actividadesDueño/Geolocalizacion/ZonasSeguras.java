@@ -1,9 +1,7 @@
-package com.example.loginsignup.actividadesDueño;
+package com.example.loginsignup.actividadesDueño.Geolocalizacion;
 
 import android.Manifest;
 import android.app.AlertDialog;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
@@ -19,11 +17,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.location.Geocoder;
 import android.location.Address;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
-import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
@@ -341,10 +337,6 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
 
         return null; // En caso de error o si no se encontró dirección
     }
-
-
-
-
 
     private void eliminarZonaSegura(ZonaSegura zona) {
         // Primero eliminamos la zona de la lista

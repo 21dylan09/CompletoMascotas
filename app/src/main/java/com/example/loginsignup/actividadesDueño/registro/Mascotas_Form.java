@@ -1,4 +1,4 @@
-package com.example.loginsignup.actividadesDueño;
+package com.example.loginsignup.actividadesDueño.registro;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import com.example.loginsignup.R;
+import com.example.loginsignup.actividadesDueño.BotonesHistoriasdeUsuario;
 import com.example.loginsignup.baseDatos.dao.MascotaDao;
 import com.example.loginsignup.baseDatos.entidades.BaseDatos;
 import com.example.loginsignup.baseDatos.entidades.Mascota;

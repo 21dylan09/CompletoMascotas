@@ -4,13 +4,17 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.loginsignup.R;
+import com.example.loginsignup.actividadesDueño.Geolocalizacion.ContactosConfianza;
+import com.example.loginsignup.actividadesDueño.Geolocalizacion.PaseoMascotaActivity;
+import com.example.loginsignup.actividadesDueño.Geolocalizacion.VerRecorridoActivity;
+import com.example.loginsignup.actividadesDueño.Geolocalizacion.ZonasSeguras;
+import com.example.loginsignup.actividadesDueño.registro.Mascotas_Form;
 
 public class BotonesHistoriasdeUsuario extends AppCompatActivity {
 
@@ -44,7 +48,7 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BotonesHistoriasdeUsuario.this, RecomendacionesAlimentacion.class));
+                startActivity(new Intent(BotonesHistoriasdeUsuario.this, HistorialClinico.class));
             }
         });
 

@@ -1,18 +1,15 @@
-package com.example.loginsignup.actividadesDueño;
+package com.example.loginsignup.actividadesDueño.registro;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import com.example.loginsignup.R;
 import com.example.loginsignup.actividadesCuidador.DueñosTodosCuidador;
-import com.example.loginsignup.actividadesVeterinario.AlergiasMascotaActivity;
 import com.example.loginsignup.actividadesVeterinario.DueñosTodos;
 import com.example.loginsignup.baseDatos.dao.UsuarioDao;
 import com.example.loginsignup.baseDatos.entidades.BaseDatos;

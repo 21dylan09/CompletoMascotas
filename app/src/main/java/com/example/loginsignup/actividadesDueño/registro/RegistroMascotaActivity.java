@@ -1,4 +1,4 @@
-package com.example.loginsignup.actividadesDueño;
+package com.example.loginsignup.actividadesDueño.registro;
 
 import android.content.Intent;
 import android.os.Bundle;

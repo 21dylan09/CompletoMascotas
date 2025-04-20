@@ -12,11 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import com.example.loginsignup.R;
-import com.example.loginsignup.actividadesDueño.BotonesHistoriasdeUsuario;
-import com.example.loginsignup.actividadesDueño.DueñoSeleccionado;
-import com.example.loginsignup.actividadesDueño.MascotaSeleccionada;
-import com.example.loginsignup.actividadesDueño.MascotasListAdapter;
-import com.example.loginsignup.actividadesDueño.Mascotas_Form;
+import com.example.loginsignup.actividadesDueño.registro.DueñoSeleccionado;
+import com.example.loginsignup.actividadesDueño.registro.MascotaSeleccionada;
+import com.example.loginsignup.actividadesDueño.registro.MascotasListAdapter;
 import com.example.loginsignup.baseDatos.dao.MascotaDao;
 import com.example.loginsignup.baseDatos.entidades.BaseDatos;
 import com.example.loginsignup.baseDatos.entidades.Mascota;

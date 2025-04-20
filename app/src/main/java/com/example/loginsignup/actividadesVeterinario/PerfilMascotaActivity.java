@@ -14,9 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import com.example.loginsignup.R;
-import com.example.loginsignup.actividadesDueño.DueñoSeleccionado;
-import com.example.loginsignup.actividadesDueño.MascotaSeleccionada;
-import com.example.loginsignup.actividadesDueño.UsuarioSeleccionado;
+import com.example.loginsignup.actividadesDueño.registro.MascotaSeleccionada;
+import com.example.loginsignup.actividadesDueño.registro.UsuarioSeleccionado;
 import com.example.loginsignup.baseDatos.dao.AlergiaDao;
 import com.example.loginsignup.baseDatos.dao.EnfermedadCronicaDao;
 import com.example.loginsignup.baseDatos.dao.MascotaDao;

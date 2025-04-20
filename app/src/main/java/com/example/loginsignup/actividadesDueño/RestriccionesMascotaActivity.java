@@ -18,6 +18,7 @@ import androidx.room.Room;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 import com.example.loginsignup.R;
+import com.example.loginsignup.actividadesDueño.registro.MascotaSeleccionada;
 import com.example.loginsignup.baseDatos.dao.RestriccionDao;
 import com.example.loginsignup.baseDatos.entidades.BaseDatos;
 import com.example.loginsignup.baseDatos.entidades.Restriccion;

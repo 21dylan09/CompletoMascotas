@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 import java.util.List;
 import com.example.loginsignup.R;
+import com.example.loginsignup.actividadesDueño.registro.MascotaSeleccionada;
 import com.example.loginsignup.baseDatos.dao.NotaMascotaDao;
 import com.example.loginsignup.baseDatos.entidades.BaseDatos;
 import com.example.loginsignup.baseDatos.entidades.NotaMascota;

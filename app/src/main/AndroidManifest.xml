@@ -35,12 +35,12 @@
         <!-- ACTIVIDADES DUEÑO -->
 
         <receiver
-            android:name=".actividadesDueño.GeofenceBroadcastReceiver"
+            android:name=".actividadesDueño.Geolocalizacion.GeofenceBroadcastReceiver"
             android:exported="true" />
 
-        <activity android:name=".actividadesDueño.Signup_Form" />
-        <activity android:name=".actividadesDueño.Mascotas_Form" />
-        <activity android:name=".actividadesDueño.RegistroMascotaActivity" />
+        <activity android:name=".actividadesDueño.registro.Signup_Form" />
+        <activity android:name=".actividadesDueño.registro.Mascotas_Form" />
+        <activity android:name=".actividadesDueño.registro.RegistroMascotaActivity" />
         <activity android:name=".actividadesDueño.BotonesHistoriasdeUsuario" />
         <activity android:name=".actividadesVeterinario.AgregarDatosHistoriaMedica" />
         <activity android:name=".actividadesDueño.HistorialClinico" />
@@ -52,13 +52,13 @@
         <activity android:name=".actividadesDueño.AgregarGasto" />
 
         <activity android:name=".actividadesDueño.ComidaMascotaActivity" />
-        <activity android:name=".actividadesDueño.ObtenerUbicacion" />
+        <activity android:name=".actividadesDueño.Geolocalizacion.ObtenerUbicacion" />
         <activity android:name=".actividadesDueño.RecordatoriosAlimentacion" />
-        <activity android:name=".actividadesDueño.ZonasSeguras"/>
+        <activity android:name=".actividadesDueño.Geolocalizacion.ZonasSeguras"/>
 
-        <activity android:name=".actividadesDueño.PaseoMascotaActivity"/>
-        <activity android:name=".actividadesDueño.VerRecorridoActivity"/>
-        <activity android:name=".actividadesDueño.ContactosConfianza"/>
+        <activity android:name=".actividadesDueño.Geolocalizacion.PaseoMascotaActivity"/>
+        <activity android:name=".actividadesDueño.Geolocalizacion.VerRecorridoActivity"/>
+        <activity android:name=".actividadesDueño.Geolocalizacion.ContactosConfianza"/>
 
 
         <!-- ACTIVIDADES VETERINARIO -->
@@ -76,7 +76,7 @@
 
         <!-- Actividad de login (Login_Form) -->
         <activity
-            android:name=".actividadesDueño.Login_Form"
+            android:name=".actividadesDueño.registro.Login_Form"
             android:exported="true"> <!-- Mantén esto si es la actividad principal con intent-filter -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

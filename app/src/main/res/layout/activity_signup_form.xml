@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:padding="30dp"
     android:visibility="visible"
-    tools:context=".actividadesDueño.Signup_Form">
+    tools:context=".actividadesDueño.registro.Signup_Form">
 
     <!-- Nombre completo -->
 

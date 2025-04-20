@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/fondo"
     android:padding="30dp"
-    tools:context=".actividadesDueño.RegistroMascotaActivity"
+    tools:context=".actividadesDueño.registro.RegistroMascotaActivity"
     tools:layout_editor_absoluteX="27dp"
     tools:layout_editor_absoluteY="234dp">
 

@@ -1,7 +1,6 @@
 package com.example.loginsignup.actividadesDueño;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 import com.example.loginsignup.R;
+import com.example.loginsignup.actividadesDueño.registro.MascotaSeleccionada;
 import com.example.loginsignup.baseDatos.entidades.BaseDatos;
 import com.example.loginsignup.baseDatos.entidades.Mascota;
 import java.util.ArrayList;

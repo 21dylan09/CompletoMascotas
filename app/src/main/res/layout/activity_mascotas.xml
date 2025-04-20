@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo"
-    tools:context=".actividadesDueño.Mascotas_Form">
+    tools:context=".actividadesDueño.registro.Mascotas_Form">
 
     <!-- Barra superior -->
     <include

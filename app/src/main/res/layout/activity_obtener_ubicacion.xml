@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:background="@color/fondo"
-    tools:context="actividadesDueño.ObtenerUbicacion">
+    tools:context=".actividadesDueño.Geolocalizacion.ObtenerUbicacion">
 
     <include
         android:id="@+id/topBar"
