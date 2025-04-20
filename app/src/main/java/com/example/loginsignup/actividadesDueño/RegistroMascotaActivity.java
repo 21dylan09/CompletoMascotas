@@ -9,14 +9,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 import com.example.loginsignup.R;
 import com.example.loginsignup.baseDatos.dao.MascotaDao;
+import com.example.loginsignup.baseDatos.dao.RegistroPesoDAO;
 import com.example.loginsignup.baseDatos.entidades.BaseDatos;
 import com.example.loginsignup.baseDatos.entidades.Mascota;
+import com.example.loginsignup.baseDatos.entidades.RegistroPeso;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class RegistroMascotaActivity extends AppCompatActivity {
 
     private EditText editTextNombre, editTextSexo, editTextEspecie, editTextTipo, editTextEdad, editTextRaza, editTextPeso;
     private Button buttonGuardar;
     private MascotaDao mascotaDao;
+    private RegistroPesoDAO registroPesoDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +33,8 @@ public class RegistroMascotaActivity extends AppCompatActivity {
         // Inicialización de la base de datos y DAO
         BaseDatos db = Room.databaseBuilder(getApplicationContext(), BaseDatos.class, "aplicacion_db").allowMainThreadQueries().build();
         mascotaDao = db.mascotaDao();
+        registroPesoDao = db.registroPesoDAO();
+
 
         // Inicialización de los campos de entrada
         editTextNombre = findViewById(R.id.editTextNombre);
@@ -93,8 +102,16 @@ public class RegistroMascotaActivity extends AppCompatActivity {
                 null
         );
 
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault());
+        String fechaActual = sdf.format(new Date());
+
+
+
+
         // Guardar la mascota en la base de datos (suponiendo que ya tienes la implementación de mascotaDao)
-        mascotaDao.insertarMascota(nuevaMascota);
+        long idMascota = mascotaDao.insertarMascota(nuevaMascota);
+        RegistroPeso primerRegistro = new RegistroPeso(fechaActual, peso, (int) idMascota);
+        registroPesoDao.insertar(primerRegistro);
 
         Toast.makeText(this, "Mascota registrada con éxito", Toast.LENGTH_SHORT).show();
         finish(); // Cerrar la actividad

@@ -13,7 +13,7 @@ import java.util.List;
 public interface MascotaDao {
 
     @Insert
-    void insertarMascota(Mascota mascota);
+    long insertarMascota(Mascota mascota);
 
     @Query("SELECT * FROM mascotas WHERE id_dueño = :idUsuario")
     List<Mascota> obtenerMascotasDeUsuario(int idUsuario);
@@ -31,5 +31,8 @@ public interface MascotaDao {
 
     @Update
     void actualizarMascota(Mascota mascota);
+
+    @Query("SELECT * FROM mascotas WHERE nombre = :nombre AND id_dueño = :idDueño LIMIT 1")
+    Mascota obtenerPorNombreYDueno(String nombre, int idDueño);
 
 }

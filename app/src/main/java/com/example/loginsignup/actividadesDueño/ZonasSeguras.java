@@ -246,7 +246,7 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
         return false; // No existe
     }
 
-    private void enviarMensajeAMascotasFueraDeZona(LatLng ubicacionMascota) {
+    private void enviarMensajeAMascotasFueraDeZona(String direccion) {
         // Verificar permisos antes de enviar mensaje
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
             // Solicitar permisos si no están concedidos
@@ -260,9 +260,6 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
             // Obtener los teléfonos de los contactos en segundo plano
             List<String> telefonos = contactoDao.obtenerTelefonosDeContactos();
 
-            // Obtener la dirección de la ubicación de la mascota
-            String direccion = obtenerDireccion(ubicacionMascota.latitude, ubicacionMascota.longitude);
-
             // Enviar los mensajes después de obtener los números de teléfono
             if (telefonos != null && !telefonos.isEmpty()) {
                 for (String telefono : telefonos) {
@@ -275,6 +272,7 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
             }
         });
     }
+
 
     private void enviarSms(String phoneNumber, String messageText) {
         try {
@@ -440,10 +438,14 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
 
         // Si la distancia es mayor al radio de la zona segura, la mascota está fuera de la zona
         if (distancia[0] > RADIO_ZONA_SEGURA) {
-            // Notificar que la mascota está fuera de la zona segura
-            enviarMensajeAMascotasFueraDeZona();
+            // Obtener la dirección de la ubicación donde la mascota ha salido de la zona
+            String direccion = obtenerDireccion(ubicacionMascota.latitude, ubicacionMascota.longitude);
+
+            // Notificar que la mascota está fuera de la zona segura, pasando la dirección al mensaje
+            enviarMensajeAMascotasFueraDeZona(direccion);
         }
     }
+
 
 
 }
