@@ -10,7 +10,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.loginsignup.R;
+import com.example.loginsignup.actividadesDueño.*;
 import com.example.loginsignup.actividadesDueño.Geolocalizacion.ContactosConfianza;
+import com.example.loginsignup.actividadesDueño.Geolocalizacion.DuenoMapaActivity;
 import com.example.loginsignup.actividadesDueño.Geolocalizacion.PaseoMascotaActivity;
 import com.example.loginsignup.actividadesDueño.Geolocalizacion.VerRecorridoActivity;
 import com.example.loginsignup.actividadesDueño.Geolocalizacion.ZonasSeguras;
@@ -19,7 +21,7 @@ import com.example.loginsignup.actividadesDueño.registro.Mascotas_Form;
 public class BotonesHistoriasdeUsuario extends AppCompatActivity {
 
 
-    private ImageButton button1, button2, button3, button4, button5, button6, button7, button9, button10; // Declarar los nuevos botones
+    private ImageButton button1, button2, button3, button4, button5, button6, button7, button9, button10, button11; // Declarar los nuevos botones
     private ImageButton boton_atras, button8;
     private TextView tvTitulo;
 
@@ -43,6 +45,7 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
         button8 = findViewById(R.id.button8);
         button9 = findViewById(R.id.button9);
         button10 = findViewById(R.id.button10);
+        button11 = findViewById(R.id.button11);
 
         // Botón para recomendacion alimentacion
         button1.setOnClickListener(new View.OnClickListener() {
@@ -130,6 +133,14 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
             public void onClick(View v) {
                 // Acción para el botón "Contactos de confianza"
                 startActivity(new Intent(BotonesHistoriasdeUsuario.this, ContactosConfianza.class));
+            }
+        });
+
+        button11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Acción para el botón "Contactos de confianza"
+                startActivity(new Intent(BotonesHistoriasdeUsuario.this, DuenoMapaActivity.class));
             }
         });
     }

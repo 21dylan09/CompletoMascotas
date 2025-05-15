@@ -1,6 +1,7 @@
 package com.example.loginsignup.baseDatos.dao;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
@@ -31,6 +32,8 @@ public interface MascotaDao {
 
     @Update
     void actualizarMascota(Mascota mascota);
+
+
 
     @Query("SELECT * FROM mascotas WHERE nombre = :nombre AND id_dueño = :idDueño LIMIT 1")
     Mascota obtenerPorNombreYDueno(String nombre, int idDueño);

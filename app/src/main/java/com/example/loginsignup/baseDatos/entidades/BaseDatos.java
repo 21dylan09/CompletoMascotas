@@ -13,7 +13,7 @@ import com.example.loginsignup.baseDatos.dao.*;
 
 
 @Database(entities = {Usuario.class, Mascota.class, CitaVeterinaria.class, Estado.class, Enfermedad.class, HistorialMedico.class,
-        Restriccion.class, EnfermedadCronica.class, Alergia.class, NotaMascota.class, Gasto.class, Ubicacion.class, Contactos.class, RegistroPeso.class}, version = 7) // Asegúrate de que la versión sea 6
+        Restriccion.class, EnfermedadCronica.class, Alergia.class, NotaMascota.class, Gasto.class, Ubicacion.class, Contactos.class, RegistroPeso.class, UbicacionCuidador.class}, version = 7) // Asegúrate de que la versión sea 6
 public abstract class BaseDatos extends RoomDatabase {
 
     private static volatile BaseDatos INSTANCE;
@@ -32,6 +32,9 @@ public abstract class BaseDatos extends RoomDatabase {
     public abstract UbicacionDAO ubicacionDAO();
     public abstract ContactoDao contactoDao();
     public abstract RegistroPesoDAO registroPesoDAO();
+    public abstract UbicacionCuidadorDAO UbicacionCuidadorDAO();
+
+
 
     // Método para obtener la instancia de la base de datos
     public static BaseDatos getBaseDatos(final Context context){

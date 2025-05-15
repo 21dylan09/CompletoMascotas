@@ -278,19 +278,27 @@ public class ZonasSeguras extends FragmentActivity implements OnMapReadyCallback
 
     private void enviarSms(String phoneNumber, String messageText) {
         try {
+            // Verifica si el permiso está concedido
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
-
                 SmsManager smsManager = SmsManager.getDefault();
-                ArrayList<String> parts = smsManager.divideMessage(messageText);  // Divide si es largo
+
+                // Divide el mensaje si es largo
+                ArrayList<String> parts = smsManager.divideMessage(messageText);
+
+                // Envía el mensaje dividido en partes (sin PendingIntent)
                 smsManager.sendMultipartTextMessage(phoneNumber, null, parts, null, null);
                 Log.d("ZonasSeguras", "Mensaje enviado a: " + phoneNumber);
             } else {
                 Log.e("ZonasSeguras", "Permiso para enviar SMS no concedido");
+                Toast.makeText(this, "Permiso para enviar SMS no concedido", Toast.LENGTH_SHORT).show();
             }
         } catch (Exception e) {
             Log.e("ZonasSeguras", "Error al enviar el mensaje: " + e.getMessage());
+            Toast.makeText(this, "Error al enviar el SMS.", Toast.LENGTH_SHORT).show();
         }
     }
+
+
 
     // Método para obtener la dirección completa a partir de las coordenadas
     private String obtenerDireccion(double latitude, double longitude) {

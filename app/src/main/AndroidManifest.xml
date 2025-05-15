@@ -59,6 +59,7 @@
         <activity android:name=".actividadesDueño.Geolocalizacion.PaseoMascotaActivity"/>
         <activity android:name=".actividadesDueño.Geolocalizacion.VerRecorridoActivity"/>
         <activity android:name=".actividadesDueño.Geolocalizacion.ContactosConfianza"/>
+        <activity android:name=".actividadesDueño.Geolocalizacion.DuenoMapaActivity"/>
 
 
         <!-- ACTIVIDADES VETERINARIO -->
@@ -72,6 +73,7 @@
         <activity android:name=".actividadesCuidador.DueñosTodosCuidador" />
         <activity android:name=".actividadesCuidador.BotonesCuidador" />
         <activity android:name=".actividadesCuidador.MascotasVistaCuidador" />
+        <activity android:name=".actividadesCuidador.CuidadorMapaActivity" />
 
 
         <!-- Actividad de login (Login_Form) -->
@@ -87,6 +89,8 @@
             android:name=".actividadesDueño.RecordatoriosAlimentacion$AlarmReceiver"
             android:enabled="true"
             android:exported="false" />
+
+
 
     </application>
 

@@ -8,10 +8,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.loginsignup.R;
 import com.example.loginsignup.actividadesVeterinario.AgregarDatosHistoriaMedica;
 import com.example.loginsignup.actividadesVeterinario.PerfilMascotaActivity;
+import com.example.loginsignup.actividadesCuidador.CuidadorMapaActivity;
 
 
 public class BotonesCuidador extends AppCompatActivity{
-    private ImageButton button1, button2;
+    private ImageButton button1, button2, button3;
 
 
     @SuppressLint("MissingInflatedId")
@@ -23,6 +24,7 @@ public class BotonesCuidador extends AppCompatActivity{
         // Inicializa los botones
         button1 = findViewById(R.id.button1);
         button2 = findViewById(R.id.button2);
+        button3 = findViewById(R.id.button3);
 
         // Botón para agregar datos a la historia clínica
         button1.setOnClickListener(new View.OnClickListener() {
@@ -36,6 +38,13 @@ public class BotonesCuidador extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(BotonesCuidador.this, PerfilMascotaActivity.class));
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(BotonesCuidador.this, CuidadorMapaActivity.class));
             }
         });
 
