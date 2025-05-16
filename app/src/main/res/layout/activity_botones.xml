@@ -21,6 +21,7 @@
 
         <!-- Todos tus botones y TextView aquí ↓ -->
 
+        <!-- Boton 1: Recomendacion de alimentación ↓ -->
         <ImageButton
             android:id="@+id/button1"
             android:layout_width="116dp"
@@ -31,6 +32,19 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/logo_mascota"
             tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="116dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:text="Recomendacion de alimentacion"
+            android:textAppearance="@style/elegante"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button1"
+            tools:ignore="MissingConstraints" />
+
+        <!-- Boton 2: Ver historial medico ↓ -->
 
         <ImageButton
             android:id="@+id/button2"
@@ -43,28 +57,17 @@
             app:srcCompat="@drawable/logo_mascota" />
 
         <TextView
-            android:id="@+id/textView1"
-            android:layout_width="116dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="10dp"
-            android:text="Recomendacion de alimentacion"
-            android:textAppearance="@style/elegante"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button1"
-            tools:ignore="MissingConstraints" />
-
-        <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginEnd="60dp"
             android:text="Ver historial medico"
             android:textAppearance="@style/elegante"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button2"
             tools:ignore="MissingConstraints" />
+
+        <!-- Boton 3: Restricciones de mascota ↓ -->
 
         <ImageButton
             android:id="@+id/button3"
@@ -82,12 +85,37 @@
             android:layout_width="116dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
-            android:layout_marginTop="10dp"
             android:text="Restricciones de mascota"
             android:textAppearance="@style/elegante"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button3"
             tools:ignore="MissingConstraints" />
+
+        <!-- Boton 4: Agregar gastos ↓ -->
+
+        <ImageButton
+            android:id="@+id/button4"
+            android:layout_width="116dp"
+            android:layout_height="91dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:srcCompat="@drawable/logo_mascota"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="72dp"
+            android:text="Agregar gastos"
+            android:textAppearance="@style/elegante"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button4"
+            tools:ignore="MissingConstraints" />
+
+        <!-- Boton 5: Notas de la mascota ↓ -->
 
         <ImageButton
             android:id="@+id/button5"
@@ -105,19 +133,43 @@
             android:layout_width="116dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
-            android:layout_marginTop="10dp"
             android:text="Notas de la mascota"
             android:textAppearance="@style/elegante"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button5"
             tools:ignore="MissingConstraints" />
 
+        <!-- Boton 6: Registro de comida ↓ -->
+
+        <ImageButton
+            android:id="@+id/button6"
+            android:layout_width="116dp"
+            android:layout_height="91dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="64dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:srcCompat="@drawable/logo_mascota"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="116dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="60dp"
+            android:text="Registro de comida"
+            android:textAppearance="@style/elegante"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button6"
+            tools:ignore="MissingConstraints" />
+
+        <!-- Boton 7: Obtener ubicación ↓ -->
         <ImageButton
             android:id="@+id/button7"
             android:layout_width="116dp"
             android:layout_height="91dp"
             android:layout_marginStart="60dp"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="15dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView5"
             app:srcCompat="@drawable/logo_mascota"
@@ -128,12 +180,37 @@
             android:layout_width="116dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
-            android:layout_marginTop="8dp"
             android:text="Obtener ubicacion"
             android:textAppearance="@style/elegante"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button7"
             tools:ignore="MissingConstraints" />
+
+        <!-- Boton 8: Recordatorios de alimentación ↓ -->
+
+        <ImageButton
+            android:id="@+id/button8"
+            android:layout_width="119dp"
+            android:layout_height="91dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:srcCompat="@drawable/logo_mascota"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="116dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="60dp"
+            android:text="Recordatorios de Alimentacion"
+            android:textAppearance="@style/elegante"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button8"
+            tools:ignore="MissingConstraints" />
+
+        <!-- Boton 9: Generar zonas seguras ↓ -->
 
         <ImageButton
             android:id="@+id/button9"
@@ -151,82 +228,13 @@
             android:layout_width="116dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
-            android:layout_marginTop="10dp"
             android:text="Generar zonas seguras"
             android:textAppearance="@style/elegante"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button9"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
-            android:id="@+id/button4"
-            android:layout_width="116dp"
-            android:layout_height="91dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="60dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
-            app:srcCompat="@drawable/logo_mascota"
-            tools:ignore="MissingConstraints" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="72dp"
-            android:text="Agregar gastos"
-            android:textAppearance="@style/elegante"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button4"
-            tools:ignore="MissingConstraints" />
-
-        <ImageButton
-            android:id="@+id/button6"
-            android:layout_width="116dp"
-            android:layout_height="91dp"
-            android:layout_marginTop="39dp"
-            android:layout_marginEnd="60dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"
-            app:srcCompat="@drawable/logo_mascota"
-            tools:ignore="MissingConstraints" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="116dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="60dp"
-            android:text="Registro de comida"
-            android:textAppearance="@style/elegante"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button6"
-            tools:ignore="MissingConstraints" />
-
-
-        <ImageButton
-            android:id="@+id/button8"
-            android:layout_width="119dp"
-            android:layout_height="91dp"
-            android:layout_marginTop="28dp"
-            android:layout_marginEnd="60dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6"
-            app:srcCompat="@drawable/logo_mascota"
-            tools:ignore="MissingConstraints" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="116dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="60dp"
-            android:text="Recordatorios de Alimentacion"
-            android:textAppearance="@style/elegante"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button8"
-            tools:ignore="MissingConstraints" />
+        <!-- Boton 10: Contactos de confianza ↓ -->
 
         <ImageButton
             android:id="@+id/button10"
@@ -242,22 +250,10 @@
             app:srcCompat="@drawable/logo_mascota"
             tools:ignore="MissingConstraints" />
 
-        <ImageButton
-            android:id="@+id/button11"
-            android:layout_width="119dp"
-            android:layout_height="91dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="26dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button9"
-            app:srcCompat="@drawable/logo_mascota"
-            tools:ignore="MissingConstraints" />
-
         <TextView
             android:id="@+id/textView10"
             android:layout_width="116dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginEnd="60dp"
             android:text="Contactos de confianza"
             android:textAppearance="@style/elegante"
@@ -265,24 +261,39 @@
             app:layout_constraintTop_toBottomOf="@+id/button10"
             tools:ignore="MissingConstraints" />
 
+        <!-- Boton 11: Cuidadores cercanos ↓ -->
+
+        <ImageButton
+            android:id="@+id/button11"
+            android:layout_width="119dp"
+            android:layout_height="91dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9"
+            app:srcCompat="@drawable/logo_mascota"
+            tools:ignore="MissingConstraints" />
+
+
         <TextView
             android:id="@+id/textView11"
             android:layout_width="116dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
-            android:layout_marginTop="92dp"
             android:text="Cuidadores cercanos"
             android:textAppearance="@style/elegante"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/button11"
             tools:ignore="MissingConstraints" />
+
+        <!-- Boton 12: Medir ritmo cardiaco ↓ -->
 
         <ImageButton
             android:id="@+id/button12"
             android:layout_width="119dp"
             android:layout_height="91dp"
-            android:layout_marginTop="35dp"
-            android:layout_marginEnd="72dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="60dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView10"
             app:srcCompat="@drawable/logo_mascota"
@@ -292,12 +303,83 @@
             android:id="@+id/textView12"
             android:layout_width="116dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginEnd="60dp"
             android:text="Medir ritmo cardiaco"
             android:textAppearance="@style/elegante"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button12"
+            tools:ignore="MissingConstraints" />
+
+        <!-- Boton 13: Nueva historia de usuario ↓ -->
+
+        <ImageButton
+            android:id="@+id/button13"
+            android:layout_width="119dp"
+            android:layout_height="91dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11"
+            app:srcCompat="@drawable/logo_mascota"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="116dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:text="Nueva historia de usuario"
+            android:textAppearance="@style/elegante"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button13"
+            tools:ignore="MissingConstraints" />
+
+        <!-- Boton 14: Nueva historia de usuario ↓ -->
+
+        <ImageButton
+            android:id="@+id/button14"
+            android:layout_width="119dp"
+            android:layout_height="91dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12"
+            app:srcCompat="@drawable/logo_mascota"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="116dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="60dp"
+            android:text="Nueva historia de usuario"
+            android:textAppearance="@style/elegante"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button14"
+            tools:ignore="MissingConstraints" />
+
+        <!-- Boton 15: Nueva historia de usuario ↓ -->
+
+        <ImageButton
+            android:id="@+id/button15"
+            android:layout_width="119dp"
+            android:layout_height="91dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13"
+            app:srcCompat="@drawable/logo_mascota"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="116dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:text="Nueva historia de usuario"
+            android:textAppearance="@style/elegante"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button15"
             tools:ignore="MissingConstraints" />
 
 
