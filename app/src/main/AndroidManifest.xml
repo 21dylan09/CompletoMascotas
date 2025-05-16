@@ -61,6 +61,7 @@
         <activity android:name=".actividadesDueño.Geolocalizacion.VerRecorridoActivity"/>
         <activity android:name=".actividadesDueño.Geolocalizacion.ContactosConfianza"/>
         <activity android:name=".actividadesDueño.Geolocalizacion.DuenoMapaActivity"/>
+        <activity android:name=".actividadesDueño.veterinaria.MapsActivity"/>
 
 
         <!-- ACTIVIDADES VETERINARIO -->

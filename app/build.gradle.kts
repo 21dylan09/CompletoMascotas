@@ -39,6 +39,9 @@ android {
 
 dependencies {
 
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.8.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 // Biblioteca GSON, para anotaciones @SerializedName, etc.
     implementation("com.google.code.gson:gson:2.8.9")
@@ -52,6 +55,9 @@ dependencies {
     implementation("com.google.android.gms:play-services-maps:18.0.0")
     implementation("com.sun.mail:android-mail:1.6.7")
     implementation("com.sun.mail:android-activation:1.6.7")
+    implementation("com.android.volley:volley:1.2.1")
+    implementation("com.github.bumptech.glide:glide:4.15.1")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")
     implementation(libs.material.v1110)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
