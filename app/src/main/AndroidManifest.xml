@@ -55,6 +55,7 @@
         <activity android:name=".actividadesDueño.Geolocalizacion.ObtenerUbicacion" />
         <activity android:name=".actividadesDueño.RecordatoriosAlimentacion" />
         <activity android:name=".actividadesDueño.Geolocalizacion.ZonasSeguras"/>
+        <activity android:name=".actividadesDueño.registro.RitmoCardiaco"/>
 
         <activity android:name=".actividadesDueño.Geolocalizacion.PaseoMascotaActivity"/>
         <activity android:name=".actividadesDueño.Geolocalizacion.VerRecorridoActivity"/>
