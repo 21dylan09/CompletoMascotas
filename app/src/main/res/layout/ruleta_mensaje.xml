@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/fondo"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Consejos para Papás"
+        android:textColor="@color/verdeMenta"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tvDescripcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sabemos que ser papá de una mascota es agotador y a veces difícil, por eso te damos algunos consejitos para que cuides de ella mejor."
+        android:textSize="16sp"
+        android:textColor="@color/verde"
+        android:textAlignment="center"
+        android:layout_marginBottom="24dp"
+        android:paddingHorizontal="12dp" />
+
+    <ImageView
+        android:id="@+id/ruleta"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/ruleta_image" />
+
+    <Button
+        android:id="@+id/btnGirar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/secundario"
+        android:text="Girar"
+        android:textColor="#1C3D30"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:id="@+id/tvConsejo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pulsa GIRAR para un consejo"
+        android:textColor="@color/verde"
+        android:textSize="18sp"
+        android:layout_marginTop="24dp"
+        android:textAlignment="center"
+        android:padding="8dp" />
+
+    <Button
+        android:id="@+id/btnCompartir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/secundario"
+        android:text="Compartir Consejo"
+        android:textColor="#1C3D30"
+        android:layout_marginTop="16dp"
+        android:visibility="gone" />
+</LinearLayout>

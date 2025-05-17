@@ -352,7 +352,7 @@
             android:layout_width="116dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="60dp"
-            android:text="Nueva historia de usuario"
+            android:text="Ruleta Mensajes de Cuidado"
             android:textAppearance="@style/elegante"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button14"
