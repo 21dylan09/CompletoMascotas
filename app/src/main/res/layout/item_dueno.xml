@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:text="Nombre del dueño de la mascota"
         android:textSize="18sp"
-        android:textColor="@android:color/white"
+        android:textColor="@color/verdeMenta"
+
         android:gravity="center"
         android:padding="16dp"
         android:background="@drawable/rounded_background"/>

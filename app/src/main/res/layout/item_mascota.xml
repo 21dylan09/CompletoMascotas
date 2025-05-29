@@ -10,8 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Nombre de la mascota"
+        android:textColor="@color/verdeMenta"
         android:textSize="18sp"
-        android:textColor="@android:color/white"
+
         android:gravity="center"
         android:padding="16dp"
         android:background="@drawable/rounded_background"/>

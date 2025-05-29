@@ -12,17 +12,35 @@
         android:layout_width="match_parent"
         android:layout_height="56dp" />
 
+
+    <TextView
+        android:id="@+id/tvTituloGastos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gastos de tu Peludo"
+        android:textColor="@color/verdeMenta"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"/>
+
+
     <EditText
         android:id="@+id/etDescripcionGasto"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:hint="Descripción del Gasto"
+        android:textColor="@color/verdeMenta"
+        android:textColorHint="@color/verdeMenta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/tvTituloGastos" />
 
     <EditText
         android:id="@+id/etMontoGasto"
@@ -32,6 +50,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:hint="Monto"
+        android:textColor="@color/verdeMenta"
+        android:textColorHint="@color/verdeMenta"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,8 +64,9 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:backgroundTint="#A0E8AF"
         android:text="Registrar Gasto"
+        android:backgroundTint="@color/secundario"
+        android:textColor="#1C3D30"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etMontoGasto" />
@@ -71,7 +92,7 @@
         android:layout_marginEnd="143dp"
         android:layout_marginBottom="9dp"
         android:text="Monto Total: $0"
-        android:textColor="#000000"
+        android:textColor="@color/verdeMenta"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

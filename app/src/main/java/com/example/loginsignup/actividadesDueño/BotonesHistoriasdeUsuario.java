@@ -13,6 +13,7 @@ import com.example.loginsignup.R;
 import com.example.loginsignup.actividadesDueño.*;
 import com.example.loginsignup.actividadesDueño.Geolocalizacion.ContactosConfianza;
 import com.example.loginsignup.actividadesDueño.Geolocalizacion.DuenoMapaActivity;
+import com.example.loginsignup.actividadesDueño.Geolocalizacion.ObtenerUbicacion;
 import com.example.loginsignup.actividadesDueño.Geolocalizacion.PaseoMascotaActivity;
 import com.example.loginsignup.actividadesDueño.Geolocalizacion.VerRecorridoActivity;
 import com.example.loginsignup.actividadesDueño.Geolocalizacion.ZonasSeguras;
@@ -20,11 +21,12 @@ import com.example.loginsignup.actividadesDueño.registro.Mascotas_Form;
 import com.example.loginsignup.actividadesDueño.registro.RitmoCardiaco;
 import com.example.loginsignup.actividadesDueño.registro.RuletadeMensajes;
 import com.example.loginsignup.actividadesDueño.veterinaria.MapsActivity;
+import com.example.loginsignup.actividadesVeterinario.PerfilMascotaActivity;
 
 public class BotonesHistoriasdeUsuario extends AppCompatActivity {
 
 
-    private ImageButton button1, button2, button3, button4, button5, button6, button7, button9, button10, button11, button12, button13, button14; // Declarar los nuevos botones
+    private ImageButton button1, button2, button3, button4, button5, button6, button7, button9, button10, button11, button12, button13, button14, button15; // Declarar los nuevos botones
     private ImageButton boton_atras, button8;
     private TextView tvTitulo;
 
@@ -52,12 +54,13 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
         button12 = findViewById(R.id.button12);
         button13 = findViewById(R.id.button13);
         button14 = findViewById(R.id.button14);
+        button15 = findViewById(R.id.button15);
 
         // Botón para recomendacion alimentacion
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BotonesHistoriasdeUsuario.this, HistorialClinico.class));
+                startActivity(new Intent(BotonesHistoriasdeUsuario.this, PerfilMascotaActivity.class));
             }
         });
 
@@ -108,7 +111,7 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //startActivity(new Intent(BotonesHistoriasdeUsuario.this, ObtenerUbicacion.class));
-                startActivity(new Intent(BotonesHistoriasdeUsuario.this, VerRecorridoActivity.class));
+                startActivity(new Intent(BotonesHistoriasdeUsuario.this, ObtenerUbicacion.class));
             }
         });
 
@@ -170,6 +173,13 @@ public class BotonesHistoriasdeUsuario extends AppCompatActivity {
             public void onClick(View v) {
                 // Acción para el botón "Contactos de confianza"
                 startActivity(new Intent(BotonesHistoriasdeUsuario.this, RuletadeMensajes.class));
+            }
+        });
+        button15.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Acción para el botón "Contactos de confianza"
+                startActivity(new Intent(BotonesHistoriasdeUsuario.this, VerRecorridoActivity.class));
             }
         });
 

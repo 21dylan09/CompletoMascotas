@@ -1,39 +1,70 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="@color/fondo"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/timeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hora de la alarma: 00:00"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:textSize="18sp" />
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp" />
 
-    <Button
-        android:id="@+id/setTimeButton"
+    <TextView
+        android:id="@+id/tvTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Seleccionar hora"
-        android:layout_below="@id/timeTextView"
+        android:text="Alarma para Recordar Alimentar a tu Peludo"
+        android:textColor="@color/verdeMenta"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_below="@id/topBar"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="16dp"
+        android:gravity="center" />
+
+    <LinearLayout
+        android:id="@+id/layoutHora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTitulo"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/timeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hora de la alarma: 00:00"
+            android:textColor="@color/verdeMenta"
+            android:textSize="18sp"
+            android:layout_marginEnd="10dp" />
+
+        <Button
+            android:id="@+id/setTimeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/secundario"
+            android:textColor="#1C3D30"
+            android:text="Seleccionar hora" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/setAlarmButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Establecer Alarma"
-        android:layout_below="@id/setTimeButton"
+        android:layout_below="@id/layoutHora"
+        android:backgroundTint="@color/secundario"
+        android:textColor="#1C3D30"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp" />
 
-    <!-- Agregar ListView para mostrar alarmas -->
     <ListView
         android:id="@+id/alarmListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/setAlarmButton"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp" />
 </RelativeLayout>
+

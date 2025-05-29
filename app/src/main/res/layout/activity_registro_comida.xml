@@ -6,6 +6,18 @@
     android:background="@color/fondo"
     android:padding="16dp">
 
+    <!-- Título centrado -->
+    <TextView
+        android:id="@+id/tvTituloRegistroComida"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registro de la Comida de Tu Mascota:"
+        android:textColor="@color/verdeMenta"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingBottom="16dp" />
+
     <!-- TextView para mostrar recomendaciones -->
     <TextView
         android:id="@+id/tvRecomendacion"
@@ -13,6 +25,7 @@
         android:layout_height="wrap_content"
         android:text="Recomendación: El peso de su mascota es _______ y su edad es _______ le recomendamos que le de __ kg de comida."
         android:textSize="16sp"
+        android:textColor="@color/verdeMenta"
         android:paddingTop="10dp"
         android:layout_marginBottom="10dp"/>
 
@@ -22,6 +35,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Cantidad de comida comprada (kg)"
+        android:textColor="@color/verdeMenta"
+        android:textColorHint="@color/verdeMenta"
         android:inputType="numberDecimal"
         android:layout_marginBottom="10dp"/>
 
@@ -31,6 +46,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Marca de comida"
+        android:textColor="@color/verdeMenta"
+        android:textColorHint="@color/verdeMenta"
         android:layout_marginBottom="10dp"/>
 
     <!-- Botón para agregar comida -->
@@ -39,8 +56,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Agregar Comida"
-        android:layout_marginBottom="15dp"
-        android:backgroundTint="#A0E8AF"/>
+        android:textColor="#1C3D30"
+        android:backgroundTint="@color/secundario"
+        android:layout_marginBottom="15dp"/>
 
     <!-- TextView para mostrar los kilos de comida restantes -->
     <TextView
@@ -49,6 +67,7 @@
         android:layout_height="wrap_content"
         android:text="Kilos de comida restantes: 0 kg"
         android:textSize="16sp"
+        android:textColor="@color/verdeMenta"
         android:paddingTop="10dp"
         android:layout_marginBottom="10dp"/>
 
@@ -64,6 +83,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Cantidad comida comida a la mascota (kg)"
+        android:textColor="@color/verdeMenta"
+        android:textColorHint="@color/verdeMenta"
         android:inputType="numberDecimal"
         android:layout_marginBottom="10dp"/>
 
@@ -73,6 +94,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Registrar Gasto"
+        android:textColor="#1C3D30"
         android:backgroundTint="#F26C4F"/>
 
     <!-- ListView para mostrar el historial de los gastos -->

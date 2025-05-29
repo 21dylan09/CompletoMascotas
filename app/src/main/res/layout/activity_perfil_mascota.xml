@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nombre de la Mascota"
+            android:textColor="@color/verdeMenta"
             android:textSize="30sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -45,7 +46,7 @@
                 android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="18dp"
-                android:layout_weight="1">>
+                android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/tvTipo"
@@ -54,6 +55,7 @@
                     android:text="Animal: animal"
                     android:textSize="18sp"
                     android:textStyle="bold"
+                    android:textColor="@color/verdeMenta"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -64,6 +66,7 @@
                     android:text="Especie: especie"
                     android:textSize="18sp"
                     android:textStyle="bold"
+                    android:textColor="@color/verdeMenta"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvTipo" />
 
@@ -74,6 +77,7 @@
                     android:text="Raza: Labrador"
                     android:textSize="18sp"
                     android:textStyle="bold"
+                    android:textColor="@color/verdeMenta"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvEspecie" />
 
@@ -84,6 +88,7 @@
                     android:text="Sexo: Macho"
                     android:textSize="18sp"
                     android:textStyle="bold"
+                    android:textColor="@color/verdeMenta"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvRaza" />
 
@@ -94,6 +99,7 @@
                     android:text="Edad: 3 años"
                     android:textSize="18sp"
                     android:textStyle="bold"
+                    android:textColor="@color/verdeMenta"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvSexo" />
 
@@ -105,6 +111,7 @@
                     android:text="Peso:"
                     android:textSize="18sp"
                     android:textStyle="bold"
+                    android:textColor="@color/verdeMenta"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvEdad" />
 
@@ -114,6 +121,8 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:hint="Peso (kg)"
+                    android:textColor="@color/verdeMenta"
+                    android:textColorHint="@color/verdeMenta"
                     android:inputType="numberDecimal"
                     app:layout_constraintStart_toEndOf="@+id/tvPeso"
                     app:layout_constraintTop_toBottomOf="@+id/tvEdad" />
@@ -125,9 +134,10 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="3dp"
                     android:text="Actualizar"
+                    android:backgroundTint="@color/secundario"
+                    android:textColor="#1C3D30"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent" />
-
 
                 <!-- Puedes agregar más campos aquí -->
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -140,6 +150,7 @@
             android:text="Notas:"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:textColor="@color/verdeMenta"
             android:paddingTop="16dp"
             android:paddingBottom="8dp" />
 
@@ -156,6 +167,7 @@
             android:text="Alergias:"
             android:textStyle="bold"
             android:textSize="20sp"
+            android:textColor="@color/verdeMenta"
             android:layout_marginTop="16dp" />
 
         <LinearLayout
@@ -174,10 +186,10 @@
             android:text="Restricciones:"
             android:textStyle="bold"
             android:textSize="20sp"
+            android:textColor="@color/verdeMenta"
             android:layout_marginTop="16dp"
             android:visibility="gone"/>
 
-        <!-- Layout para Restricciones (Oculto por defecto) -->
         <LinearLayout
             android:id="@+id/layoutRestricciones"
             android:layout_width="match_parent"
@@ -195,6 +207,7 @@
             android:text="Enfermedades Crónicas"
             android:textStyle="bold"
             android:textSize="18sp"
+            android:textColor="@color/verdeMenta"
             android:paddingTop="16dp" />
 
         <TableLayout
@@ -215,7 +228,8 @@
                     android:text="Enfermedad"
                     android:textStyle="bold"
                     android:padding="8dp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textColor="@color/verdeMenta" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -224,7 +238,8 @@
                     android:text="Medicamento"
                     android:textStyle="bold"
                     android:padding="8dp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textColor="@color/verdeMenta" />
             </TableRow>
 
             <!-- Ejemplo de filas dinámicas -->
@@ -234,19 +249,19 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="8dp"
-                    android:gravity="start" />
+                    android:gravity="start"
+                    android:textColor="@color/verdeMenta" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="8dp"
-                    android:gravity="start" />
+                    android:gravity="start"
+                    android:textColor="@color/verdeMenta" />
             </TableRow>
 
         </TableLayout>
     </LinearLayout>
 
-
 </ScrollView>
-

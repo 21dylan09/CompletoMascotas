@@ -3,7 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/fondo">
+
+    <!-- Título centrado -->
+    <TextView
+        android:id="@+id/tvTituloContactos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tus Contactos de Confianza:"
+        android:textColor="@color/verdeMenta"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingBottom="16dp" />
 
     <!-- EditText para ingresar el nombre del contacto -->
     <EditText
@@ -11,6 +24,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nombre del contacto"
+        android:textColor="@color/verdeMenta"
+        android:textColorHint="@color/verdeMenta"
         android:inputType="textPersonName"
         android:layout_marginBottom="16dp"/>
 
@@ -20,6 +35,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Correo del contacto"
+        android:textColor="@color/verdeMenta"
+        android:textColorHint="@color/verdeMenta"
         android:inputType="textEmailAddress"
         android:layout_marginBottom="16dp"/>
 
@@ -29,6 +46,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Teléfono del contacto"
+        android:textColor="@color/verdeMenta"
+        android:textColorHint="@color/verdeMenta"
         android:inputType="phone"
         android:layout_marginBottom="16dp"/>
 
@@ -38,6 +57,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="➕ Agregar Contacto"
+        android:textColor="#1C3D30"
+        android:backgroundTint="@color/secundario"
         android:layout_marginTop="16dp"/>
 
     <!-- TextView para mostrar los contactos guardados -->
@@ -46,6 +67,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Contactos añadidos:"
+        android:textColor="@color/verdeMenta"
         android:textStyle="bold"
         android:layout_marginTop="16dp"/>
 

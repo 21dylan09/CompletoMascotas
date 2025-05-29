@@ -4,7 +4,20 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/fondo">
+
+    <!-- Título centrado -->
+    <TextView
+        android:id="@+id/tvTituloRecorrido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver el recorrido de tu mascota:"
+        android:textColor="@color/verdeMenta"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingBottom="16dp" />
 
     <EditText
         android:id="@+id/etFecha"
@@ -13,7 +26,10 @@
         android:hint="Seleccionar fecha"
         android:focusable="false"
         android:inputType="none"
-        android:drawableEnd="@android:drawable/ic_menu_my_calendar"/>
+        android:textColor="@color/verdeMenta"
+        android:textColorHint="@color/verdeMenta"
+        android:drawableEnd="@android:drawable/ic_menu_my_calendar"
+        android:layout_marginBottom="8dp"/>
 
     <EditText
         android:id="@+id/etHoraInicio"
@@ -22,7 +38,10 @@
         android:hint="Hora inicio"
         android:focusable="false"
         android:inputType="none"
-        android:drawableEnd="@android:drawable/ic_menu_recent_history"/>
+        android:textColor="@color/verdeMenta"
+        android:textColorHint="@color/verdeMenta"
+        android:drawableEnd="@android:drawable/ic_menu_recent_history"
+        android:layout_marginBottom="8dp"/>
 
     <EditText
         android:id="@+id/etHoraFin"
@@ -31,16 +50,18 @@
         android:hint="Hora fin"
         android:focusable="false"
         android:inputType="none"
-        android:drawableEnd="@android:drawable/ic_menu_recent_history"/>
+        android:textColor="@color/verdeMenta"
+        android:textColorHint="@color/verdeMenta"
+        android:drawableEnd="@android:drawable/ic_menu_recent_history"
+        android:layout_marginBottom="12dp"/>
 
     <Button
         android:id="@+id/btnFiltrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ver recorrido"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="@color/purple_500"
-        android:textColor="@android:color/white"/>
+        android:textColor="#1C3D30"
+        android:backgroundTint="@color/secundario"/>
 
     <fragment
         android:id="@+id/mapRecorrido"
